@@ -1,8 +1,19 @@
 .index-6 {
 	padding-top: 80px;
 
-	.block-title {
-		width: 80%;
-		margin: 0 auto;
+	.content {
+		.block-title {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		.desc {
+			margin-top: 40px;
+
+			p {
+				color: #ffffff;
+				font-size: 1.25rem;
+			}
+		}
 	}
 }

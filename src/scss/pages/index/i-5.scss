@@ -1,5 +1,15 @@
 .index-5 {
+	position: relative;
 	box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: .5);
+
+	.container {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 
 	.block-content {
 		position: absolute;
