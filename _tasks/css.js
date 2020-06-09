@@ -1,12 +1,12 @@
-import { src, dest } from 'gulp'
-import sass from 'gulp-sass'
-import rename from 'gulp-rename'
-import Fiber from 'fibers'
-import postcss from 'gulp-postcss'
-import clean from 'gulp-clean-css'
-import autoprefixer from 'autoprefixer'
-import sourcemap from 'gulp-sourcemaps'
-import cssSort from 'css-declaration-sorter'
+import { src, dest } from 'gulp';
+import sass from 'gulp-sass';
+import rename from 'gulp-rename';
+import Fiber from 'fibers';
+import postcss from 'gulp-postcss';
+import clean from 'gulp-clean-css';
+import autoprefixer from 'autoprefixer';
+import sourcemap from 'gulp-sourcemaps';
+import cssSort from 'css-declaration-sorter';
 
 const cssTask = () => {
 	return src(['src/scss/**.scss', '!src/scss/_*.scss'])
@@ -38,9 +38,9 @@ const cssTask = () => {
 			})
 		)
 		.pipe(sourcemap.write('.'))
-		.pipe(dest('_dist/css'))
-}
+		.pipe(dest('_dist/css'));
+};
 
 module.exports = {
 	cssTask,
-}
+};
