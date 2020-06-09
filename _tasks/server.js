@@ -123,10 +123,13 @@ const server = () => {
 			.pipe(dest('_dist/js'));
 	});
 
-	watch(['src/scss/**/**.scss']
-	{
-		awaitWriteFinish: true,
-	}, series(cssTask));
+	watch(
+		['src/scss/**/**.scss'],
+		{
+			awaitWriteFinish: true,
+		},
+		series(cssTask)
+	);
 
 	watch(
 		['_vendors.json', 'vendors/**/**.css', 'vendors/**/**.js'],
