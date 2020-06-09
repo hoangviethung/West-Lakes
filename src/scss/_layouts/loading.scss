@@ -6,7 +6,7 @@
 	left: 0;
 	z-index: 99999;
 	transition: all .5s ease-in-out;
-	background-color: #ffffff;
+	background-color: map-get($mau, main);
 
 	.loading-wrapper {
 		position: absolute;
