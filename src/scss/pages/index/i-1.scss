@@ -8,34 +8,13 @@
 		min-width: 100%;
 		min-height: 100%;
 	}
-	.video-controls {
-		position: absolute;
-		z-index: 2;
-		bottom: 70px;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		div {
-			cursor: pointer;
-			width: 48px;
-			height: 48px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-		#volume {
-			position: relative;
-		}
-		#volume-bar {
-			position: absolute;
-			bottom: 100%;
-			appearance: slider-vertical;
-			height: 80px;
-			&::-webkit-slider-runnable-track,
-			&::-webkit-slider-thumb {
-				background-color: red;
-				width: 10px;
-			}
-		}
+	.plyr__controls {
+		justify-content: center;
+	}
+	.plyr__progress__container {
+		display: none;
+	}
+	.plyr__controls__item:first-child {
+		margin-right: 0;
 	}
 }
