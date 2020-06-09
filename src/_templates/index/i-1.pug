@@ -1,3 +1,17 @@
 section.index-1(full-screen)
-	video#player(playsinline controls autoplay loop)
-		source(src='./assets/videos/index-1.mp4', type='video/mp4')
+	.video-container#video-container
+		video#player(playsinline autoplay)
+			source(src='./assets/videos/index-1.mp4', type='video/mp4')
+		.video-controls
+			#seek-time
+				span#current-time
+				span /
+				span#total-time
+			#play-pause
+				<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><g transform="translate(-951 -1034.333)"><rect width="5" height="15" transform="translate(951 1034.333)" fill="#dcc375"/><rect width="5" height="15" transform="translate(961 1034.333)" fill="#dcc375"/></g></svg>
+			#volume
+				#mute
+					<svg xmlns="http://www.w3.org/2000/svg" width="27.39" height="20.543" viewBox="0 0 27.39 20.543"><g transform="translate(19 -137.508)"><path d="M23.379,83.955l-.005-.006a.846.846,0,0,1-.611.259.853.853,0,0,1-.569-1.491,11.939,11.939,0,0,0,2.281-13.654l.01,0a.855.855,0,1,1,1.558-.7l.007,0a13.707,13.707,0,0,1-2.67,15.6Zm-.268-17.388a.856.856,0,1,1,.856-.856.856.856,0,0,1-.856.856ZM19.8,80.262a.853.853,0,1,1-1.263-1.145l0,0a6.847,6.847,0,0,0,.023-9.659.854.854,0,1,1,1.183-1.232l0,0A8.554,8.554,0,0,1,19.8,80.262Zm-6.965,4.281a2.591,2.591,0,0,1-.531-.056,3.417,3.417,0,0,1-1.906-.96l-1.7-1.7.007-.007a.854.854,0,0,1,1.208-1.208l0,0,1.705,1.706a1.675,1.675,0,0,0,.955.471.836.836,0,0,0,.256.043.856.856,0,0,0,.856-.856V66.567a.844.844,0,0,0-1.107-.814,1.668,1.668,0,0,0-.959.472L7.008,70.847H3.424a1.712,1.712,0,0,0-1.712,1.712v3.424A1.712,1.712,0,0,0,3.424,77.7h.856a.856.856,0,1,1,0,1.712H3.424A3.424,3.424,0,0,1,0,75.982V72.559a3.424,3.424,0,0,1,3.424-3.424H6.281l4.12-4.12a3.425,3.425,0,0,1,1.906-.959,2.566,2.566,0,0,1,3.1,2.512V81.975a2.568,2.568,0,0,1-2.567,2.568Zm-5.564-6.42a.856.856,0,1,1-.856.857.856.856,0,0,1,.856-.857Z" transform="translate(-19 73.508)" fill="#dcc375" fill-rule="evenodd"/></g></svg>
+				<input type="range" id="volume-bar" min="0" max="100" step="1" value="100">
+			#full-screen
+				<svg xmlns="http://www.w3.org/2000/svg" width="19.486" height="19.485" viewBox="0 0 19.486 19.485"><g transform="translate(-1046.772 -1039.112)"><g transform="translate(1061.865 1048.219) rotate(-135)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1055.879 1043.505) rotate(135)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1057.151 1054.205) rotate(-45)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1051.165 1049.492) rotate(45)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></g></svg>

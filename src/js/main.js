@@ -28,74 +28,39 @@ const sliderIndex__2 = () => {
 };
 
 const indexVideo = () => {
-	var controls = [
-		"<div class='title'>",
-		'This is some text',
-		'</div>',
-		"<div class='button'>",
-		"<button type='button' class='btn btn-secondary'>This is a button</button>",
-		'</div>',
-		"<div class='plyr__controls'>",
-		"<button type='button' data-plyr='play'>",
-		"<svg><use xlink:href='#plyr-play'></use></svg>",
-		"<span class='plyr__sr-only'>Play</span>",
-		'</button>',
-		"<button type='button' data-plyr='pause'>",
-		"<svg><use xlink:href='#plyr-pause'></use></svg>",
-		"<span class='plyr__sr-only'>Pause</span>",
-		'</button>',
-		"<span class='plyr__time'>",
-		"<span class='plyr__sr-only'>Current time</span>",
-		"<span class='plyr__time--current'>00:00</span>",
-		'</span>',
-		"<span class='plyr__progress'>",
-		"<label for='seek{id}' class='plyr__sr-only'>Seek</label>",
-		"<input id='seek{id}' class='plyr__progress--seek' type='range' min='0' max='100' step='0.1' value='0' data-plyr='seek'>",
-		"<progress class='plyr__progress--played' max='100' value='0' role='presentation'></progress>",
-		"<progress class='plyr__progress--buffer' max='100' value='0'>",
-		'<span>0</span>% buffered',
-		'</progress>',
-		"<span class='plyr__tooltip'>00:00</span>",
-		'</span>',
-		"<span class='plyr__time'>",
-		"<span class='plyr__sr-only'>Duration</span>",
-		"<span class='plyr__time--duration'>00:00</span>",
-		'</span>',
-		"<button type='button' data-plyr='mute'>",
-		"<svg class='icon--muted'><use xlink:href='#plyr-muted'></use></svg>",
-		"<svg><use xlink:href='#plyr-volume'></use></svg>",
-		"<span class='plyr__sr-only'>Toggle Mute</span>",
-		'</button>',
-		"<span class='plyr__volume'>",
-		"<label for='volume{id}' class='plyr__sr-only'>Volume</label>",
-		"<input id='volume{id}' class='plyr__volume--input' type='range' min='0' max='10' value='5' data-plyr='volume'>",
-		"<progress class='plyr__volume--display' max='10' value='0' role='presentation'></progress>",
-		'</span>',
-		"<button type='button' data-plyr='captions'>",
-		"<svg class='icon--captions-on'><use xlink:href='#plyr-captions-on'></use></svg>",
-		"<svg><use xlink:href='#plyr-captions-off'></use></svg>",
-		"<span class='plyr__sr-only'>Toggle Captions</span>",
-		'</button>',
-		"<button type='button' data-plyr='fullscreen'>",
-		'<svg xmlns="http://www.w3.org/2000/svg" width="19.486" height="19.485" viewBox="0 0 19.486 19.485"><g transform="translate(-1046.772 -1039.112)"><g transform="translate(1061.865 1048.219) rotate(-135)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1055.879 1043.505) rotate(135)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1057.151 1054.205) rotate(-45)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g><g transform="translate(1051.165 1049.492) rotate(45)"><path d="M0,0V5.72" transform="translate(3.247 1.282)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-width="1.5"/><path d="M0,4.1,3.309,0,6.666,4.1" transform="translate(0)" fill="none" stroke="#dcc375" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></g></svg>',
-		"<span class='plyr__sr-only'>Toggle Fullscreen</span>",
-		'</button>',
-		'</div>',
-	].join('');
+	// Video wrapper
+	var videoWrapper = document.querySelector('#video-container');
+	// Video
+	if (videoWrapper) {
+		var video = document.querySelector('#player');
 
-	new Plyr('#player', {
-		hideControls: false,
-		html: controls,
-		controls: [
-			'play-large',
-			'play',
-			'progress',
-			'current-time',
-			'mute',
-			'volume',
-			'fullscreen',
-		],
-	});
+		// Buttons
+		var playButton = document.querySelector('#play-pause');
+		var muteButton = document.querySelector('#mute');
+		var fullScreenButton = document.querySelector('#full-screen');
+
+		// Sliders
+		var seekBar = document.querySelector('#seek-bar');
+		var volumeBar = document.querySelector('#volume-bar');
+
+		// Event handler
+		console.log(video.pause);
+		playButton.addEventListener('click', function () {
+			if (video.paused == true) {
+				// Play the video
+				video.play();
+
+				// Update the button text to 'Pause'
+				playButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><g transform="translate(-951 -1034.333)"><rect width="5" height="15" transform="translate(951 1034.333)" fill="#dcc375"/><rect width="5" height="15" transform="translate(961 1034.333)" fill="#dcc375"/></g></svg>';
+			} else {
+				// Pause the video
+				video.pause();
+
+				// Update the button text to 'Play'
+				playButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15"><path id="Polygon_1" data-name="Polygon 1" d="M6.634,1.5a1,1,0,0,1,1.732,0l5.769,10a1,1,0,0,1-.866,1.5H1.731a1,1,0,0,1-.866-1.5Z" transform="translate(13) rotate(90)" fill="#dcc375" opacity="0.797"/></svg>';
+			}
+		});
+	}
 };
 
 const imageMapResizer = () => {

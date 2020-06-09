@@ -100,6 +100,76 @@
 				background-size: 100% 100%;
 				background-repeat: no-repeat;
 				display: flex;
+				align-items: center;
+				.number {
+					flex: 0 0 55px;
+					max-width: 55px;
+					height: 55px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-image: url('../assets/bg-num.png');
+					background-size: 100%;
+					font-size: 22px;
+					color: white;
+					@media (min-width: 1200px) {
+						font-size: 26px;
+						flex: 0 0 65px;
+						max-width: 65px;
+						height: 65px;
+					}
+					@media (min-width: 1440px) {
+						font-size: 30px;
+						flex: 0 0 75px;
+						max-width: 75px;
+						height: 75px;
+					}
+				}
+				.title,
+				.text {
+					-ms-flex-preferred-size: 0;
+					flex-basis: 0;
+					-ms-flex-positive: 1;
+					flex-grow: 1;
+					max-width: 100%;
+				}
+				.title {
+					font-size: 32px;
+					color: #dcc375;
+					text-transform: uppercase;
+					padding: 0 10px;
+					font-weight: 700;
+					@media (min-width: 1200px) {
+						font-size: 36px;
+					}
+					@media (min-width: 1440px) {
+						font-size: 40px;
+					}
+				}
+				.text {
+					font-size: 14px;
+					color: white;
+					padding-left: 15px;
+					position: relative;
+					@media (min-width: 1200px) {
+						font-size: 15px;
+						padding-left: 22px;
+					}
+					@media (min-width: 1440px) {
+						font-size: 16px;
+						padding-left: 30px;
+					}
+					&:before {
+						content: '';
+						position: absolute;
+						width: 1px;
+						height: 75px;
+						top: 50%;
+						transform: translateY(-50%);
+						left: 0;
+						background-color: #dcc375;
+					}
+				}
 			}
 			.swiper-container {
 				height: 100%;
@@ -149,22 +219,20 @@
 			justify-content: center;
 			align-items: center;
 			cursor: pointer;
-			&:disabled {
-				opacity: 0.75;
+			background-color: rgba(#dcc375, 0.4);
+			&:hover {
+				background-color: rgba(#dcc375, 0.75);
 			}
 		}
 		.map-index-4-slider-close {
 			margin-right: 20px;
-			background-color: rgba(#dcc375, 0.4);
 			border-radius: 7px;
 		}
 		.map-index-4-slider-prev {
-			background-color: rgba(#dcc375, 0.75);
 			border-top-left-radius: 7px;
 			border-bottom-left-radius: 7px;
 		}
 		.map-index-4-slider-next {
-			background-color: rgba(#dcc375, 0.75);
 			border-top-right-radius: 7px;
 			border-bottom-right-radius: 7px;
 		}
