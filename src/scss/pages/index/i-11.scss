@@ -1,0 +1,86 @@
+.index-11 {
+	margin-top: 110px;
+
+	.row {
+		margin-right: -28px;
+		margin-left: -28px;
+
+		[class*='col-'] {
+			padding-right: 28px;
+			padding-left: 28px;
+		}
+	}
+
+	.block-title {
+		margin-bottom: 25px;
+	}
+
+	.logo-form {
+		margin-bottom: 45px;
+	}
+
+	.list-info {
+		.item {
+			color: #ffffff;
+
+			img {
+				margin-bottom: 10px;
+			}
+		}
+
+		.item+.item {
+			margin-top: 5px;
+		}
+	}
+
+	.block-map {
+		height: 357px;
+	}
+
+	.text-info {
+		height: 220px;
+		margin-bottom: 50px;
+	}
+
+	.text-form {
+		height: 220px;
+		margin-bottom: 50px;
+		display: flex;
+		flex-direction: column;
+
+		.title {
+			margin-top: auto;
+			font-size: 40px;
+			color: map-get($mau, main-1);
+			margin-bottom: 10px;
+		}
+
+		.desc {
+			color: #ffffff;
+			font-size: 20px;
+		}
+	}
+
+	.block-form {
+		.input-group {
+			input {
+				font-size: 20px;
+				font-weight: 700;
+				width: 100%;
+				border: 0;
+				border-radius: 10px;
+				line-height: 80px;
+				color: map-get($mau, main);
+				padding: 0 22px;
+
+				&::placeholder {
+					color: map-get($mau, main);
+				}
+			}
+		}
+
+		.input-group+.input-group {
+			margin-top: 56px;
+		}
+	}
+}

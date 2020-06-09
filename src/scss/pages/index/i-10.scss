@@ -49,6 +49,7 @@
 	.slider-thumnail-video {
 		position: relative;
 		margin-top: 25px;
+		padding-bottom: 70px;
 
 		.item {
 			position: relative;
@@ -114,6 +115,40 @@
 				color: map-get($mau, main);
 				padding: 5px 10px;
 				background-size: 100% 100%;
+			}
+		}
+
+		.list-btn {
+			position: absolute;
+			display: flex;
+			flex-wrap: wrap;
+			width: 82px;
+			height: 40px;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(112, 139, 78, 0.38);
+			z-index: 10;
+			border-radius: 10px;
+			overflow: hidden;
+
+			.item {
+				-ms-flex: 0 0 50%;
+				flex: 0 0 50%;
+				max-width: 50%;
+				background: #DCC375;
+			}
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				position: static;
+				height: 100%;
+				margin-top: 0;
+				color: #ffffff;
+
+				&:after {
+					font-size: 18px;
+				}
 			}
 		}
 	}
