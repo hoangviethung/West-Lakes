@@ -81,6 +81,7 @@
 		"jquery": "^3.4.1",
 		"lazysizes": "^5.2.0",
 		"pixi.js": "^5.2.1",
+		"plyr": "^3.6.2",
 		"swiper": "^5.3.6"
 	},
 	"prettier": {
