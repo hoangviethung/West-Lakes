@@ -1,2 +1,3 @@
 section.index-1(full-screen)
-	video(autoplay muted loop src="./assets/videos/index-1.mp4")
+	video#player(playsinline controls autoplay loop)
+		source(src='./assets/videos/index-1.mp4', type='video/mp4')
