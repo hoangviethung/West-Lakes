@@ -124,3 +124,7 @@
 .line-height--30px {
 	line-height: 30px;
 }
+
+.cl-main-1 {
+	color: map-get($mau, main-1);
+}

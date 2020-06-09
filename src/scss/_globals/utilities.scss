@@ -27,6 +27,10 @@ textarea {
 		overflow: hidden;
 	}
 
+	&[max-width="1036px"] {
+		max-width: 1036px;
+	}
+
 	&[max-width="1088px"] {
 		max-width: 1088px;
 	}
@@ -53,6 +57,10 @@ textarea {
 
 	&[max-width="50%"] {
 		max-width: 50%;
+	}
+
+	&[max-width="80%"] {
+		max-width: 80%;
 	}
 
 	&[max-width="40%"] {
@@ -219,4 +227,8 @@ main {
 	&::before {
 		right: -2px;
 	}
+}
+
+.last-index {
+	padding: 84px 0;
 }

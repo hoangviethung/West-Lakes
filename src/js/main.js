@@ -27,6 +27,17 @@ const sliderIndex__2 = () => {
 	})
 }
 
+const sliderIndex__9 = () => {
+	const sliderIndex__9 = new Swiper('.slider-item__index-9 .swiper-container', {
+		slidesPerView: 3,
+		spaceBetween: 22,
+		navigation: {
+			nextEl: '.slider-item__index-9 .swiper-button-next',
+			prevEl: '.slider-item__index-9 .swiper-button-prev',
+		},
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
 	getSVGs();
@@ -35,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	setBackgroundByAttr();
 	// SLIDER INDEX 2
 	sliderIndex__2();
+	// SLIDER INDEX 9
+	sliderIndex__9();
 });
 
 // CHECK FORM VALID
