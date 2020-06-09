@@ -1,4 +1,7 @@
-import { getSVGs, Loading } from './util/utilities';
+import {
+	getSVGs,
+	Loading
+} from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 
@@ -12,8 +15,7 @@ const setBackgroundByAttr = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container',
-		{
+		'.slider-main-index__2 .swiper-container', {
 			speed: 1000,
 			// autoplay: {
 			// 	delay: 3000,
@@ -154,6 +156,17 @@ const sliderIndex__9 = () => {
 	})
 }
 
+const sliderThumbnailVieo = () => {
+	const sliderThumbnailVieo = new Swiper('.slider-thumnail-video .swiper-container', {
+		slidesPerView: 4,
+		spaceBetween: 30,
+		navigation: {
+			nextEl: '.slider-thumnail-video .swiper-button-next',
+			prevEl: '.slider-thumnail-video .swiper-button-prev',
+		},
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
 	getSVGs();
@@ -170,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliderIndex__2();
 	// SLIDER INDEX 9
 	sliderIndex__9();
+	sliderThumbnailVieo();
 });
 
 // CHECK FORM VALID
