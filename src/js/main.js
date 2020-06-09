@@ -21,10 +21,16 @@ const sliderIndex__2 = () => {
 			// 	delay: 3000,
 			// 	disableOnInteraction: false,
 			// },
+			autoHeight: true,
 			navigation: {
 				nextEl: '.slider-main-index__2 .swiper-button-next',
 				prevEl: '.slider-main-index__2 .swiper-button-prev',
 			},
+			breakpoints: {
+				1025: {
+					autoHeight: false,
+				}
+			}
 		}
 	);
 };

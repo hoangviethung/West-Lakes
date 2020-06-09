@@ -21,6 +21,13 @@ textarea {
 }
 
 * {
+	&[data-bg] {
+		background-size: 100% 100%;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+	}
+
 	&[full-screen] {
 		height: 100vh;
 		width: 100%;
@@ -175,7 +182,7 @@ main {
 		display: inline-block;
 		position: relative;
 		color: #FFFFFF;
-		font-size: 3.75rem;
+		font-size: 60px;
 		padding-right: 25px;
 		text-transform: uppercase;
 		line-height: 1.2;
@@ -191,7 +198,7 @@ main {
 		}
 
 		&[font-size="40px"] {
-			font-size: 2.5rem;
+			font-size: 40px;
 		}
 
 		&[no-after] {
@@ -240,8 +247,92 @@ main {
 	&::before {
 		right: -2px;
 	}
+
+	@media (max-width: 1024.98px) {
+		padding-bottom: 10px;
+
+		h2 {
+			font-size: 32px;
+
+			&[font-size="40px"] {
+				font-size: 28px;
+			}
+		}
+	}
 }
 
 .last-index {
 	padding: 84px 0;
+}
+
+.list-btn-slider {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	height: 40px;
+	background: rgba(112, 139, 78, 0.38);
+	z-index: 10;
+	border-radius: 10px;
+	overflow: hidden;
+
+	&[has-pause] {
+		width: 122px;
+
+		.item {
+			-ms-flex: 0 0 33.3333%;
+			flex: 0 0 33.3333%;
+			max-width: 33.3333%;
+		}
+	}
+
+	.item {
+		background: #DCC375;
+	}
+
+	.swiper-button-pause {
+		cursor: pointer;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			background-image: url(../assets/icons/pause.svg);
+			background-size: cover;
+			left: 50%;
+			top: 50%;
+			width: 15px;
+			height: 17px;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		position: static;
+		height: 100%;
+		margin-top: 0;
+		color: #ffffff;
+
+		&:after {
+			font-size: 18px;
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		height: 30px;
+
+		.swiper-button-pause {
+			&::after {
+				width: 12px;
+				height: 15px;
+			}
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			&:after {
+				font-size: 14px;
+			}
+		}
+	}
 }
