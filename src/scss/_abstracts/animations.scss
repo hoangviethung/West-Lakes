@@ -2,43 +2,43 @@
 
 @keyframes AnimationBackGroundGradient {
 	0% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 
 	50% {
-		background-position: 100% 100%
+		background-position: 100% 100%;
 	}
 
 	100% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 }
 
 @-webkit-keyframes AnimationBackGroundGradient {
 	0% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 
 	50% {
-		background-position: 100% 100%
+		background-position: 100% 100%;
 	}
 
 	100% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 }
 
 @-moz-keyframes AnimationBackGroundGradient {
 	0% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 
 	50% {
-		background-position: 100% 100%
+		background-position: 100% 100%;
 	}
 
 	100% {
-		background-position: 0% 50%
+		background-position: 0% 50%;
 	}
 }
 
@@ -83,5 +83,34 @@
 
 	100% {
 		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+@keyframes Stroke1 {
+	0% {
+		stroke: rgba(#dcc375, 0);
+		stroke-width: 0px;
+	}
+	50% {
+		stroke: rgba(#dcc375, 0.03);
+		stroke-width: 500px;
+	}
+	100% {
+		stroke: rgba(#dcc375, 0);
+		stroke-width: 0px;
+	}
+}
+@keyframes Stroke2 {
+	0% {
+		stroke: rgba(#dcc375, 0);
+		stroke-width: 0px;
+	}
+	50% {
+		stroke: rgba(#dcc375, 0.1);
+		stroke-width: 500px;
+	}
+	100% {
+		stroke: rgba(#dcc375, 0);
+		stroke-width: 0px;
 	}
 }
