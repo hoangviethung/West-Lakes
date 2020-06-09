@@ -122,4 +122,8 @@
 	.block-item+.block-item {
 		margin-top: 15px;
 	}
+
+	@media (max-width: 1024.98px) {
+		display: none;
+	}
 }
