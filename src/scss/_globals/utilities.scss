@@ -1,12 +1,14 @@
 body {
 	overflow-x: hidden;
 
-	&.disabled {
-		overflow: hidden;
+	&.index-page {
+		@media (max-width: 575.98px) {
+			padding-bottom: 75px;
+		}
 	}
 
-	@media (max-width: 575.98px) {
-		padding-bottom: 75px;
+	&.disabled {
+		overflow: hidden;
 	}
 }
 

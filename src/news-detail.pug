@@ -1,0 +1,14 @@
+extends _templates/_layout/_layout.pug
+
+block var
+	- let title = 'West Lakes | News Detail';
+	- let bodyClass = 'detail-page';
+
+block loading
+	include _templates/_layout/_loading
+block banner,breadcrumb
+block main
+	include _templates/_layout/_breadcrumb
+	include _templates/news-detail/n-1
+block scripts
+	script(src="./js/YoutubeController.min.js")
