@@ -12,14 +12,14 @@ body {
 	visibility: hidden;
 	pointer-events: none;
 
-	background-color: rgba(0, 0, 0, .8);
+	background-color: rgba(0, 0, 0, 0.8);
 	width: 100%;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 400;
-	transition: .3s all ease-in-out;
+	transition: 0.3s all ease-in-out;
 
 	&.active {
 		opacity: 1;
@@ -34,7 +34,7 @@ textarea {
 	&.input-validation-error {
 		color: red !important;
 		border: 1px solid red !important;
-		transition: .3s all ease-in-out;
+		transition: 0.3s all ease-in-out;
 
 		&::placeholder {
 			color: red !important;
@@ -56,47 +56,47 @@ textarea {
 		overflow: hidden;
 	}
 
-	&[max-width="1036px"] {
+	&[max-width='1036px'] {
 		max-width: 1036px;
 	}
 
-	&[max-width="1360px"] {
+	&[max-width='1360px'] {
 		max-width: 1360px;
 	}
 
-	&[max-width="1088px"] {
+	&[max-width='1088px'] {
 		max-width: 1088px;
 	}
 
-	&[max-width="845px"] {
+	&[max-width='845px'] {
 		max-width: 845px;
 	}
 
-	&[max-width="600px"] {
+	&[max-width='600px'] {
 		max-width: 600px;
 	}
 
-	&[max-width="1280px"] {
+	&[max-width='1280px'] {
 		max-width: 1280px;
 	}
 
-	&[max-width="75%"] {
+	&[max-width='75%'] {
 		max-width: 75%;
 	}
 
-	&[max-width="60%"] {
+	&[max-width='60%'] {
 		max-width: 60%;
 	}
 
-	&[max-width="50%"] {
+	&[max-width='50%'] {
 		max-width: 50%;
 	}
 
-	&[max-width="80%"] {
+	&[max-width='80%'] {
 		max-width: 80%;
 	}
 
-	&[max-width="40%"] {
+	&[max-width='40%'] {
 		max-width: 40%;
 	}
 
@@ -115,7 +115,7 @@ main {
 
 .field-validation-error {
 	display: inline-block;
-	margin: .5rem 0;
+	margin: 0.5rem 0;
 	font-size: 12px;
 	color: red;
 }
@@ -135,7 +135,7 @@ main {
 		.content {
 			display: none;
 			opacity: 0;
-			transition: all .3s cubic-bezier(.2, .5, .5, .8);
+			transition: all 0.3s cubic-bezier(0.2, 0.5, 0.5, 0.8);
 
 			&.show {
 				opacity: 1;
@@ -207,7 +207,7 @@ main {
 	h2 {
 		display: inline-block;
 		position: relative;
-		color: #FFFFFF;
+		color: #ffffff;
 		font-size: 60px;
 		padding-right: 25px;
 		text-transform: uppercase;
@@ -220,10 +220,10 @@ main {
 			width: 7px;
 			top: 0;
 			right: 0;
-			background: linear-gradient(180deg, #E4C777, #BA8C3C);
+			background: linear-gradient(180deg, #e4c777, #ba8c3c);
 		}
 
-		&[font-size="40px"] {
+		&[font-size='40px'] {
 			font-size: 40px;
 		}
 
@@ -280,7 +280,7 @@ main {
 		h2 {
 			font-size: 32px;
 
-			&[font-size="40px"] {
+			&[font-size='40px'] {
 				font-size: 28px;
 			}
 		}
@@ -294,15 +294,15 @@ main {
 }
 
 .last-index {
-	padding: 84px 0;
+	padding: 0 0;
 
 	@media (max-width: 1024.98px) {
-		padding: 50px 0;
+		padding: 0 0;
 		background-size: cover;
 	}
 
 	@media (max-width: 767.98px) {
-		padding: 25px 0;
+		padding: 0 0;
 	}
 }
 
@@ -328,7 +328,7 @@ main {
 	}
 
 	.item {
-		background: #DCC375;
+		background: #dcc375;
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
 		max-width: 50%;
