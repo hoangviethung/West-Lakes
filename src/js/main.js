@@ -214,16 +214,13 @@ const sliderIndex__9 = () => {
 const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
 		'.slider-thumnail-video .swiper-container', {
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
 				nextEl: '.slider-thumnail-video .swiper-button-next',
 				prevEl: '.slider-thumnail-video .swiper-button-prev',
 			},
 			breakpoints: {
-				575: {
-					slidesPerView: 2,
-				},
 				1025: {
 					slidesPerView: 3,
 					spaceBetween: 22,

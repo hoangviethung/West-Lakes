@@ -82,8 +82,131 @@
 			}
 		}
 
+		.submit {
+			text-align: right;
+			margin-top: 20px;
+
+			button {
+				background: none;
+				width: unset;
+				height: auto;
+				border: 0;
+				line-height: 36px;
+				padding: 6px 31px;
+				background: map-get($mau, main-1);
+				border-radius: 10px;
+				text-transform: uppercase;
+				color: map-get($mau, main);
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+
 		.input-group+.input-group {
 			margin-top: 56px;
+		}
+	}
+
+	@media (max-width: 1024.98px) {
+		margin-top: 50px;
+
+		.text-form {
+			.title {
+				font-size: 32px;
+			}
+
+			.desc {
+				font-size: 16px;
+			}
+		}
+
+		.block-form {
+			.input-group {
+				input {
+					font-size: 16px;
+					line-height: 50px;
+					padding: 0 22px;
+
+					&::placeholder {
+						color: map-get($mau, main);
+					}
+				}
+			}
+
+			.submit {
+				text-align: center;
+
+				button {
+					line-height: 30px;
+				}
+			}
+
+			.input-group+.input-group {
+				margin-top: 25px;
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		.logo-form {
+			margin-bottom: 10px;
+
+			img {
+				width: 50%;
+			}
+		}
+
+		.text-info {
+			height: auto;
+			margin-bottom: 25px;
+		}
+
+		.block-map {
+			height: 250px;
+		}
+
+		.text-form {
+			height: unset;
+			margin-bottom: 25px;
+			margin-top: 25px;
+
+			.title {
+				font-size: 24px;
+			}
+
+			.desc {
+				font-size: 14px;
+			}
+		}
+
+		.list-info {
+			margin-top: 25px;
+
+			.item {
+				font-size: 14px;
+			}
+		}
+
+		.block-form {
+			.input-group {
+				input {
+					font-size: 16px;
+					line-height: 40px;
+					padding: 0 20px;
+				}
+			}
+
+			.submit {
+				button {
+					line-height: 20px;
+					padding: 5px 25px;
+					font-size: 14px;
+				}
+			}
+
+			.input-group+.input-group {
+				margin-top: 15px;
+			}
 		}
 	}
 }

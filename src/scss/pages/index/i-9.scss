@@ -119,12 +119,19 @@
 		}
 
 		.slider-item__index-9 {
+			padding-bottom: 50px;
 			.text {
 				p {
 					font-size: 14px;
 				}
 			}
 
+			.list-btn-slider {
+				bottom: 0;
+				right: unset;
+				left: 50%;
+				transform: translateX(-50%);
+			}
 		}
 	}
 }
