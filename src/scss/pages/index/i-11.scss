@@ -1,14 +1,17 @@
 .index-11 {
 	margin-top: 110px;
 
-	.row {
-		margin-right: -28px;
-		margin-left: -28px;
+	@media (min-width: 1025px) {
+		.row {
+			margin-right: -28px;
+			margin-left: -28px;
 
-		[class*='col-'] {
-			padding-right: 28px;
-			padding-left: 28px;
+			[class*='col-'] {
+				padding-right: 28px;
+				padding-left: 28px;
+			}
 		}
+
 	}
 
 	.block-title {
