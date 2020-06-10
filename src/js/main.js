@@ -45,10 +45,10 @@ const sliderIndex__2 = () => {
 		'.slider-main-index__2 .swiper-container',
 		{
 			speed: 1000,
-			// autoplay: {
-			// 	delay: 3000,
-			// 	disableOnInteraction: false,
-			// },
+			autoplay: {
+				delay: 1000,
+				disableOnInteraction: false,
+			},
 			autoHeight: true,
 			navigation: {
 				nextEl: '.slider-main-index__2 .swiper-button-next',
@@ -61,6 +61,15 @@ const sliderIndex__2 = () => {
 			},
 		}
 	);
+
+	$('.slider-main-index__2 .swiper-button-pause').click('click', function () {
+		$(this).toggleClass('active')
+		if($(this).hasClass('active')){
+			sliderIndex__2.autoplay.stop()
+		} else {
+			sliderIndex__2.autoplay.start()
+		}
+	})
 };
 
 const indexVideo = () => {
