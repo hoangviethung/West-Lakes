@@ -443,6 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
 	getSVGs();
 	Loading();
+	// WOW
+	new WOW().init();
 	// SCROLL TO SECTION
 	scrollToSection();
 	// Index 4
