@@ -179,11 +179,12 @@ const imageMapEffect = () => {
 			src: src,
 			type: 'inline',
 			opts: {
+				touch: false,
 				beforeShow: function (instance, current) {
 					$(`.map-index-4-slider-${targetNumber}`).addClass('active');
 					swiper = index4Slider();
 				},
-				afterClose: function () {
+				beforeClose: function () {
 					setTimeout(() => {
 						$(`.map-index-4-slider.active`).removeClass('active');
 						if (swiper) {
@@ -203,11 +204,25 @@ const index4Slider = () => {
 		// 	crossFade: true,
 		// },
 		// effect: 'fade',
+		observer: true,
+		observeParents: true,
+		spaceBetween: 10,
 		loop: true,
 		speed: 1200,
 		navigation: {
 			prevEl: '.map-index-4-slider-controls .map-index-4-slider-prev',
 			nextEl: '.map-index-4-slider-controls .map-index-4-slider-next',
+		},
+		breakpoints: {
+			576: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 3,
+			},
+			1024: {
+				slidesPerView: 1,
+			},
 		},
 	});
 };
@@ -216,11 +231,20 @@ const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
 		'.slider-item__index-9 .swiper-container',
 		{
-			slidesPerView: 3,
-			spaceBetween: 22,
+			slidesPerView: 1,
+			spaceBetween: 10,
 			navigation: {
 				nextEl: '.slider-item__index-9 .swiper-button-next',
 				prevEl: '.slider-item__index-9 .swiper-button-prev',
+			},
+			breakpoints: {
+				575: {
+					slidesPerView: 2,
+				},
+				1025: {
+					slidesPerView: 3,
+					spaceBetween: 22,
+				},
 			},
 		}
 	);
@@ -230,11 +254,20 @@ const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
 		'.slider-thumnail-video .swiper-container',
 		{
-			slidesPerView: 4,
-			spaceBetween: 30,
+			slidesPerView: 1,
+			spaceBetween: 10,
 			navigation: {
 				nextEl: '.slider-thumnail-video .swiper-button-next',
 				prevEl: '.slider-thumnail-video .swiper-button-prev',
+			},
+			breakpoints: {
+				575: {
+					slidesPerView: 2,
+				},
+				1025: {
+					slidesPerView: 3,
+					spaceBetween: 22,
+				},
 			},
 		}
 	);

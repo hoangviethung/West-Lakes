@@ -259,16 +259,32 @@ main {
 			}
 		}
 	}
+
+	@media (max-width: 575.98px) {
+		h2 {
+			font-size: 24px;
+		}
+	}
 }
 
 .last-index {
 	padding: 84px 0;
+
+	@media (max-width: 1024.98px) {
+		padding: 50px 0;
+		background-size: cover;
+	}
+
+	@media (max-width: 767.98px) {
+		padding: 25px 0;
+	}
 }
 
 .list-btn-slider {
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
+	width: 85px;
 	height: 40px;
 	background: rgba(112, 139, 78, 0.38);
 	z-index: 10;
@@ -287,6 +303,9 @@ main {
 
 	.item {
 		background: #DCC375;
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
 	}
 
 	.swiper-button-pause {
@@ -319,6 +338,7 @@ main {
 	}
 
 	@media (max-width: 575.98px) {
+		width: 65px;
 		height: 30px;
 
 		.swiper-button-pause {

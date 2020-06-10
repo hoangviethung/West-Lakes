@@ -1,7 +1,5 @@
 .index-8 {
 	height: 780px;
-	background-size: cover;
-	background-position: center;
 
 	.block-content {
 		padding: 70px 0;
@@ -12,7 +10,7 @@
 
 		p {
 			color: #ffffff;
-			font-size: 1.25rem;
+			font-size: 20px;
 		}
 	}
 
@@ -38,31 +36,132 @@
 			}
 		}
 
-		.icon {
-			position: absolute;
-			left: 50%;
-			top: 25%;
-			transform: translateX(-50%);
-			padding-bottom: 10px;
-			border-bottom: 1px solid #ffffff5d;
-			width: 80%;
-			text-align: center;
-			height: 83px;
-			overflow: hidden;
+		@media (min-width: 1200px) {
+			.icon {
+				position: absolute;
+				left: 50%;
+				top: 25%;
+				transform: translateX(-50%);
+				padding-bottom: 10px;
+				border-bottom: 1px solid #ffffff5d;
+				width: 80%;
+				text-align: center;
+				height: 83px;
+				overflow: hidden;
+			}
 
-			&:after {}
+			.text {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 80%;
+				transform: translateX(-50%);
+
+				p {
+					font-size: 20px;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1199.98px) {
+		height: unset;
+		background-size: cover;
+
+		.block-content {
+			padding: 50px 0;
+
+			.block-title {
+				max-width: 50%;
+			}
 		}
 
-		.text {
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			width: 80%;
-			transform: translateX(-50%);
+		.sub-title {
+			margin-top: 35px;
+			width: 70%;
+			margin: 0 auto;
+		}
+
+		.list-item {
+			.item {
+				-ms-flex: 0 0 33.333%;
+				flex: 0 0 33.333%;
+				max-width: 33.333%;
+				height: unset;
+				margin-bottom: 15px;
+
+				.item-content {
+					padding: 25px;
+					background-image: none !important;
+					background: #226439be;
+				}
+			}
+
+			.icon {
+				img {
+					display: block;
+					margin: 0 auto;
+				}
+			}
+
+			.text {
+				margin-top: 15px;
+
+				p {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 767.98px) {
+		.list-item {
+			.item {
+				-ms-flex: 0 0 50%;
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		.block-content {
+			padding: 25px 0;
+
+			.block-title {
+				max-width: 80%;
+			}
+		}
+
+		.sub-title {
+			margin-top: 25px;
+			width: 90%;
+			margin: 0 auto;
 
 			p {
-				font-size: 20px;
-				color: #ffffff;
+				font-size: 14px;
+			}
+		}
+
+		.list-item {
+			.item {
+				.item-content {
+					padding: 10px;
+				}
+			}
+
+			.icon {
+				img {
+					display: block;
+					margin: 0 auto;
+				}
+			}
+
+			.text {
+				p {
+					font-size: 14px;
+				}
 			}
 		}
 	}
