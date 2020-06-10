@@ -46,7 +46,7 @@ const sliderIndex__2 = () => {
 		{
 			speed: 1000,
 			autoplay: {
-				delay: 1000,
+				delay: 3000,
 				disableOnInteraction: false,
 			},
 			autoHeight: true,
