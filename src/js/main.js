@@ -398,7 +398,6 @@ const scrollToSection = () => {
 							opts: {
 								touch: false,
 								afterClose: function () {
-									console.log(12312);
 									if (scrollToContactForm) {
 										$('html,body').animate(
 											{
@@ -434,7 +433,13 @@ const scrollToSection = () => {
 	);
 };
 
+const addClassToBody = () => {
+	const className = $('#js-page-verify').attr('class');
+	$('body').addClass(className);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+	addClassToBody();
 	Cookie();
 	getSVGs();
 	Loading();
