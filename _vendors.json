@@ -4,11 +4,13 @@
 		"node_modules/jquery/dist/jquery.js",
 		"node_modules/swiper/js/swiper.js",
 		"node_modules/lazysizes/lazysizes.js",
+		"vendors/jquery.fancybox.js",
 		"node_modules/plyr/dist/plyr.js",
 		"node_modules/image-map-resizer/js/imageMapResizer.js"
 	],
 	"css": [
 		"node_modules/swiper/css/swiper.css",
-		"node_modules/plyr/dist/plyr.css"
+		"node_modules/plyr/dist/plyr.css",
+		"vendors/jquery.fancybox.css"
 	]
 }
