@@ -166,5 +166,13 @@
 				font-size: 14px;
 			}
 		}
+
+		.slider-main-index__2 {
+			.list-btn-slider {
+				right: unset;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
 	}
 }

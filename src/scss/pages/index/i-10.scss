@@ -28,6 +28,8 @@
 				color: map-get($mau, main);
 				padding: 5px 10px;
 				background-size: 100% 100%;
+				width: unset;
+				height: unset;
 			}
 		}
 	}
@@ -51,76 +53,78 @@
 		margin-top: 25px;
 		padding-bottom: 70px;
 
-		.item {
-			position: relative;
-			cursor: pointer;
+		.swiper-slide {
+			.item {
+				position: relative;
+				cursor: pointer;
 
-			&.active {
+				&.active {
+					.img {
+						&:after {
+							content: 'ĐANG XEM';
+							background-image: none;
+							width: unset;
+							height: unset;
+							font-size: 25px;
+							color: #ffffff;
+						}
+
+						&:before {
+							content: '';
+						}
+					}
+				}
+
 				.img {
+					position: relative;
+
 					&:after {
-						content: 'ĐANG XEM';
-						background-image: none;
-						width: unset;
-						height: unset;
-						font-size: 25px;
-						color: #ffffff;
+						content: '';
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						background-size: cover;
+						width: 57px;
+						height: 57px;
+						background-image: url(../assets/icons/btn-play.png);
 					}
 
 					&:before {
-						content: '';
+						content: none;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background: #000000a6;
 					}
 				}
-			}
 
-			.img {
-				position: relative;
+				.text {
+					padding: 15px;
 
-				&:after {
-					content: '';
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					background-size: cover;
-					width: 57px;
-					height: 57px;
-					background-image: url(../assets/icons/btn-play.png);
+					h3 {
+						color: #ffffff;
+						font-size: 20px;
+						margin-bottom: 10px;
+					}
 				}
 
-				&:before {
-					content: none;
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background: #000000a6;
+				.date {
+					display: inline-block;
+					width: unset;
+					height: auto;
+					font-weight: 700;
+					font-style: italic;
+					color: map-get($mau, main);
+					padding: 5px 10px;
+					background-size: 100% 100%;
 				}
-			}
-
-			.text {
-				padding: 15px;
-
-				h3 {
-					color: #ffffff;
-					font-size: 20px;
-					margin-bottom: 10px;
-				}
-			}
-
-			.date {
-				display: inline-block;
-				width: unset;
-				height: auto;
-				font-weight: 700;
-				font-style: italic;
-				color: map-get($mau, main);
-				padding: 5px 10px;
-				background-size: 100% 100%;
 			}
 		}
 
-		.list-btn {
+		.list-btn-slider {
 			bottom: 0;
 			left: 50%;
 			transform: translateX(-50%);
@@ -140,40 +144,92 @@
 		.slider-thumnail-video {
 			margin-top: 10px;
 
-			.item {
+			.swiper-slide {
+				.item {
+					.date {
+						display: inline-block;
+						font-weight: 700;
+						font-style: italic;
+						color: map-get($mau, main);
+						padding: 5px 10px;
+						background-size: 100% 100%;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		.review-video {
+			.block-video {
+				height: 200px;
+			}
+
+			.content {
+				position: relative;
+				padding: 15px;
+
+				h3 {
+					font-size: 18px;
+					margin-bottom: 5px;
+				}
+
+				p {
+					font-size: 14px;
+					margin-bottom: 10px;
+				}
+
 				.date {
 					display: inline-block;
-					font-weight: 700;
-					font-style: italic;
-					color: map-get($mau, main);
-					padding: 5px 10px;
-					background-size: 100% 100%;
+					position: static;
+					bottom: unset;
+					right: unset;
+					width: unset;
+					height: unset;
+					font-size: 12px;
+				}
+			}
+		}
+
+		.slider-thumnail-video {
+			padding-bottom: 50px;
+
+			.swiper-slide {
+				.item {
+
+					&.active {
+						.img {
+							&:after {
+								font-size: 16px;
+							}
+						}
+					}
+
+					.img {
+						&:after {
+							width: 40px;
+							height: 40px;
+						}
+					}
+
+					.text {
+						padding: 10px;
+
+						h3 {
+							font-size: 14px;
+						}
+					}
+
+					.date {
+						font-size: 12px;
+					}
 				}
 			}
 
-			.list-btn {
+			.list-btn-slider {
 				bottom: 0;
 				left: 50%;
 				transform: translateX(-50%);
-
-				.item {
-					-ms-flex: 0 0 50%;
-					flex: 0 0 50%;
-					max-width: 50%;
-					background: #DCC375;
-				}
-
-				.swiper-button-prev,
-				.swiper-button-next {
-					position: static;
-					height: 100%;
-					margin-top: 0;
-					color: #ffffff;
-
-					&:after {
-						font-size: 18px;
-					}
-				}
 			}
 		}
 	}

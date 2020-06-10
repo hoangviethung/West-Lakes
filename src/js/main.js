@@ -1,4 +1,7 @@
-import { getSVGs, Loading } from './util/utilities';
+import {
+	getSVGs,
+	Loading
+} from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
@@ -11,10 +14,38 @@ const setBackgroundByAttr = () => {
 	});
 };
 
+// ACTIVE HEADER WHEN SCROLL
+function activeHeader() {
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 150) {
+			$('header').addClass('active');
+		} else {
+			$('header').removeClass('active');
+		}
+	});
+}
+
+const toggleMobile = () => {
+	$('.toggle-menu-mobile').click(function (e) {
+		e.preventDefault();
+		$(this).toggleClass('active');
+		$('nav').toggleClass('active');
+		$('body').toggleClass('disabled');
+		$('#overlay').toggleClass('active');
+	});
+
+	$('#overlay').click(function (e) {
+		e.preventDefault();
+		$(this).removeClass('active');
+		$('body').removeClass('disabled');
+		$('nav').removeClass('active');
+		$('.toggle-menu-mobile').toggleClass('active');
+	});
+}
+
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container',
-		{
+		'.slider-main-index__2 .swiper-container', {
 			speed: 1000,
 			// autoplay: {
 			// 	delay: 3000,
@@ -229,8 +260,7 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container',
-		{
+		'.slider-item__index-9 .swiper-container', {
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -252,18 +282,14 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container',
-		{
-			slidesPerView: 1,
+		'.slider-thumnail-video .swiper-container', {
+			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
 				nextEl: '.slider-thumnail-video .swiper-button-next',
 				prevEl: '.slider-thumnail-video .swiper-button-prev',
 			},
 			breakpoints: {
-				575: {
-					slidesPerView: 2,
-				},
 				1025: {
 					slidesPerView: 3,
 					spaceBetween: 22,
@@ -357,6 +383,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// SLIDER INDEX 9
 	sliderIndex__9();
 	sliderThumbnailVieo();
+	// MENU
+	toggleMobile();
+	// ACTIVE HEADER WHEN SCROLL
+	activeHeader();
 });
 
 // CHECK FORM VALID
