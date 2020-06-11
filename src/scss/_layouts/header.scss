@@ -118,6 +118,9 @@ header {
 		}
 
 		li {
+			cursor: pointer;
+			user-select: none;
+
 			>a {
 				position: relative;
 				font-size: 22px;
