@@ -1,5 +1,6 @@
 .index-8 {
 	height: 780px;
+	background-size: cover;
 
 	.block-content {
 		padding: 70px 0;
@@ -44,9 +45,32 @@
 				transform: translateX(-50%);
 				padding-bottom: 10px;
 				border-bottom: 1px solid #ffffff5d;
-				width: 80%;
 				text-align: center;
-				height: 83px;
+				height: 86px;
+				width: 75px;
+				overflow: hidden;
+			}
+
+			.text {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 80%;
+				transform: translateX(-50%);
+
+				p {
+					font-size: 20px;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1024.98px) {
+		.list-item {
+			.icon {
+				height: 86px;
+				width: 75px;
 				overflow: hidden;
 			}
 

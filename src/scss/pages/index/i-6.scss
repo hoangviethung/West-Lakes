@@ -24,7 +24,7 @@
 					left: 50%;
 					transform: translate(-50%, -50%);
 					z-index: 1;
-					width: 80%;
+					width: 90%;
 				}
 			}
 		}
@@ -70,9 +70,9 @@
 					max-width: 50%;
 
 					.icon {
-						margin-bottom: 10px;
-						height: 95px;
-						overflow: hidden;
+						margin: 0 auto 10px;
+						height: 92px;
+						width: 92px;
 					}
 
 					.text {
@@ -83,14 +83,14 @@
 					}
 				}
 
-				li + li {
+				li+li {
 					padding-left: 15px;
 				}
 			}
 		}
 
 		.sale {
-			margin-top: 60px;
+			margin-top: 25px;
 
 			h3 {
 				font-size: 25px;
@@ -111,9 +111,9 @@
 					max-width: 33.3333%;
 
 					.icon {
-						margin-bottom: 10px;
-						height: 95px;
-						overflow: hidden;
+						margin: 0 auto 10px;
+						height: 92px;
+						width: 92px;
 					}
 
 					.text {
@@ -124,7 +124,7 @@
 					}
 				}
 
-				li + li {
+				li+li {
 					padding-left: 15px;
 				}
 			}
@@ -191,7 +191,7 @@
 						}
 					}
 
-					li + li {
+					li+li {
 						padding-left: 15px;
 					}
 				}
@@ -221,7 +221,7 @@
 						}
 					}
 
-					li + li {
+					li+li {
 						padding-left: 15px;
 					}
 				}
@@ -291,7 +291,7 @@
 						}
 					}
 
-					li + li {
+					li+li {
 						padding-left: 15px;
 					}
 				}
@@ -316,7 +316,7 @@
 						}
 					}
 
-					li + li {
+					li+li {
 						padding-left: 15px;
 					}
 				}
@@ -335,6 +335,7 @@
 	max-height: 650px;
 	height: 100%;
 	border-radius: 16px;
+
 	.fancybox-close-small[data-fancybox-close] {
 		width: 52px;
 		height: 32px;
@@ -343,12 +344,14 @@
 		opacity: 1;
 		border-top-right-radius: 16px;
 		border-bottom-left-radius: 16px;
+
 		svg {
 			path {
 				fill: map-get($mau, main);
 			}
 		}
 	}
+
 	&:before {
 		content: '';
 		position: absolute;
@@ -363,6 +366,7 @@
 
 	.price {
 		text-align: center;
+
 		h4 {
 			font-size: 19px;
 			color: #ffffff;
@@ -420,7 +424,7 @@
 				}
 			}
 
-			li + li {
+			li+li {
 				padding-left: 15px;
 			}
 		}
@@ -432,6 +436,7 @@
 		text-transform: uppercase;
 		text-align: center;
 	}
+
 	hr {
 		display: block;
 		width: 135px;
@@ -442,6 +447,7 @@
 		display: flex;
 		justify-content: center;
 		margin-top: 35px;
+
 		a {
 			width: 100%;
 			max-width: 135px;
@@ -456,6 +462,7 @@
 
 	@media (max-width: 767.98px) {
 		padding: 44px 20px;
+
 		.price {
 			h4 {
 				font-size: 22px;
@@ -492,12 +499,13 @@
 					}
 				}
 
-				li + li {
+				li+li {
 					padding-left: 15px;
 				}
 			}
 		}
 	}
+
 	@media (max-width: 575.98px) {
 		.price {
 			h4 {
@@ -536,7 +544,7 @@
 					}
 				}
 
-				li + li {
+				li+li {
 					padding-left: 15px;
 				}
 			}
