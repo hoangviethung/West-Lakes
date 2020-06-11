@@ -1,5 +1,9 @@
 .index-2 {
-	background: #dfdfdf;
+	background: map-get($mau, main);
+
+	.section {
+		background-size: cover;
+	}
 
 	.slider-main-index__2 {
 		position: relative;
@@ -12,6 +16,12 @@
 
 	.block-content {
 		position: relative;
+
+		@media (max-width: 1199.98px) {
+			&[max-width='50%'] {
+				max-width: 70%;
+			}
+		}
 
 		@media (min-width: 1025px) {
 
@@ -32,15 +42,15 @@
 		}
 	}
 
-	@media (min-width: 1025px) {
-		.content {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 90%;
-			transform: translate(-50%, -50%);
-			z-index: 3;
+	.content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 90%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
 
+		@media (min-width: 1025px) {
 			&[left="40%"] {
 				left: 40%;
 			}
@@ -94,8 +104,11 @@
 		}
 	}
 
+
+
 	@media (max-width: 1024.98px) {
-		height: auto;
+		height: 550px;
+		overflow-y: auto;
 
 		.slider-main-index__2 {
 			position: relative;
@@ -115,10 +128,22 @@
 			background-size: cover;
 		}
 
+		.content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 90%;
+			transform: translate(-50%, -50%);
+			z-index: 3;
+		}
+
 		.block-content {
 			background-size: cover;
-			padding: 100px 0;
 			max-width: 100%;
+
+			&[max-width='50%'] {
+				max-width: 100%;
+			}
 		}
 
 		.sub-title {
@@ -143,6 +168,7 @@
 
 			p {
 				font-size: 16px;
+				text-align: justify;
 			}
 
 			p+p {
@@ -152,13 +178,14 @@
 	}
 
 	@media (max-width: 575.98px) {
+		height: 500px;
 
 		.block-title {
 			max-width: 80%;
-		}
 
-		.block-content {
-			padding: 35px 0 75px;
+			h2 {
+				font-size: 24px;
+			}
 		}
 
 		.desc {
@@ -172,6 +199,24 @@
 				right: unset;
 				left: 50%;
 				transform: translateX(-50%);
+			}
+		}
+
+		.sub-title {
+			text-align: left;
+			margin-top: 50px;
+			padding-bottom: 0;
+
+			&:after {
+				content: none;
+			}
+
+			h3 {
+				font-size: 16px;
+			}
+
+			p {
+				font-size: 14px;
 			}
 		}
 	}
