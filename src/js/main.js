@@ -544,12 +544,8 @@ const ajaxForm = () => {
 								$(this).val('');
 							}
 						);
-					} else {
-						alert(`
-							Error code: ${res.Code} \n
-							Error message: ${res.Message}
-							`);
 					}
+					alert(`${res.Message}`);
 					_thisBtn.removeAttr('disabled');
 				},
 			});
