@@ -13,6 +13,7 @@
 
 	.block-2 {
 		box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.5);
+		background-size: cover;
 
 		.block-content {
 			position: relative;
@@ -139,7 +140,6 @@
 		}
 
 		.block-2 {
-			background-size: cover;
 			height: auto;
 
 			.block-content {
