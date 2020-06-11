@@ -19,7 +19,7 @@ var tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[3];
 
-document.querySelector('body').appendChild(tag)
+document.querySelector('body').appendChild(tag);
 // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // This function creates an <iframe> (and YouTube player)
@@ -54,10 +54,16 @@ function onYouTubeIframeAPIReady() {
 
 	$('.slider-thumnail-video .item').on('click', function () {
 		const url = $(this).attr('data-url');
+		const title = $(this).find('.text h3').html();
+		const description = $(this).find('.text p.d-n').html();
+		const date = $(this).find('.text .date').html();
 		const id = getYoutubeID(url);
 		player.loadVideoById(id);
 		$(this).addClass('active');
 		$('.slider-thumnail-video .item').not(this).removeClass('active');
+		$('.index-10 .review-video .content h3').html(title)
+		$('.index-10 .review-video .content p').html(description)
+		$('.index-10 .review-video .content .date').html(date)
 	});
 }
 

@@ -64,15 +64,9 @@ const sliderIndex__2 = () => {
 	);
 
 	$('.slider-main-index__2 .swiper-button-pause').click('click', function () {
-<<<<<<< HEAD
 		$(this).toggleClass('active');
 		if ($(this).hasClass('active')) {
 			sliderIndex__2.autoplay.stop();
-=======
-		$(this).toggleClass('active')
-		if ($(this).hasClass('active')) {
-			sliderIndex__2.autoplay.stop()
->>>>>>> 84ae71ee6de860487956758b3cd211bc21407384
 		} else {
 			sliderIndex__2.autoplay.start();
 		}
@@ -447,7 +441,6 @@ const addClassToBody = () => {
 	$('body').addClass(className);
 };
 
-<<<<<<< HEAD
 const ImageMapCanvas = () => {
 	const setSizeCanvas = (mapImage, canvas) => {
 		const width = mapImage.clientWidth;
@@ -497,9 +490,9 @@ const ImageMapCanvas = () => {
 			areas.forEach((area) => {
 				const coords = area.getAttribute('coords');
 				const coordsRef = coords.split(',');
-				canvasContext.lineWidth = 3;
-				canvasContext.fillStyle = `rgba(220, 195, 117,${opacity / 2})`;
-				canvasContext.strokeStyle = 'rgb(34, 100, 57)';
+				// canvasContext.lineWidth = 3;
+				canvasContext.fillStyle = `rgba(220, 195, 117,${opacity})`;
+				// canvasContext.strokeStyle = 'rgb(34, 100, 57)';
 				canvasContext.beginPath();
 				canvasContext.arc(
 					coordsRef[0],
@@ -508,7 +501,7 @@ const ImageMapCanvas = () => {
 					0,
 					2 * Math.PI
 				);
-				canvasContext.stroke();
+				// canvasContext.stroke();
 				canvasContext.fill();
 				canvasContext.closePath();
 			});
@@ -517,7 +510,6 @@ const ImageMapCanvas = () => {
 		window.requestAnimationFrame(drawMap);
 	}
 };
-=======
 const ajaxForm = () => {
 	const formData = new FormData();
 	$('.index-11 .block-form .form-control').each(function () {
@@ -560,20 +552,16 @@ const ajaxForm = () => {
 		}
 	})
 }
->>>>>>> 84ae71ee6de860487956758b3cd211bc21407384
 
 document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();
 	Cookie();
 	getSVGs();
 	Loading();
-<<<<<<< HEAD
 	// Image Map Draw With Canvas
 	ImageMapCanvas();
-=======
 	// WOW
 	new WOW().init();
->>>>>>> 84ae71ee6de860487956758b3cd211bc21407384
 	// SCROLL TO SECTION
 	scrollToSection();
 	// Index 4
