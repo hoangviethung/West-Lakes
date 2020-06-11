@@ -19,7 +19,7 @@ var tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[3];
 
-document.querySelector('body').appendChild(tag)
+document.querySelector('body').appendChild(tag);
 // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // This function creates an <iframe> (and YouTube player)
@@ -52,12 +52,26 @@ function onYouTubeIframeAPIReady() {
 		});
 	}
 
-	$('.slider-thumnail-video .item').on('click', function () {
+	$('.slider-thumnail-video .item');
+
+	$('.slider-thumnail-video .item').each(function () {
 		const url = $(this).attr('data-url');
 		const id = getYoutubeID(url);
-		player.loadVideoById(id);
-		$(this).addClass('active');
-		$('.slider-thumnail-video .item').not(this).removeClass('active');
+		$(this).on('click', function () {
+			$(this).addClass('active');
+			$('.slider-thumnail-video .item').not(this).removeClass('active');
+			player.loadVideoById(id);
+			const title = $(this).find('.text h3').html();
+			const description = $(this).find('.text p.d-n').html();
+			const date = $(this).find('.text .date').html();
+			$('.index-10 .review-video .content h3').html(title);
+			$('.index-10 .review-video .content p').html(description);
+			$('.index-10 .review-video .content .date').html(date);
+		});
+
+		// Get Video Thumbnail
+		const imageThumbnail = `http://i3.ytimg.com/vi/${id}/hqdefault.jpg`;
+		$(this).find('.img img').attr('src', imageThumbnail);
 	});
 }
 

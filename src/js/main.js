@@ -1,7 +1,4 @@
-import {
-	getSVGs,
-	Loading
-} from './util/utilities';
+import { getSVGs, Loading } from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
@@ -45,7 +42,8 @@ const toggleMobile = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container', {
+		'.slider-main-index__2 .swiper-container',
+		{
 			speed: 1500,
 			autoplay: {
 				delay: 4000,
@@ -64,13 +62,13 @@ const sliderIndex__2 = () => {
 	);
 
 	$('.slider-main-index__2 .swiper-button-pause').click('click', function () {
-		$(this).toggleClass('active')
+		$(this).toggleClass('active');
 		if ($(this).hasClass('active')) {
-			sliderIndex__2.autoplay.stop()
+			sliderIndex__2.autoplay.stop();
 		} else {
-			sliderIndex__2.autoplay.start()
+			sliderIndex__2.autoplay.start();
 		}
-	})
+	});
 };
 
 const indexVideo = () => {
@@ -266,7 +264,8 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container', {
+		'.slider-item__index-9 .swiper-container',
+		{
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -288,7 +287,8 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container', {
+		'.slider-thumnail-video .swiper-container',
+		{
 			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
@@ -374,8 +374,10 @@ const scrollToSection = () => {
 	$('header [data-scroll-to]').on('click', function (e) {
 		e.preventDefault();
 		const scrollToNumber = $(this).attr('data-scroll-to');
-		$('html,body').animate({
-				scrollTop: $(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+		$('html,body').animate(
+			{
+				scrollTop:
+					$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
 					$('header').height(),
 			},
 			1200
@@ -405,9 +407,11 @@ const scrollToSection = () => {
 								touch: false,
 								afterClose: function () {
 									if (scrollToContactForm) {
-										$('html,body').animate({
-												scrollTop: $('.index-11').offset()
-													.top -
+										$('html,body').animate(
+											{
+												scrollTop:
+													$('.index-11').offset()
+														.top -
 													$('header').height(),
 											},
 											1200
@@ -419,7 +423,8 @@ const scrollToSection = () => {
 						isShowed = true;
 					}
 				}
-			} else {}
+			} else {
+			}
 		});
 	};
 	activeSectionWhenScroll();
@@ -441,26 +446,88 @@ const addClassToBody = () => {
 	$('body').addClass(className);
 };
 
+const ImageMapCanvas = () => {
+	const setSizeCanvas = (mapImage, canvas) => {
+		const width = mapImage.clientWidth;
+		const height = mapImage.clientHeight;
+		canvas.setAttribute('width', width);
+		canvas.setAttribute('height', height);
+	};
+
+	const clearCanvas = (canvasContext, canvas) => {
+		canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+	};
+
+	const mapElements = Array.from(document.querySelectorAll('.imgMapCanvas'));
+
+	for (let mapElement of mapElements) {
+		const map = mapElement.querySelector('map');
+		const canvas = mapElement.querySelector('canvas');
+		const canvasContext = canvas.getContext('2d');
+		const mapImage = mapElement.querySelector('img');
+		const imageUrl = mapImage.getAttribute('src');
+		const areas = Array.from(map.querySelectorAll('area'));
+
+		// Initialize map canvas
+		imageMapResize();
+		// Set background
+		canvas.style.backgroundImage = `url('${imageUrl}')`;
+		canvas.classList.add('background-added');
+		// Set size for canvas
+		setSizeCanvas(mapImage, canvas);
+		// Re-initialize canvas when window resize
+		window.addEventListener('resize', () => {
+			clearCanvas(canvasContext, canvas);
+			setSizeCanvas(mapImage, canvas);
+		});
+		const getOpacityPeriod = (degrees) => {
+			return (Math.abs(Math.sin(degrees * (Math.PI / 180))) * 3) / 2;
+		};
+		let degreeStep = 90 / 100;
+		let degree = 0;
+		let opacity = 0;
+		// Draw Canvas and some effects
+		const drawMap = () => {
+			degree += degreeStep;
+			opacity = getOpacityPeriod(degree) - 0.5;
+
+			clearCanvas(canvasContext, canvas);
+			areas.forEach((area) => {
+				const coords = area.getAttribute('coords');
+				const coordsRef = coords.split(',');
+				// canvasContext.lineWidth = 3;
+				canvasContext.fillStyle = `rgba(220, 195, 117,${opacity})`;
+				// canvasContext.strokeStyle = 'rgb(34, 100, 57)';
+				canvasContext.beginPath();
+				canvasContext.arc(
+					coordsRef[0],
+					coordsRef[1],
+					coordsRef[2],
+					0,
+					2 * Math.PI
+				);
+				// canvasContext.stroke();
+				canvasContext.fill();
+				canvasContext.closePath();
+			});
+			window.requestAnimationFrame(drawMap);
+		};
+		window.requestAnimationFrame(drawMap);
+	}
+};
 const ajaxForm = () => {
-	const formData = new FormData();
-	$('.index-11 .block-form .form-control').each(function () {
-		const name = $(this).attr('name');
-		const value = $(this).val();
-		formData.append(name, value)
-	})
+	$('.index-11 .block-form .submit button').on('click', function (e) {
+		e.preventDefault();
+		const _thisBtn = $(this);
+		const url = _thisBtn.attr('data-url');
+		const formData = new FormData();
+		$('.index-11 .block-form .form-control').each(function () {
+			const name = $(this).attr('name');
+			const value = $(this).val();
+			formData.append(name, value);
+		});
 
-	$('.index-11 .block-form .submit').on('click', function (e) {
-		e.preventDefault()
-		const _thisBtn = $(this)
-		const url = _thisBtn.attr('data-url')
-		const formData = new FormData()
-		$('.contact__form .form-control').each(function () {
-			const name = $(this).attr('name')
-			const value = $(this).val()
-			formData.append(name, value)
-		})
-
-		if ($('.contact__form').valid()) {
+		if ($('.index-11 .block-form form').valid()) {
 			$.ajax({
 				url: url,
 				type: 'post',
@@ -468,27 +535,34 @@ const ajaxForm = () => {
 				processData: false,
 				contentType: false,
 				beforeSend: function () {
-					_thisBtn.attr('disabled', 'disabled')
+					_thisBtn.attr('disabled', 'disabled');
 				},
 				success: function (res) {
 					if (res.Code == 200) {
-						$('.contact__form .form-control').each(function () {
-							$(this).val('')
-						})
+						$('.index-11 .block-form .form-control').each(
+							function () {
+								$(this).val('');
+							}
+						);
 					}
-					alert(res.Message)
-					_thisBtn.removeAttr('disabled')
+					alert(`
+						Error code: ${res.Code} \n
+						Error message: ${res.Message}
+						`);
+					_thisBtn.removeAttr('disabled');
 				},
-			})
+			});
 		}
-	})
-}
+	});
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();
 	Cookie();
 	getSVGs();
 	Loading();
+	// Image Map Draw With Canvas
+	ImageMapCanvas();
 	// WOW
 	new WOW().init();
 	// SCROLL TO SECTION

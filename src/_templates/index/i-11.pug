@@ -19,10 +19,13 @@ section.index-11
 				.block-form
 					form(action="#")
 						.input-group
-							input.form-control(type="text" placeholder="Name")
+							input.form-control(type="text" placeholder="Name" name="Name")
+							span.field-validate-error Error
 						.input-group
-							input.form-control(type="text" placeholder="Email")
+							input.form-control(type="text" placeholder="Email" name="Email")
+							span.field-validate-error Error
 						.input-group
-							input.form-control(type="text" placeholder="Phone")
+							input.form-control(type="text" placeholder="Phone" name="Phone")
+							span.field-validate-error Error
 						.submit
 							button(data-url="/test") gửi

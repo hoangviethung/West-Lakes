@@ -15,6 +15,7 @@
 
 	.map-index-4-container {
 		@media (min-width: 1025px) {
+			z-index: 10;
 			pointer-events: none;
 			transition: all 0.5s linear;
 		}
@@ -64,7 +65,7 @@
 						}
 					}
 
-					li+li {
+					li + li {
 						margin-top: 20px;
 					}
 				}
@@ -103,6 +104,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
+			z-index: 11;
 		}
 
 		@media (max-width: 1024.98px) {
@@ -150,6 +152,28 @@
 
 			.map-index-4-container {
 				opacity: 0;
+			}
+		}
+
+		.imgMapCanvas {
+			width: 100%;
+			overflow: hidden;
+			.map-canvas {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 9;
+				width: 100%;
+				height: 100%;
+				canvas {
+					background-position: center;
+					background-size: 100%;
+				}
+			}
+			.map-image {
+				position: relative;
+				opacity: 0;
+				z-index: 10;
 			}
 		}
 	}
@@ -277,7 +301,8 @@
 				}
 			}
 
-			@media (max-width: 1024.98px) {}
+			@media (max-width: 1024.98px) {
+			}
 		}
 
 		@media (min-width: 1025px) {
@@ -392,9 +417,11 @@
 		border-radius: 24px;
 		padding: 0 10px;
 		min-height: 48px;
-		background: linear-gradient(306deg,
-				rgba(213, 184, 95, 1) 36%,
-				rgba(227, 227, 227, 1) 100%);
+		background: linear-gradient(
+			306deg,
+			rgba(213, 184, 95, 1) 36%,
+			rgba(227, 227, 227, 1) 100%
+		);
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5b85f", endColorstr="#e3e3e3", GradientType=1);
 
 		&:before {
