@@ -130,16 +130,19 @@ section.index-4
 				<svg xmlns="http://www.w3.org/2000/svg" width="8.578" height="17.363" viewBox="0 0 8.578 17.363"><path d="M.171,0l7.2,7.975L0,15.951" transform="translate(0.707 0.706)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/></svg>
 	.map-index-4
 		.map-wrapper
-			<img src="./assets/images/background/index-4.png" id="map-image" style="width: 1920px; max-width: 100%; height: auto;" alt="" usemap="#projectmap" />
-			<map name="projectmap" class="image-map">
-				<area shape="circle" coords="1065,410,40" href="#" area-target="1" />
-				<area shape="circle" coords="1154,571,40" href="#" area-target="2" />
-				<area shape="circle" coords="1530,590,40" href="#" area-target="3" />
-				<area shape="circle" coords="1650,500,40" href="#" area-target="4" />
-				<area shape="circle" coords="1720,362,40" href="#" area-target="5" />
-				<area shape="circle" coords="1565,337,40" href="#" area-target="6" />
-				<area shape="circle" coords="1642,247,40" href="#" area-target="7" />
-			</map>
+			.imgMapCanvas
+				.map-canvas
+					map(name="projectmap" class="image-map")
+						area(shape="circle" coords="1068,409,37" href="#" area-target="1")
+						area(shape="circle" coords="1156,573,37" href="#" area-target="2")
+						area(shape="circle" coords="1532,592,37" href="#" area-target="3")
+						area(shape="circle" coords="1650,500,37" href="#" area-target="4")
+						area(shape="circle" coords="1720,362,37" href="#" area-target="5")
+						area(shape="circle" coords="1567,337,37" href="#" area-target="6")
+						area(shape="circle" coords="1642,247,37" href="#" area-target="7")
+					canvas
+				.map-image
+					img(src="./assets/images/background/index-4.png" id="map-image" style="width: 1920px; max-width: 100%; height: auto;" alt="" usemap="#projectmap")
 			.map-dialog
 				.dialog.dialog-1(data-dialog="1")
 					.dialog-wrapper

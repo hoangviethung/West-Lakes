@@ -63,13 +63,13 @@ const sliderIndex__2 = () => {
 	);
 
 	$('.slider-main-index__2 .swiper-button-pause').click('click', function () {
-		$(this).toggleClass('active')
-		if($(this).hasClass('active')){
-			sliderIndex__2.autoplay.stop()
+		$(this).toggleClass('active');
+		if ($(this).hasClass('active')) {
+			sliderIndex__2.autoplay.stop();
 		} else {
-			sliderIndex__2.autoplay.start()
+			sliderIndex__2.autoplay.start();
 		}
-	})
+	});
 };
 
 const indexVideo = () => {
@@ -447,11 +447,83 @@ const addClassToBody = () => {
 	$('body').addClass(className);
 };
 
+const ImageMapCanvas = () => {
+	const setSizeCanvas = (mapImage, canvas) => {
+		const width = mapImage.clientWidth;
+		const height = mapImage.clientHeight;
+		canvas.setAttribute('width', width);
+		canvas.setAttribute('height', height);
+	};
+
+	const clearCanvas = (canvasContext, canvas) => {
+		canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+	};
+
+	const mapElements = Array.from(document.querySelectorAll('.imgMapCanvas'));
+
+	for (let mapElement of mapElements) {
+		const map = mapElement.querySelector('map');
+		const canvas = mapElement.querySelector('canvas');
+		const canvasContext = canvas.getContext('2d');
+		const mapImage = mapElement.querySelector('img');
+		const imageUrl = mapImage.getAttribute('src');
+		const areas = Array.from(map.querySelectorAll('area'));
+
+		// Initialize map canvas
+		imageMapResize();
+		// Set background
+		canvas.style.backgroundImage = `url('${imageUrl}')`;
+		canvas.classList.add('background-added');
+		// Set size for canvas
+		setSizeCanvas(mapImage, canvas);
+		// Re-initialize canvas when window resize
+		window.addEventListener('resize', () => {
+			clearCanvas(canvasContext, canvas);
+			setSizeCanvas(mapImage, canvas);
+		});
+		const getOpacityPeriod = (degrees) => {
+			return (Math.abs(Math.sin(degrees * (Math.PI / 180))) * 3) / 2;
+		};
+		let degreeStep = 90 / 100;
+		let degree = 0;
+		let opacity = 0;
+		// Draw Canvas and some effects
+		const drawMap = () => {
+			degree += degreeStep;
+			opacity = getOpacityPeriod(degree) - 0.5;
+
+			clearCanvas(canvasContext, canvas);
+			areas.forEach((area) => {
+				const coords = area.getAttribute('coords');
+				const coordsRef = coords.split(',');
+				canvasContext.lineWidth = 3;
+				canvasContext.fillStyle = `rgba(220, 195, 117,${opacity / 2})`;
+				canvasContext.strokeStyle = 'rgb(34, 100, 57)';
+				canvasContext.beginPath();
+				canvasContext.arc(
+					coordsRef[0],
+					coordsRef[1],
+					coordsRef[2],
+					0,
+					2 * Math.PI
+				);
+				canvasContext.stroke();
+				canvasContext.fill();
+				canvasContext.closePath();
+			});
+			window.requestAnimationFrame(drawMap);
+		};
+		window.requestAnimationFrame(drawMap);
+	}
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();
 	Cookie();
 	getSVGs();
 	Loading();
+	// Image Map Draw With Canvas
+	ImageMapCanvas();
 	// SCROLL TO SECTION
 	scrollToSection();
 	// Index 4
