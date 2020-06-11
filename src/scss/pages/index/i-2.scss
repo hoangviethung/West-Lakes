@@ -1,6 +1,10 @@
 .index-2 {
 	background: map-get($mau, main);
 
+	.section {
+		background-size: cover;
+	}
+
 	.slider-main-index__2 {
 		position: relative;
 
@@ -12,6 +16,12 @@
 
 	.block-content {
 		position: relative;
+
+		@media (max-width: 1199.98px) {
+			&[max-width='50%'] {
+				max-width: 70%;
+			}
+		}
 
 		@media (min-width: 1025px) {
 
@@ -94,6 +104,8 @@
 		}
 	}
 
+
+
 	@media (max-width: 1024.98px) {
 		height: 550px;
 		overflow-y: auto;
@@ -128,6 +140,10 @@
 		.block-content {
 			background-size: cover;
 			max-width: 100%;
+
+			&[max-width='50%'] {
+				max-width: 100%;
+			}
 		}
 
 		.sub-title {

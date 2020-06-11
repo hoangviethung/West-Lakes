@@ -57,7 +57,7 @@ textarea {
 	}
 
 	&[full-screen] {
-		height: 100vh;
+		height: 90vh;
 		width: 100%;
 		overflow: hidden;
 	}
@@ -113,6 +113,10 @@ textarea {
 
 main {
 	padding-top: 100px;
+
+	@media (max-width: 1199.98px) {
+		padding-top: 75px;
+	}
 
 	@media (max-width: 575.98px) {
 		padding-top: 50px;
