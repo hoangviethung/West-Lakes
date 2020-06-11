@@ -15,9 +15,10 @@
 		.desc {
 			h3 {
 				color: map-get($mau, main-1);
-				font-size: 60px;
+				font-size: 40px;
 				text-transform: uppercase;
 				margin-bottom: 25px;
+				font-weight: 800;
 			}
 
 			p {
@@ -25,7 +26,7 @@
 				font-size: 20px;
 			}
 
-			p + p {
+			p+p {
 				margin-top: 10px;
 			}
 		}
@@ -83,14 +84,14 @@
 			margin-bottom: 30px;
 		}
 
-		ul {
+		.list-content {
 			display: flex;
 			flex-wrap: wrap;
 			color: #ffffff;
 			margin-right: -10px;
 			margin-left: -10px;
 
-			li {
+			ul {
 				-ms-flex: 0 0 100%;
 				-webkit-box-flex: 0;
 				flex: 0 0 50%;
@@ -98,8 +99,31 @@
 				margin-bottom: 15px;
 				padding-right: 10px;
 				padding-left: 10px;
+				list-style-type: none;
+
+				li {
+					position: relative;
+					font-size: 20px;
+					padding-left: 20px;
+
+					&:after {
+						content: '';
+						position: absolute;
+						width: 7px;
+						height: 7px;
+						background: #ffffff;
+						border-radius: 7px;
+						left: 0;
+						top: 15px;
+					}
+				}
+
+				li+li {
+					margin-top: 35px;
+				}
 			}
 		}
+
 
 		&:after {
 			content: '';
@@ -123,13 +147,13 @@
 				padding-bottom: 5px;
 			}
 
-			.item + .item {
+			.item+.item {
 				margin-left: 130px;
 			}
 
 			.icon {
 				margin-bottom: 25px;
-				min-height: 90px;
+				min-height: 80px;
 				overflow: hidden;
 
 				img {
@@ -225,18 +249,20 @@
 				font-size: 32px;
 			}
 
-			ul {
-				flex-direction: column;
-				margin: 0;
+			.list-content {
+				ul {
+					li {
+						font-size: 16px;
+					}
 
-				li {
-					flex: 0 0 100%;
-					max-width: 100%;
+					li+li {
+						margin-top: 15px;
+					}
 				}
 			}
 
 			.list-items-icon {
-				.item + .item {
+				.item+.item {
 					margin-left: 30px;
 				}
 
@@ -275,21 +301,34 @@
 			padding: 35px 0;
 
 			h3 {
-				font-size: 18px;
+				font-size: 22px;
 				margin-bottom: 15px;
 			}
 
-			ul {
-				padding-left: 0;
-				list-style-type: none;
+			.list-content {
+				ul {
+					-ms-flex: 0 0 100%;
+					-webkit-box-flex: 0;
+					flex: 0 0 100%;
+					max-width: 100%;
 
-				li {
-					font-size: 14px;
+					li {
+						font-size: 14px;
+
+						&:after {
+							width: 5px;
+							height: 5px;
+						}
+					}
+
+					li+li {
+						margin-top: 10px;
+					}
 				}
 			}
 
 			.list-items-icon {
-				.item + .item {
+				.item+.item {
 					margin-left: 15px;
 				}
 

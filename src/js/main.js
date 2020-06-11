@@ -46,12 +46,11 @@ const toggleMobile = () => {
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
 		'.slider-main-index__2 .swiper-container', {
-			speed: 1000,
+			speed: 1500,
 			autoplay: {
-				delay: 3000,
+				delay: 4000,
 				disableOnInteraction: false,
 			},
-			autoHeight: true,
 			navigation: {
 				nextEl: '.slider-main-index__2 .swiper-button-next',
 				prevEl: '.slider-main-index__2 .swiper-button-prev',
