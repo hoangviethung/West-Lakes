@@ -15,6 +15,24 @@ const setBackgroundByAttr = () => {
 	});
 };
 
+// SHOW BACK TO TOP
+const showBackToTop = () => {
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 800) {
+			$('#back-to-top').addClass('active');
+		} else {
+			$('#back-to-top').removeClass('active');
+		}
+	});
+
+	$("#back-to-top").on("click", function (e) {
+		e.preventDefault();
+		$("html,body").animate({
+			scrollTop: 0
+		})
+	})
+}
+
 // ACTIVE HEADER WHEN SCROLL
 function activeHeader() {
 	$(window).scroll(function () {
@@ -24,6 +42,13 @@ function activeHeader() {
 			$('header').removeClass('active');
 		}
 	});
+}
+
+const showSearch = () => {
+	$('.search .icon').on('click', function (e) {
+		e.preventDefault();
+		$(this).parent('.search').toggleClass('active');
+	})
 }
 
 const toggleMobile = () => {
@@ -583,6 +608,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	activeHeader();
 	ajaxForm();
 	CommonController();
+	showSearch();
+	showBackToTop();
 });
 
 // CHECK FORM VALID
