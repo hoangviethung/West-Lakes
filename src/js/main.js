@@ -1,7 +1,4 @@
-import {
-	getSVGs,
-	Loading
-} from './util/utilities';
+import { getSVGs, Loading } from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
@@ -45,7 +42,8 @@ const toggleMobile = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container', {
+		'.slider-main-index__2 .swiper-container',
+		{
 			speed: 1500,
 			autoplay: {
 				delay: 4000,
@@ -266,7 +264,8 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container', {
+		'.slider-item__index-9 .swiper-container',
+		{
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -288,7 +287,8 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container', {
+		'.slider-thumnail-video .swiper-container',
+		{
 			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
@@ -374,8 +374,10 @@ const scrollToSection = () => {
 	$('header [data-scroll-to]').on('click', function (e) {
 		e.preventDefault();
 		const scrollToNumber = $(this).attr('data-scroll-to');
-		$('html,body').animate({
-				scrollTop: $(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+		$('html,body').animate(
+			{
+				scrollTop:
+					$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
 					$('header').height(),
 			},
 			1200
@@ -405,9 +407,11 @@ const scrollToSection = () => {
 								touch: false,
 								afterClose: function () {
 									if (scrollToContactForm) {
-										$('html,body').animate({
-												scrollTop: $('.index-11').offset()
-													.top -
+										$('html,body').animate(
+											{
+												scrollTop:
+													$('.index-11').offset()
+														.top -
 													$('header').height(),
 											},
 											1200
@@ -419,7 +423,8 @@ const scrollToSection = () => {
 						isShowed = true;
 					}
 				}
-			} else {}
+			} else {
+			}
 		});
 	};
 	activeSectionWhenScroll();
@@ -511,25 +516,18 @@ const ImageMapCanvas = () => {
 	}
 };
 const ajaxForm = () => {
-	const formData = new FormData();
-	$('.index-11 .block-form .form-control').each(function () {
-		const name = $(this).attr('name');
-		const value = $(this).val();
-		formData.append(name, value)
-	})
+	$('.index-11 .block-form .submit button').on('click', function (e) {
+		e.preventDefault();
+		const _thisBtn = $(this);
+		const url = _thisBtn.attr('data-url');
+		const formData = new FormData();
+		$('.index-11 .block-form .form-control').each(function () {
+			const name = $(this).attr('name');
+			const value = $(this).val();
+			formData.append(name, value);
+		});
 
-	$('.index-11 .block-form .submit').on('click', function (e) {
-		e.preventDefault()
-		const _thisBtn = $(this)
-		const url = _thisBtn.attr('data-url')
-		const formData = new FormData()
-		$('.contact__form .form-control').each(function () {
-			const name = $(this).attr('name')
-			const value = $(this).val()
-			formData.append(name, value)
-		})
-
-		if ($('.contact__form').valid()) {
+		if ($('.index-11 .block-form form').valid()) {
 			$.ajax({
 				url: url,
 				type: 'post',
@@ -537,21 +535,26 @@ const ajaxForm = () => {
 				processData: false,
 				contentType: false,
 				beforeSend: function () {
-					_thisBtn.attr('disabled', 'disabled')
+					_thisBtn.attr('disabled', 'disabled');
 				},
 				success: function (res) {
 					if (res.Code == 200) {
-						$('.contact__form .form-control').each(function () {
-							$(this).val('')
-						})
+						$('.index-11 .block-form .form-control').each(
+							function () {
+								$(this).val('');
+							}
+						);
 					}
-					alert(res.Message)
-					_thisBtn.removeAttr('disabled')
+					alert(`
+						Error code: ${res.Code} \n
+						Error message: ${res.Message}
+						`);
+					_thisBtn.removeAttr('disabled');
 				},
-			})
+			});
 		}
-	})
-}
+	});
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();

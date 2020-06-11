@@ -30,7 +30,7 @@
 			}
 		}
 
-		.item+.item {
+		.item + .item {
 			margin-top: 5px;
 		}
 	}
@@ -79,6 +79,11 @@
 					color: map-get($mau, main);
 				}
 			}
+			.field-validate-error {
+				color: red;
+				font-size: 14px;
+				display: block;
+			}
 		}
 
 		.submit {
@@ -101,7 +106,7 @@
 			}
 		}
 
-		.input-group+.input-group {
+		.input-group + .input-group {
 			margin-top: 56px;
 		}
 	}
@@ -140,7 +145,7 @@
 				}
 			}
 
-			.input-group+.input-group {
+			.input-group + .input-group {
 				margin-top: 25px;
 			}
 		}
@@ -203,7 +208,7 @@
 				}
 			}
 
-			.input-group+.input-group {
+			.input-group + .input-group {
 				margin-top: 15px;
 			}
 		}

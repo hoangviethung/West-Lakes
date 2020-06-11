@@ -52,6 +52,18 @@
 					}
 
 					&:after {
+						background-image: linear-gradient(
+							45deg,
+							rgba(255, 255, 255, 0.15) 25%,
+							transparent 25%,
+							transparent 50%,
+							rgba(255, 255, 255, 0.15) 50%,
+							rgba(255, 255, 255, 0.15) 75%,
+							transparent 75%,
+							transparent
+						);
+						background-size: 1rem 1rem;
+						animation: progress-bar-stripes 1s linear infinite;
 						content: '';
 						position: absolute;
 						top: 50%;
@@ -65,19 +77,19 @@
 
 					&[data-bg-item='yellow'] {
 						&:after {
-							background: #fbdd0f;
+							background-color: #fbdd0f;
 						}
 					}
 
 					&[data-bg-item='aqua'] {
 						&:after {
-							background: #38e2ed;
+							background-color: #38e2ed;
 						}
 					}
 
 					&[data-bg-item='pink'] {
 						&:after {
-							background: #e5ada6;
+							background-color: #e5ada6;
 						}
 					}
 
