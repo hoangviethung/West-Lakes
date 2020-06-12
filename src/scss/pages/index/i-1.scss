@@ -1,15 +1,20 @@
 .index-1 {
 	position: relative;
-	height: calc(100vh - 100px);
+	height: unset !important;
+	@media (min-width: 1025px) {
+		height: calc(100vh - 100px)!important;
+	}
 
 	#player {
-		position: absolute;
-		right: 0;
-		bottom: 0;
 		min-width: 100%;
-		min-height: 100%;
-		object-fit: cover;
-		object-position: bottom;
+		@media (min-width: 1025px) {
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			min-height: 100%;
+			object-fit: cover;
+			object-position: bottom;
+		}
 	}
 
 	.plyr__controls {
