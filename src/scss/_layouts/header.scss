@@ -154,11 +154,61 @@ header {
 	}
 
 	.search {
+		position: relative;
 		margin-left: 10px;
 		margin-bottom: 10px;
 
 		.icon {
 			cursor: pointer;
+		}
+
+		&.active {
+			.block-form {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		.block-form {
+			position: absolute;
+			top: 200%;
+			right: -100%;
+			z-index: 100;
+			opacity: 0;
+			visibility: hidden;
+			overflow: hidden;
+			transition: .3s all ease-in-out;
+
+			.form-control {
+				position: relative;
+				width: 250px;
+				font-size: 14px;
+				border: 2px solid map-get($mau, main);
+				padding: 0 10px;
+				box-shadow: 0;
+				border-radius: 10px;
+				line-height: 35px;
+				color: map-get($mau, main);
+			}
+
+			.form-group {
+				position: relative;
+				overflow: hidden;
+			}
+
+			button {
+				position: absolute;
+				right: 0;
+				top: 0;
+				background: map-get($mau, main);
+				border: 0;
+				border-radius: 0 10px 10px 0;
+				height: 100%;
+
+				img {
+					width: 50%;
+				}
+			}
 		}
 	}
 
@@ -244,6 +294,12 @@ header {
 
 			li+li {
 				margin-left: 15px;
+			}
+		}
+
+		.search {
+			.block-form {
+				right: 0;
 			}
 		}
 	}
