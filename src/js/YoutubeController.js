@@ -70,8 +70,8 @@ function onYouTubeIframeAPIReady() {
 		});
 
 		// Get Video Thumbnail
-		const imageThumbnail = `http://i3.ytimg.com/vi/${id}/hqdefault.jpg`;
-		$(this).find('.img img').attr('src', imageThumbnail);
+		// const imageThumbnail = `http://i3.ytimg.com/vi/${id}/hqdefault.jpg`;
+		// $(this).find('.img img').attr('src', imageThumbnail);
 	});
 }
 

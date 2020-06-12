@@ -1,6 +1,5 @@
 .index-2 {
 	background: map-get($mau, main);
-	height: 90vh;
 
 	.section {
 		background-size: cover;
@@ -17,6 +16,31 @@
 
 	.block-content {
 		position: relative;
+		height: 100%;
+
+		&.bg-1 {
+			&:after {
+				background-image: url(../assets/images/background/item_index-2__1.png);
+			}
+		}
+
+		&.bg-2 {
+			&:after {
+				background-image: url(../assets/images/background/item_index-2__2.png);
+			}
+		}
+
+		&.bg-3 {
+			&:after {
+				background-image: url(../assets/images/background/item_index-2__3.png);
+			}
+		}
+
+		&.bg-4 {
+			&:after {
+				background-image: url(../assets/images/background/item_index-2__4.png);
+			}
+		}
 
 		@media (max-width: 1199.98px) {
 			&[max-width='50%'] {
@@ -41,6 +65,7 @@
 				border-left: solid;
 			}
 		}
+
 	}
 
 	.content {
@@ -67,17 +92,9 @@
 		margin-top: 20px;
 		padding-bottom: 25px;
 
-		h3,
 		p {
+			font-size: 18px;
 			color: #ffffff;
-		}
-
-		h3 {
-			font-size: 45px;
-		}
-
-		p {
-			font-size: 20px;
 		}
 
 		&:after {
@@ -97,11 +114,11 @@
 
 		p {
 			color: #ffffff;
-			font-size: 20px;
+			font-size: 18px;
 		}
 
 		p+p {
-			margin-top: 15px;
+			margin-top: 10spx;
 		}
 	}
 

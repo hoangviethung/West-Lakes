@@ -1,11 +1,8 @@
-import {
-	getSVGs,
-	Loading
-} from './util/utilities';
+import { getSVGs, Loading } from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
-import CommonController from "./lib/CommonController";
+import CommonController from './lib/CommonController';
 
 const setBackgroundByAttr = () => {
 	const items = document.querySelectorAll('[data-bg]');
@@ -71,7 +68,8 @@ const toggleMobile = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container', {
+		'.slider-main-index__2 .swiper-container',
+		{
 			speed: 1500,
 			autoplay: {
 				delay: 4000,
@@ -176,25 +174,25 @@ const imageMapResizer = () => {
 };
 
 const imageMapEffect = () => {
-	let swiper;
-	$('.image-map [area-target]')
-		.on('mouseenter', function (e) {
+	let swiper, effect;
+	let autoplay = true;
+	const generatePosition = () => {
+		$('.image-map [area-target').each(function () {
 			const targetNumber = $(this).attr('area-target');
 			const x = Number($(this).attr('coords').split(',')[0]);
 			const y = Number($(this).attr('coords').split(',')[1]);
 			const r = Number($(this).attr('coords').split(',')[2]);
 			const dialogWrapperHeight = $('.map-dialog').height();
-
 			if (
 				window.innerWidth - x - 125 <
-				$(`.dialog-${targetNumber}`).width()
+				$(`.dialog-${targetNumber} .dialog-wrapper`).width()
 			) {
 				$(`.dialog-${targetNumber}`).addClass('right');
 				$(`.dialog-${targetNumber}`).css({
 					position: 'absolute',
 					bottom: dialogWrapperHeight - y + r / 2 + 34,
 					right: window.innerWidth - r - x - 34,
-					display: 'block',
+					opacity: '0',
 				});
 			} else {
 				$(`.dialog-${targetNumber}`).addClass('center');
@@ -202,18 +200,47 @@ const imageMapEffect = () => {
 					position: 'absolute',
 					bottom: dialogWrapperHeight - y + r / 2 + 34,
 					left: x,
-					display: 'block',
+					opacity: '0',
 				});
 			}
-			$(`.dialog-${targetNumber}`).addClass('show');
+		});
+	};
+
+	let i = 1;
+	effect = setInterval(() => {
+		$(`.dialog`).removeClass('show');
+		$(`.dialog-${i}`).addClass('show');
+		i += 1;
+		if (i > 7) {
+			i = 1;
+		}
+	}, 1000);
+
+	$('.image-map [area-target]')
+		.on('mouseenter', function (e) {
+			clearInterval(effect);
+			const targetumber = $(this).attr('area-target');
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${targetumber}`).addClass('show');
 		})
 		.on('mouseout', function () {
 			const targetNumber = $(this).attr('area-target');
-			$(`.dialog-${targetNumber}`).removeAttr('style');
 			$(`.dialog-${targetNumber}`).removeClass('show');
+			if (autoplay) {
+				effect = setInterval(() => {
+					$(`.dialog`).removeClass('show');
+					$(`.dialog-${i}`).addClass('show');
+					i += 1;
+					if (i > 7) {
+						i = 1;
+					}
+				}, 1000);
+			}
 		})
 		.on('click', function (e) {
 			e.preventDefault();
+			autoplay = false;
+			clearInterval(effect);
 			const targetNumber = $(this).attr('area-target');
 			$(`.map-index-4-slider-${targetNumber}`).addClass('active');
 			$('.index-4 .map-index-4').addClass('pull-right');
@@ -223,8 +250,17 @@ const imageMapEffect = () => {
 	$('.map-index-4-slider-controls .map-index-4-slider-close').on(
 		'click',
 		function () {
+			autoplay = true;
 			$('.index-4 .map-index-4').removeClass('pull-right');
 			$('.map-index-4-slider-wrapper').removeClass('pull-right');
+			effect = setInterval(() => {
+				$(`.dialog`).removeClass('show');
+				$(`.dialog-${i}`).addClass('show');
+				i += 1;
+				if (i > 7) {
+					i = 1;
+				}
+			}, 1000);
 			setTimeout(() => {
 				$(`.map-index-4-slider.active`).removeClass('active');
 				if (swiper) {
@@ -258,6 +294,8 @@ const imageMapEffect = () => {
 			},
 		});
 	});
+
+	generatePosition();
 };
 
 const sliderMenu = () => {
@@ -305,7 +343,8 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container', {
+		'.slider-item__index-9 .swiper-container',
+		{
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -327,7 +366,8 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVieo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container', {
+		'.slider-thumnail-video .swiper-container',
+		{
 			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
@@ -413,8 +453,10 @@ const scrollToSection = () => {
 	$('header [data-scroll-to]').on('click', function (e) {
 		e.preventDefault();
 		const scrollToNumber = $(this).attr('data-scroll-to');
-		$('html,body').animate({
-				scrollTop: $(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+		$('html,body').animate(
+			{
+				scrollTop:
+					$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
 					$('header').height(),
 			},
 			1200
@@ -444,9 +486,11 @@ const scrollToSection = () => {
 								touch: false,
 								afterClose: function () {
 									if (scrollToContactForm) {
-										$('html,body').animate({
-												scrollTop: $('.index-11').offset()
-													.top -
+										$('html,body').animate(
+											{
+												scrollTop:
+													$('.index-11').offset()
+														.top -
 													$('header').height(),
 											},
 											1200
@@ -458,7 +502,8 @@ const scrollToSection = () => {
 						isShowed = true;
 					}
 				}
-			} else {}
+			} else {
+			}
 		});
 	};
 	activeSectionWhenScroll();
@@ -521,32 +566,32 @@ const ImageMapCanvas = () => {
 		let degree = 0;
 		let opacity = 0;
 		// Draw Canvas and some effects
-		const drawMap = () => {
-			degree += degreeStep;
-			opacity = getOpacityPeriod(degree) - 0.5;
+		// const drawMap = () => {
+		// 	degree += degreeStep;
+		// 	opacity = getOpacityPeriod(degree) - 0.5;
 
-			clearCanvas(canvasContext, canvas);
-			areas.forEach((area) => {
-				const coords = area.getAttribute('coords');
-				const coordsRef = coords.split(',');
-				// canvasContext.lineWidth = 3;
-				canvasContext.fillStyle = `rgba(220, 195, 117,${opacity})`;
-				// canvasContext.strokeStyle = 'rgb(34, 100, 57)';
-				canvasContext.beginPath();
-				canvasContext.arc(
-					coordsRef[0],
-					coordsRef[1],
-					coordsRef[2],
-					0,
-					2 * Math.PI
-				);
-				// canvasContext.stroke();
-				canvasContext.fill();
-				canvasContext.closePath();
-			});
-			window.requestAnimationFrame(drawMap);
-		};
-		window.requestAnimationFrame(drawMap);
+		// 	clearCanvas(canvasContext, canvas);
+		// 	areas.forEach((area) => {
+		// 		const coords = area.getAttribute('coords');
+		// 		const coordsRef = coords.split(',');
+		// 		// canvasContext.lineWidth = 3;
+		// 		canvasContext.fillStyle = `rgba(220, 195, 117,${opacity})`;
+		// 		// canvasContext.strokeStyle = 'rgb(34, 100, 57)';
+		// 		canvasContext.beginPath();
+		// 		canvasContext.arc(
+		// 			coordsRef[0],
+		// 			coordsRef[1],
+		// 			coordsRef[2],
+		// 			0,
+		// 			2 * Math.PI
+		// 		);
+		// 		// canvasContext.stroke();
+		// 		canvasContext.fill();
+		// 		canvasContext.closePath();
+		// 	});
+		// 	window.requestAnimationFrame(drawMap);
+		// };
+		// window.requestAnimationFrame(drawMap);
 	}
 };
 const ajaxForm = () => {
