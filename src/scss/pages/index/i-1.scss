@@ -16,72 +16,90 @@
 			object-position: bottom;
 		}
 	}
+
 	.plyr__controls {
 		justify-content: center;
 		padding-bottom: 20px;
+
 		@media (min-width: 768px) {
 			padding-bottom: 35px;
 		}
+
 		@media (min-width: 1025px) {
 			padding-bottom: 50px;
 		}
+
 		@media (min-width: 1200px) {
 			padding-bottom: 70px;
 		}
 	}
+
 	.plyr__control {
 		&:hover {
 			background: rgba(white, 0.35);
 		}
 	}
+
 	.plyr__volume {
 		order: 3;
 		width: auto;
 		min-width: auto;
+
 		[data-plyr='volume'] {
 			display: none;
 		}
 	}
+
 	[data-plyr='play'] {
 		order: 2;
 	}
+
 	[data-plyr='fullscreen'] {
 		order: 4;
 	}
+
 	.plyr__time--current {
 		order: 1;
 		color: #dcc375;
 		font-weight: 700;
 	}
+
 	.plyr__progress__container {
 		display: none;
 	}
+
 	.plyr__controls__item:first-child {
 		margin-right: 0;
 	}
+
 	.plyr__control--overlaid {
 		padding: 0;
 		background: transparent;
 		opacity: 1;
 		width: 60px;
 		height: 60px;
+
 		svg {
 			left: 0;
 			width: 100%;
 			height: 100%;
 		}
+
 		@media (min-width: 768px) {
 			width: 80px;
 			height: 80px;
 		}
+
 		@media (min-width: 1025px) {
 			width: 100px;
 			height: 100px;
 		}
+
 		@media (min-width: 1200px) {
 			width: 120px;
 			height: 120px;
 		}
+
 		&:hover {
 			background: transparent;
 		}

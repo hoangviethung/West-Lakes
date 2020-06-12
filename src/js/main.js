@@ -303,6 +303,19 @@ const imageMapEffect = () => {
 	}
 };
 
+const sliderMenu = () => {
+	const sliderMenu = new Swiper('.slider-menu .swiper-container', {
+		slidesPerView: 'auto',
+		spaceBetween: 15,
+		simulateTouch: true,
+		breakpoints: {
+			1025: {
+				simulateTouch: false,
+			}
+		}
+	})
+}
+
 const index4Slider = () => {
 	return new Swiper('.map-index-4-slider.active .swiper-container', {
 		slidesPerView: 1,
@@ -660,6 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	CommonController();
 	showSearch();
 	showBackToTop();
+	sliderMenu();
 });
 
 // CHECK FORM VALID

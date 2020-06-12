@@ -10,12 +10,13 @@
 
 		.block-title {
 			margin-bottom: 80px;
+			width: 85%;
 		}
 
 		.desc {
 			h3 {
 				color: map-get($mau, main-1);
-				font-size: 40px;
+				font-size: 24px;
 				text-transform: uppercase;
 				margin-bottom: 25px;
 				font-weight: 800;
