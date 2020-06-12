@@ -30,6 +30,7 @@
 			-webkit-animation: AnimationButtonBorder 3s ease-in-out infinite;
 			-moz-animation: AnimationButtonBorder 3s ease-in-out infinite;
 			animation: AnimationButtonBorder 3s linear infinite;
+			box-shadow: 0 0 6px #ffffffca;
 		}
 
 		&[type="text"] {

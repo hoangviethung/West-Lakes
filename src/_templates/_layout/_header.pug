@@ -2,24 +2,32 @@ header
 	.container.h-100
 		a(href="index.html").logo
 			img.lazyload.blur-up(data-src="./assets/logo.png", alt="WEST-LAKES")
-			img.icon-logo.lazyload.blur-up(data-src="./assets/icon-logo.png", alt="WEST-LAKES")
+			img.icon-logo.lazyload.blur-up(data-src="./assets/icon-logo-new.png", alt="WEST-LAKES")
 		.row.no-gutters.ai-c.h-100
-			nav
-				ul
-					li.active
-						a(href="#" data-scroll-to="1") giới thiệu
-					li
-						a(href="#" data-scroll-to="2") vị trí và tiện ích
-					li
-						a(href="#" data-scroll-to="3") mặt bằng
-					li
-						a(href="#" data-scroll-to="4") chương trình bán hàng
-					li
-						a(href="#" data-scroll-to="5") hỗ trợ tài chính
-					li
-						a(href="#" data-scroll-to="6") tiến độ
-					li
-						a(href="#" data-scroll-to="7") thư viện
+			.slider-menu
+				.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							.item.active
+								a(href="#" data-scroll-to="1") giới thiệu
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="2") vị trí và tiện ích
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="3") mặt bằng
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="4") chương trình bán hàng
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="5") hỗ trợ tài chính
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="6") tiến độ
+						.swiper-slide
+							.item
+								a(href="#" data-scroll-to="7") thư viện
 			.language
 				ul
 					li.item.active(data-language="vn")
