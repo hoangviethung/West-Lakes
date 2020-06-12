@@ -25,13 +25,13 @@ const showBackToTop = () => {
 		}
 	});
 
-	$("#back-to-top").on("click", function (e) {
+	$('#back-to-top').on('click', function (e) {
 		e.preventDefault();
-		$("html,body").animate({
-			scrollTop: 0
-		})
-	})
-}
+		$('html,body').animate({
+			scrollTop: 0,
+		});
+	});
+};
 
 // ACTIVE HEADER WHEN SCROLL
 function activeHeader() {
@@ -48,8 +48,8 @@ const showSearch = () => {
 	$('.search .icon').on('click', function (e) {
 		e.preventDefault();
 		$(this).parent('.search').toggleClass('active');
-	})
-}
+	});
+};
 
 const toggleMobile = () => {
 	$('.toggle-menu-mobile').click(function (e) {
@@ -208,36 +208,29 @@ const imageMapEffect = () => {
 		});
 	};
 
-	let i = 1;
-	effect = setInterval(() => {
-		$(`.dialog`).removeClass('show');
-		$(`.dialog-${i}`).addClass('show');
-		i += 1;
-		if (i > 7) {
-			i = 1;
-		}
-	}, 1000);
-
-
 	$('.image-map [area-target]')
 		.on('mouseenter', function (e) {
-			clearInterval(effect);
-			const targetumber = $(this).attr('area-target');
-			$(`.dialog`).removeClass('show');
-			$(`.dialog-${targetumber}`).addClass('show');
+			if (window.innerWidth > 1024) {
+				clearInterval(effect);
+				const targetumber = $(this).attr('area-target');
+				$(`.dialog`).removeClass('show');
+				$(`.dialog-${targetumber}`).addClass('show');
+			}
 		})
 		.on('mouseout', function () {
-			const targetNumber = $(this).attr('area-target');
-			$(`.dialog-${targetNumber}`).removeClass('show');
-			if (autoplay) {
-				effect = setInterval(() => {
-					$(`.dialog`).removeClass('show');
-					$(`.dialog-${i}`).addClass('show');
-					i += 1;
-					if (i > 7) {
-						i = 1;
-					}
-				}, 1000);
+			if (window.innerWidth > 1024) {
+				const targetNumber = $(this).attr('area-target');
+				$(`.dialog-${targetNumber}`).removeClass('show');
+				if (autoplay) {
+					effect = setInterval(() => {
+						$(`.dialog`).removeClass('show');
+						$(`.dialog-${i}`).addClass('show');
+						i += 1;
+						if (i > 7) {
+							i = 1;
+						}
+					}, 1000);
+				}
 			}
 		})
 		.on('click', function (e) {
@@ -297,8 +290,19 @@ const imageMapEffect = () => {
 			},
 		});
 	});
+	if (window.innerWidth > 1024) {
+		generatePosition();
 
-	generatePosition();
+		let i = 1;
+		effect = setInterval(() => {
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${i}`).addClass('show');
+			i += 1;
+			if (i > 7) {
+				i = 1;
+			}
+		}, 1000);
+	}
 };
 
 const sliderMenu = () => {

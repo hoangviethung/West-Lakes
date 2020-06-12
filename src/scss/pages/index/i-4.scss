@@ -430,9 +430,11 @@
 }
 
 .dialog {
-	opacity: 0;
-	transition: all .3s ease;
-	transform: scale(0.7);
+	transition: all 0.3s ease;
+	@media (min-width: 1025px) {
+		opacity: 0;
+		transform: scale(0.7);
+	}
 
 	.dialog-wrapper {
 		position: relative;
