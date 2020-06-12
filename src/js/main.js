@@ -176,59 +176,69 @@ const imageMapResizer = () => {
 const imageMapEffect = () => {
 	let swiper, effect;
 	let autoplay = true;
+	let i = 1;
 	const generatePosition = () => {
-		$('.image-map [area-target').each(function () {
-			const targetNumber = $(this).attr('area-target');
-			const x = Number($(this).attr('coords').split(',')[0]);
-			const y = Number($(this).attr('coords').split(',')[1]);
-			const r = Number($(this).attr('coords').split(',')[2]);
-			const dialogWrapperHeight = $('.map-dialog').height();
-			if (
-				window.innerWidth - x - 125 <
-				$(`.dialog-${targetNumber} .dialog-wrapper`).width()
-			) {
-				$(`.dialog-${targetNumber}`).addClass('right');
-				$(`.dialog-${targetNumber}`).css({
-					position: 'absolute',
-					bottom: dialogWrapperHeight - y + r / 2 + 34,
-					right: window.innerWidth - r - x - 34,
-					opacity: '0',
-				});
-			} else {
-				$(`.dialog-${targetNumber}`).addClass('center');
-				$(`.dialog-${targetNumber}`).css({
-					position: 'absolute',
-					bottom: dialogWrapperHeight - y + r / 2 + 34,
-					left: x,
-					opacity: '0',
-				});
-			}
-		});
+		if (window.innerWidth > 1024) {
+			$('.image-map [area-target').each(function () {
+				const targetNumber = $(this).attr('area-target');
+				const x = Number($(this).attr('coords').split(',')[0]);
+				const y = Number($(this).attr('coords').split(',')[1]);
+				const r = Number($(this).attr('coords').split(',')[2]);
+				const dialogWrapperHeight = $('.map-dialog').height();
+				if (
+					window.innerWidth - x - 125 <
+					$(`.dialog-${targetNumber} .dialog-wrapper`).width()
+				) {
+					$(`.dialog-${targetNumber}`).addClass('right');
+					$(`.dialog-${targetNumber}`).css({
+						position: 'absolute',
+						bottom: dialogWrapperHeight - y + r / 2 + 34,
+						right: window.innerWidth - r - x - 34,
+						opacity: '0',
+					});
+				} else {
+					$(`.dialog-${targetNumber}`).addClass('center');
+					$(`.dialog-${targetNumber}`).css({
+						position: 'absolute',
+						bottom: dialogWrapperHeight - y + r / 2 + 34,
+						left: x,
+						opacity: '0',
+					});
+				}
+			});
+		}
 	};
+	generatePosition();
+	if (window.innerWidth > 1024) {
+		effect = setInterval(() => {
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${i}`).addClass('show');
+			i += 1;
+			if (i > 7) {
+				i = 1;
+			}
+		}, 1000);
+	}
 
 	$('.image-map [area-target]')
 		.on('mouseenter', function (e) {
-			if (window.innerWidth > 1024) {
-				clearInterval(effect);
-				const targetumber = $(this).attr('area-target');
-				$(`.dialog`).removeClass('show');
-				$(`.dialog-${targetumber}`).addClass('show');
-			}
+			clearInterval(effect);
+			const targetumber = $(this).attr('area-target');
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${targetumber}`).addClass('show');
 		})
 		.on('mouseout', function () {
-			if (window.innerWidth > 1024) {
-				const targetNumber = $(this).attr('area-target');
-				$(`.dialog-${targetNumber}`).removeClass('show');
-				if (autoplay) {
-					effect = setInterval(() => {
-						$(`.dialog`).removeClass('show');
-						$(`.dialog-${i}`).addClass('show');
-						i += 1;
-						if (i > 7) {
-							i = 1;
-						}
-					}, 1000);
-				}
+			const targetNumber = $(this).attr('area-target');
+			$(`.dialog-${targetNumber}`).removeClass('show');
+			if (autoplay) {
+				effect = setInterval(() => {
+					$(`.dialog`).removeClass('show');
+					$(`.dialog-${i}`).addClass('show');
+					i += 1;
+					if (i > 7) {
+						i = 1;
+					}
+				}, 1000);
 			}
 		})
 		.on('click', function (e) {
@@ -288,19 +298,6 @@ const imageMapEffect = () => {
 			},
 		});
 	});
-	if (window.innerWidth > 1024) {
-		generatePosition();
-
-		let i = 1;
-		effect = setInterval(() => {
-			$(`.dialog`).removeClass('show');
-			$(`.dialog-${i}`).addClass('show');
-			i += 1;
-			if (i > 7) {
-				i = 1;
-			}
-		}, 1000);
-	}
 };
 
 const sliderMenu = () => {
@@ -311,10 +308,10 @@ const sliderMenu = () => {
 		breakpoints: {
 			1025: {
 				simulateTouch: false,
-			}
-		}
-	})
-}
+			},
+		},
+	});
+};
 
 const index4Slider = () => {
 	return new Swiper('.map-index-4-slider.active .swiper-container', {
