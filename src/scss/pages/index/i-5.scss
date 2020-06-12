@@ -6,17 +6,12 @@
 	background-size: cover;
 
 	.content {
-		.block-title {
-			width: 80%;
-			margin: 0 auto;
-		}
-
 		.desc {
 			margin-top: 40px;
 
 			p {
 				color: #ffffff;
-				font-size: 20px;
+				font-size: 18px;
 			}
 		}
 	}
@@ -38,6 +33,7 @@
 			border: 1px solid lighten(black, 12%);
 			background: rgba(white, 0.8);
 			box-shadow: 0 0 10px rgba(black, 0.4);
+
 			ul {
 				list-style-type: none;
 				padding-left: 0;
@@ -50,6 +46,7 @@
 					align-items: center;
 					padding: 5px;
 					border-radius: 3px;
+
 					h5 {
 						text-transform: uppercase;
 						font-weight: 400;
@@ -60,6 +57,7 @@
 
 					&.active {
 						background: map-get($mau, main);
+
 						h5 {
 							color: white;
 						}
@@ -67,6 +65,7 @@
 
 					&:hover {
 						background: rgba(map-get($mau, main), 0.3);
+
 						h5 {
 							color: white;
 						}
@@ -206,7 +205,7 @@
 					}
 				}
 
-				li + li {
+				li+li {
 					margin-top: 0;
 				}
 			}
@@ -296,8 +295,7 @@
 }
 
 .index-5-aside {
-	@media (min-width: 1025px) {
-	}
+	@media (min-width: 1025px) {}
 
 	.matbang-slide-controls {
 		position: absolute;
@@ -385,6 +383,7 @@
 		padding-left: 250px;
 		transform: translateX(100%);
 		opacity: 0;
+
 		&:after {
 			content: '';
 			background-color: map-get($mau, main);
@@ -420,6 +419,7 @@
 		&:before {
 			width: 350px;
 		}
+
 		&:after {
 			left: 350px;
 		}
@@ -431,6 +431,7 @@
 		&:before {
 			width: 450px;
 		}
+
 		&:after {
 			left: 450px;
 		}
@@ -442,6 +443,7 @@
 		&:before {
 			width: 535px;
 		}
+
 		&:after {
 			left: 535px;
 		}

@@ -4,8 +4,9 @@
 	flex-direction: column;
 	width: 72px;
 	right: 15px;
-	top: 40%;
+	top: 50%;
 	z-index: 300;
+	transform: translateY(-50%);
 
 	.block-item {
 		cursor: pointer;
@@ -162,7 +163,8 @@
 
 			h5 {
 				font-size: 18px;
-				color: map-get($mau, main-1)
+				color: map-get($mau, main-1);
+				text-align: center;
 			}
 		}
 
@@ -197,6 +199,7 @@
 		background: #226439d3;
 		padding: 5px 0;
 		box-shadow: 0px 3px 6px;
+		transform: unset;
 
 		.block-item {
 			.icon {

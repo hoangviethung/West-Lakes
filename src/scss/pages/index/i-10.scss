@@ -8,7 +8,7 @@
 
 		.content {
 			position: relative;
-			padding: 25px 150px 25px 25px;
+			padding: 30px 150px 30px 25px;
 			color: #ffffff;
 
 			h3 {
@@ -21,8 +21,9 @@
 
 			.date {
 				position: absolute;
-				bottom: 24px;
-				right: 22px;
+				top: 50%;
+				right: 10px;
+				transform: translateY(-50%);
 				font-weight: 700;
 				font-style: italic;
 				color: map-get($mau, main);
