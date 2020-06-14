@@ -8,8 +8,9 @@
 
 		.content {
 			position: relative;
-			padding: 30px 150px 30px 25px;
+			padding: 25px;
 			color: #ffffff;
+			text-align: right;
 
 			h3 {
 				font-size: 25px;
@@ -20,17 +21,14 @@
 			}
 
 			.date {
-				position: absolute;
-				top: 50%;
-				right: 10px;
-				transform: translateY(-50%);
+				display: inline-block;
+				width: unset;
+				height: auto;
 				font-weight: 700;
 				font-style: italic;
 				color: map-get($mau, main);
 				padding: 5px 10px;
 				background-size: 100% 100%;
-				width: unset;
-				height: unset;
 			}
 		}
 	}
@@ -113,14 +111,16 @@
 				}
 
 				.date {
-					display: inline-block;
-					width: unset;
-					height: auto;
+					position: absolute;
+					top: 20px;
+					left: 25px;
 					font-weight: 700;
 					font-style: italic;
 					color: map-get($mau, main);
 					padding: 5px 10px;
 					background-size: 100% 100%;
+					width: unset;
+					height: unset;
 				}
 			}
 		}
@@ -148,12 +148,8 @@
 			.swiper-slide {
 				.item {
 					.date {
-						display: inline-block;
-						font-weight: 700;
-						font-style: italic;
-						color: map-get($mau, main);
-						padding: 5px 10px;
-						background-size: 100% 100%;
+						top: 10px;
+						left: 10px;
 					}
 				}
 			}
