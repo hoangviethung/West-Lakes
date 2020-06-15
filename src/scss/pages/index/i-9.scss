@@ -25,6 +25,7 @@
 		margin-top: 50px;
 
 		.img {
+			height: 280px;
 			position: relative;
 
 			.date {
@@ -66,6 +67,22 @@
 		}
 	}
 
+	@media (max-width: 1439.98px) {
+		.slider-item__index-9 {
+			.img {
+				height: 250px;
+			}
+		}
+	}
+
+	@media (max-width: 1199.98px) {
+		.slider-item__index-9 {
+			.img {
+				height: 200px;
+			}
+		}
+	}
+
 	@media (max-width: 1024.98px) {
 		.block-content {
 			max-width: 60%;
@@ -81,6 +98,10 @@
 		}
 
 		.slider-item__index-9 {
+			.img {
+				height: 250px;
+			}
+
 			.text {
 				h3 {
 					text-transform: uppercase;
@@ -109,6 +130,10 @@
 
 		.slider-item__index-9 {
 			margin-top: 25px;
+
+			.img {
+				height: 200px;
+			}
 
 			.text {
 				h3 {
