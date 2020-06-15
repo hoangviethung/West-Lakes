@@ -24,6 +24,7 @@
 			p {
 				color: #ffffff;
 				font-size: 18px;
+				text-align: justify;
 			}
 
 			p+p {
@@ -190,6 +191,12 @@
 		.block-1 {
 			.block-content {
 				max-width: 50%;
+
+				.desc {
+					h3 {
+						font-size: 24px;
+					}
+				}
 			}
 		}
 	}
@@ -206,6 +213,7 @@
 
 			.block-title {
 				margin-bottom: 25px;
+				margin: 0 auto;
 			}
 
 			.block-content {
@@ -267,19 +275,24 @@
 				margin: -300px 0;
 			}
 
-			.block-title {
-				h2 {
-					font-size: 24px;
+			.block-content {
+				max-width: 100%;
+
+				.desc {
+					h3 {
+						font-size: 14px;
+						text-align: justify;
+					}
+
+					p {
+						font-size: 14px;
+					}
 				}
 			}
 
-			.desc {
-				h3 {
-					font-size: 18px;
-				}
-
-				p {
-					font-size: 14px;
+			.block-title {
+				h2 {
+					font-size: 24px;
 				}
 			}
 		}

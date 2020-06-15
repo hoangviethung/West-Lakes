@@ -159,6 +159,17 @@
 	}
 
 	@media (max-width: 575.98px) {
+		.block-content {
+			.desc {
+				margin-top: 15px;
+				margin-bottom: 15px;
+
+				p {
+					font-size: 14px;
+				}
+			}
+		}
+
 		.review-video {
 			.block-video {
 				height: 200px;
