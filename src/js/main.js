@@ -367,7 +367,7 @@ const sliderIndex__9 = () => {
 	);
 };
 
-const sliderThumbnailVieo = () => {
+const sliderThumbnailVideo = () => {
 	const sliderThumbnailVieo = new Swiper(
 		'.slider-thumnail-video .swiper-container', {
 			slidesPerView: 2,
@@ -384,6 +384,7 @@ const sliderThumbnailVieo = () => {
 			},
 		}
 	);
+	sliderThumbnailVieo.on('beforeDestroy', function () {});
 };
 
 const index5Toggle = () => {
@@ -657,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	index5Toggle();
 	// SLIDER INDEX 9
 	sliderIndex__9();
-	sliderThumbnailVieo();
+	sliderThumbnailVideo();
 	// MENU
 	toggleMobile();
 	// ACTIVE HEADER WHEN SCROLL

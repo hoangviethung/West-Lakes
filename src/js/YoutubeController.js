@@ -54,8 +54,12 @@ function onYouTubeIframeAPIReady() {
 
 	$('.slider-thumnail-video .item');
 
-	$('.slider-thumnail-video .item').each(function () {
+	$('.slider-thumnail-video .item').each(function (index, item) {
+		const urlActive = $('.review-video .youtube-api').attr('data-url');
 		const url = $(this).attr('data-url');
+		if (urlActive == url) {
+			$(item).addClass('active');
+		}
 		const id = getYoutubeID(url);
 		$(this).on('click', function () {
 			$(this).addClass('active');
@@ -64,6 +68,7 @@ function onYouTubeIframeAPIReady() {
 			const title = $(this).find('.text h3').html();
 			const description = $(this).find('.text p.d-n').html();
 			const date = $(this).find('.text .date').html();
+			$('.index-10 .review-video .youtube-api').attr('data-url', url);
 			$('.index-10 .review-video .content h3').html(title);
 			$('.index-10 .review-video .content p').html(description);
 			$('.index-10 .review-video .content .date').html(date);
