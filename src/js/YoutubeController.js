@@ -54,18 +54,9 @@ function onYouTubeIframeAPIReady() {
 
 	$('.slider-thumnail-video .item');
 
-	$('.slider-thumnail-video .item').each(function (index, item) {
-		if (index == 0) {
-			const urlIndex_0 = $(item).attr('data-url');
-			$('.review-video .youtube-api').attr('data-url', urlIndex_0);
-			// INNIT VIDEO HERE !!!
-		}
+	$('.slider-thumnail-video .item').each(function () {
 		const urlActive = $('.review-video .youtube-api').attr('data-url');
 		const url = $(this).attr('data-url');
-		// ACTIVE URL THUMBL == URL REVIEW
-		if (urlActive == url) {
-			$(item).addClass('active');
-		}
 		const id = getYoutubeID(url);
 		$(this).on('click', function () {
 			$(this).addClass('active');

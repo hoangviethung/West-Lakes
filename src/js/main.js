@@ -384,7 +384,6 @@ const sliderThumbnailVideo = () => {
 			},
 		}
 	);
-	sliderThumbnailVieo.on('beforeDestroy', function () {});
 };
 
 const index5Toggle = () => {
