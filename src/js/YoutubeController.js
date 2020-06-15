@@ -51,30 +51,6 @@ function onYouTubeIframeAPIReady() {
 			},
 		});
 	}
-
-	$('.slider-thumnail-video .item');
-
-	$('.slider-thumnail-video .item').each(function () {
-		const urlActive = $('.review-video .youtube-api').attr('data-url');
-		const url = $(this).attr('data-url');
-		const id = getYoutubeID(url);
-		$(this).on('click', function () {
-			$(this).addClass('active');
-			$('.slider-thumnail-video .item').not(this).removeClass('active');
-			player.loadVideoById(id);
-			const title = $(this).find('.text h3').html();
-			const description = $(this).find('.text p.d-n').html();
-			const date = $(this).find('.text .date').html();
-			$('.index-10 .review-video .youtube-api').attr('data-url', url);
-			$('.index-10 .review-video .content h3').html(title);
-			$('.index-10 .review-video .content p').html(description);
-			$('.index-10 .review-video .content .date').html(date);
-		});
-
-		// Get Video Thumbnail
-		// const imageThumbnail = `http://i3.ytimg.com/vi/${id}/hqdefault.jpg`;
-		// $(this).find('.img img').attr('src', imageThumbnail);
-	});
 }
 
 // OFF AUTOUPLAY

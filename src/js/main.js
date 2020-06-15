@@ -1,7 +1,4 @@
-import {
-	getSVGs,
-	Loading
-} from './util/utilities';
+import { getSVGs, Loading } from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
@@ -71,7 +68,8 @@ const toggleMobile = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container', {
+		'.slider-main-index__2 .swiper-container',
+		{
 			speed: 1500,
 			autoplay: {
 				delay: 4000,
@@ -347,7 +345,8 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container', {
+		'.slider-item__index-9 .swiper-container',
+		{
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -369,7 +368,8 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVideo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container', {
+		'.slider-thumnail-video .swiper-container',
+		{
 			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
@@ -380,6 +380,53 @@ const sliderThumbnailVideo = () => {
 				1025: {
 					slidesPerView: 3,
 					spaceBetween: 22,
+				},
+			},
+			on: {
+				init: function () {
+					$('.slider-thumnail-video .swiper-slide').each(function (
+						index
+					) {
+						const urlActive = $('.review-video .youtube-api').attr(
+							'data-url'
+						);
+						$(this).on('click', function () {
+							const url = $(this).find('.item').attr('data-url');
+							const id = getYoutubeID(url);
+							$(this).addClass('active');
+							$('.slider-thumnail-video .swiper-slide')
+								.not(this)
+								.removeClass('active');
+							if (player) {
+								player.loadVideoById(id);
+							}
+							const title = $(this).find('.text h3').html();
+							const description = $(this)
+								.find('.text p.d-n')
+								.html();
+							const date = $(this).find('.text .date').html();
+							$('.index-10 .review-video .youtube-api').attr(
+								'data-url',
+								url
+							);
+							$('.index-10 .review-video .content h3').html(
+								title
+							);
+							$('.index-10 .review-video .content p').html(
+								description
+							);
+							$('.index-10 .review-video .content .date').html(
+								date
+							);
+						});
+
+						// Get Video Thumbnail
+						// const imageThumbnail = `http://i3.ytimg.com/vi/${id}/hqdefault.jpg`;
+						// $(this).find('.img img').attr('src', imageThumbnail);
+					});
+					$('.slider-thumnail-video .swiper-slide')
+						.eq(0)
+						.triggerHandler('click');
 				},
 			},
 		}
@@ -455,8 +502,10 @@ const scrollToSection = () => {
 	$('header [data-scroll-to]').on('click', function (e) {
 		e.preventDefault();
 		const scrollToNumber = $(this).attr('data-scroll-to');
-		$('html,body').animate({
-				scrollTop: $(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+		$('html,body').animate(
+			{
+				scrollTop:
+					$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
 					$('header').height(),
 			},
 			1200
@@ -486,9 +535,11 @@ const scrollToSection = () => {
 								touch: false,
 								afterClose: function () {
 									if (scrollToContactForm) {
-										$('html,body').animate({
-												scrollTop: $('.index-11').offset()
-													.top -
+										$('html,body').animate(
+											{
+												scrollTop:
+													$('.index-11').offset()
+														.top -
 													$('header').height(),
 											},
 											1200
@@ -500,7 +551,8 @@ const scrollToSection = () => {
 						isShowed = true;
 					}
 				}
-			} else {}
+			} else {
+			}
 		});
 	};
 	activeSectionWhenScroll();
