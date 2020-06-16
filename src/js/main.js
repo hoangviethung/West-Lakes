@@ -721,14 +721,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	showSearch();
 	showBackToTop();
 	sliderMenu();
-	console.log(321);
 	
 });
 
 
 window.addEventListener('load', () => {
-	console.log(123);
-	
 	imageMapResizer();
 	imageMapEffect();
 });
