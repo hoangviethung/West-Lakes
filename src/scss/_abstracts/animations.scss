@@ -91,16 +91,19 @@
 		stroke: rgba(#dcc375, 0.05);
 		stroke-width: 0px;
 	}
+
 	100% {
 		stroke: rgba(#dcc375, 0);
 		stroke-width: 800px;
 	}
 }
+
 @keyframes Stroke2 {
 	0% {
 		stroke: rgba(#dcc375, 0.15);
 		stroke-width: 0px;
 	}
+
 	100% {
 		stroke: rgba(#dcc375, 0);
 		stroke-width: 800px;
@@ -111,9 +114,11 @@
 	0% {
 		opacity: 0.5;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		opacity: 0.5;
 	}
@@ -126,5 +131,19 @@
 
 	to {
 		background-position: 0 0;
+	}
+}
+
+@keyframes chophopmau {
+	0% {
+		opacity: .5;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: .5;
 	}
 }

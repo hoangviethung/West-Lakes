@@ -83,6 +83,7 @@
 						width: 40px;
 						height: 25px;
 						background: map-get($mau, main);
+						animation: chophopmau 1s linear infinite;
 					}
 
 					&[data-bg-item='yellow'] {
