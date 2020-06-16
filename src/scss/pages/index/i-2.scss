@@ -96,18 +96,7 @@
 			font-size: 18px;
 			color: #ffffff;
 			text-align: justify;
-			width: fit-content;
-		}
-
-		&:after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 160px;
-			height: 1px;
-			background: #ffffff;
+			text-align-last: center;
 		}
 	}
 
@@ -118,7 +107,7 @@
 			color: #ffffff;
 			font-size: 18px;
 			text-align: justify;
-			width: fit-content;
+			text-align-last: center;
 		}
 
 		p+p {
