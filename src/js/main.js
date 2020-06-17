@@ -692,8 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
 	getSVGs();
 	Loading();
-	// Image Map Draw With Canvas
-	ImageMapCanvas();
 	// WOW
 	new WOW().init();
 	// SCROLL TO SECTION
@@ -721,15 +719,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	showSearch();
 	showBackToTop();
 	sliderMenu();
-	
 });
 
-
-window.addEventListener('load', () => {
+const imgSrc = document
+	.querySelector('.imgMapCanvas .map-image img')
+	.getAttribute('src');
+const img = new Image();
+img.src = imgSrc;
+img.addEventListener('load', () => {
+	// Image Map Draw With Canvas
 	imageMapResizer();
+	ImageMapCanvas();
 	imageMapEffect();
 });
-
 // CHECK FORM VALID
 
 // if ($("form").valid() === true) {}
