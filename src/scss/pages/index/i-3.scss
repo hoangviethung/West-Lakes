@@ -177,11 +177,11 @@
 
 			.desc {
 				h3 {
-					font-size: 28px;
+					font-size: 22px;
 				}
 
 				p {
-					font-size: 18px;
+					font-size: 16px;
 				}
 			}
 		}
@@ -191,12 +191,6 @@
 		.block-1 {
 			.block-content {
 				max-width: 50%;
-
-				.desc {
-					h3 {
-						font-size: 24px;
-					}
-				}
 			}
 		}
 	}
@@ -282,6 +276,7 @@
 					h3 {
 						font-size: 14px;
 						text-align: justify;
+						margin-bottom: 10px;
 					}
 
 					p {
