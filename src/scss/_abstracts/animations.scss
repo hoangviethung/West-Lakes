@@ -1,4 +1,5 @@
 // BACKGROUND
+@import 'variables';
 
 @keyframes AnimationBackGroundGradient {
 	0% {
@@ -136,14 +137,14 @@
 
 @keyframes chophopmau {
 	0% {
-		opacity: .5;
+		background: rgba(34, 100, 57, 0.3);
 	}
 
 	50% {
-		opacity: 1;
+		background: rgba(220, 194, 117, 0.3);
 	}
 
 	100% {
-		opacity: .5;
+		background: rgba(34, 100, 57, 0.3);
 	}
 }
