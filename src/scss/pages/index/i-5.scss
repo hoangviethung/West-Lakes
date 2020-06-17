@@ -50,6 +50,24 @@
 					padding: 5px;
 					border-radius: 3px;
 
+					&:nth-child(1) {
+						&:after {
+							animation-delay: .1s;
+						}
+					}
+
+					&:nth-child(2) {
+						&:after {
+							animation-delay: .5s;
+						}
+					}
+
+					&:nth-child(3) {
+						&:after {
+							animation-delay: .9s;
+						}
+					}
+
 					h5 {
 						text-transform: uppercase;
 						font-weight: 400;
