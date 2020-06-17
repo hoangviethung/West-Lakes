@@ -1,4 +1,7 @@
-import { getSVGs, Loading } from './util/utilities';
+import {
+	getSVGs,
+	Loading
+} from './util/utilities';
 import Cookie from './lib/Cookie';
 import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
@@ -68,8 +71,7 @@ const toggleMobile = () => {
 
 const sliderIndex__2 = () => {
 	const sliderIndex__2 = new Swiper(
-		'.slider-main-index__2 .swiper-container',
-		{
+		'.slider-main-index__2 .swiper-container', {
 			speed: 1500,
 			autoplay: {
 				delay: 4000,
@@ -348,8 +350,7 @@ const index4Slider = () => {
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
-		'.slider-item__index-9 .swiper-container',
-		{
+		'.slider-item__index-9 .swiper-container', {
 			slidesPerView: 1,
 			spaceBetween: 10,
 			navigation: {
@@ -371,8 +372,7 @@ const sliderIndex__9 = () => {
 
 const sliderThumbnailVideo = () => {
 	const sliderThumbnailVieo = new Swiper(
-		'.slider-thumnail-video .swiper-container',
-		{
+		'.slider-thumnail-video .swiper-container', {
 			slidesPerView: 2,
 			spaceBetween: 10,
 			navigation: {
@@ -504,13 +504,12 @@ const scrollToSection = () => {
 	let isShowed = false;
 	const isIndex = document.querySelector('.index-page');
 	if (isIndex != null) {
+
 		$('[data-scroll-to]').on('click', function (e) {
 			e.preventDefault();
 			const scrollToNumber = $(this).attr('data-scroll-to');
-			$('html,body').animate(
-				{
-					scrollTop:
-						$(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
+			$('html,body').animate({
+					scrollTop: $(`[data-scroll-id="${scrollToNumber}"]`).offset().top -
 						$('header').height(),
 				},
 				1200
@@ -519,62 +518,73 @@ const scrollToSection = () => {
 			$('#overlay').removeClass('active');
 			$('body').removeClass('disabled');
 		});
-	}
-
-	const activeSectionWhenScroll = () => {
-		$('[data-scroll-id]').each(function () {
-			if (
-				this.getBoundingClientRect().top < 2 * $('header').height() &&
-				this.getBoundingClientRect().top > 0
-			) {
-				const toId = $(this).attr('data-scroll-id');
-				$(`header [data-scroll-to]`).parent().removeClass('active');
-				$(`header [data-scroll-to="${toId}"]`)
-					.parent()
-					.addClass('active');
-				if (toId == '4') {
-					if (isShowed == false) {
-						$.fancybox.open({
-							src: '#index-6-popup',
-							type: 'inline',
-							opts: {
-								touch: false,
-								afterClose: function () {
-									if (scrollToContactForm) {
-										$('html,body').animate(
-											{
-												scrollTop:
-													$('.index-11').offset()
+		const activeSectionWhenScroll = () => {
+			$('[data-scroll-id]').each(function () {
+				if (
+					this.getBoundingClientRect().top < 2 * $('header').height() &&
+					this.getBoundingClientRect().top > 0
+				) {
+					const toId = $(this).attr('data-scroll-id');
+					$(`header [data-scroll-to]`).parent().removeClass('active');
+					$(`header [data-scroll-to="${toId}"]`)
+						.parent()
+						.addClass('active');
+					if (toId == '4') {
+						if (isShowed == false) {
+							$.fancybox.open({
+								src: '#index-6-popup',
+								type: 'inline',
+								opts: {
+									touch: false,
+									afterClose: function () {
+										if (scrollToContactForm) {
+											$('html,body').animate({
+													scrollTop: $('.index-11').offset()
 														.top -
-													$('header').height(),
-											},
-											1200
-										);
-									}
+														$('header').height(),
+												},
+												1200
+											);
+										}
+									},
 								},
-							},
-						});
-						isShowed = true;
+							});
+							isShowed = true;
+						}
 					}
-				}
-			} else {
-			}
-		});
-	};
+				} else {}
+			});
+		};
 
-	activeSectionWhenScroll();
-	$(window).on('scroll', function () {
 		activeSectionWhenScroll();
-	});
+		$(window).on('scroll', function () {
+			activeSectionWhenScroll();
+		});
 
-	$('body').on(
-		'click',
-		'#index-6-popup.fancybox-content .btn-close',
-		function () {
-			scrollToContactForm = true;
-			$.fancybox.close(true);
+
+		const quanque = localStorage.getItem('scrollToNumber')
+		if (quanque != null) {
+			localStorage.removeItem('scrollToNumber');
+			$(`[data-scroll-to="${quanque}"]`).triggerHandler('click')
 		}
-	);
+
+		$('body').on(
+			'click',
+			'#index-6-popup.fancybox-content .btn-close',
+			function () {
+				scrollToContactForm = true;
+				$.fancybox.close(true);
+			}
+		);
+	} else {
+		$('[data-scroll-to]').on('click', function (e) {
+			e.preventDefault();
+			const scrollToNumber = $(this).attr('data-scroll-to');
+			const href = $(this).attr('href');
+			localStorage.setItem('scrollToNumber', scrollToNumber);
+			window.location.href = href
+		})
+	}
 };
 
 const addClassToBody = () => {
@@ -724,17 +734,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	sliderMenu();
 });
 
-const imgSrc = document
-	.querySelector('.imgMapCanvas .map-image img')
-	.getAttribute('src');
-const img = new Image();
-img.src = imgSrc;
-img.addEventListener('load', () => {
-	// Image Map Draw With Canvas
-	imageMapResizer();
-	ImageMapCanvas();
-	imageMapEffect();
-});
+const imgDOM = document.querySelector('.imgMapCanvas .map-image img')
+
+if (imgDOM) {
+	const imgSrc = imgDOM.getAttribute('src');
+	const img = new Image();
+	img.src = imgSrc;
+	img.addEventListener('load', () => {
+		// Image Map Draw With Canvas
+		imageMapResizer();
+		ImageMapCanvas();
+		imageMapEffect();
+	});
+}
+
 // CHECK FORM VALID
 
 // if ($("form").valid() === true) {}
