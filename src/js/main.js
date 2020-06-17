@@ -209,6 +209,7 @@ const imageMapEffect = () => {
 		}
 	};
 	generatePosition();
+
 	if (window.innerWidth > 1024) {
 		effect = setInterval(() => {
 			$(`.dialog`).removeClass('show');
@@ -243,13 +244,15 @@ const imageMapEffect = () => {
 		})
 		.on('click', function (e) {
 			e.preventDefault();
-			autoplay = false;
-			clearInterval(effect);
-			const targetNumber = $(this).attr('area-target');
-			$(`.map-index-4-slider-${targetNumber}`).addClass('active');
-			$('.index-4 .map-index-4').addClass('pull-right');
-			$('.map-index-4-slider-wrapper').addClass('pull-right');
-			swiper = index4Slider();
+			if (window.innerWidth >= 1025) {
+				autoplay = false;
+				clearInterval(effect);
+				const targetNumber = $(this).attr('area-target');
+				$(`.map-index-4-slider-${targetNumber}`).addClass('active');
+				$('.index-4 .map-index-4').addClass('pull-right');
+				$('.map-index-4-slider-wrapper').addClass('pull-right');
+				swiper = index4Slider();
+			}
 		});
 	$('.map-index-4-slider-controls .map-index-4-slider-close').on(
 		'click',
