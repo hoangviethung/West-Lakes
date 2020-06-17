@@ -501,7 +501,7 @@ const scrollToSection = () => {
 	let isShowed = false;
 	const isIndex = document.querySelector('.index-page');
 	if (isIndex != null) {
-		$('header [data-scroll-to]').on('click', function (e) {
+		$('[data-scroll-to]').on('click', function (e) {
 			e.preventDefault();
 			const scrollToNumber = $(this).attr('data-scroll-to');
 			$('html,body').animate(
