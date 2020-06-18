@@ -1,0 +1,20 @@
+﻿@model List<MainProject.Bussiness.Models.SitemapModel>
+<?xml version="1.0" encoding="UTF-8" ?>
+@{
+    string host = Request.Url.Scheme + "://" + Request.Url.Authority;
+}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+    @foreach (var item in Model)
+    {
+        <url>
+            <loc>@host@item.Link</loc>
+            <lastmod>@item.Created.ToString("yyyy-MM-dd")</lastmod>
+            <changefreq>@item.Changefreg</changefreq>
+            <priority>@item.Priority</priority>
+        </url>
+    }
+</urlset>

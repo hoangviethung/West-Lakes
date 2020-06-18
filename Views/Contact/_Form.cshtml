@@ -1,0 +1,17 @@
+﻿@model MainProject.Bussiness.Models.ContactManageModel
+
+@using (Html.BeginForm())
+{
+     <div class="input-group">
+        @Html.TextBoxFor(d => d.Name, new { @class="form-control", placeholder="Name" })
+    </div>
+    <div class="input-group">
+        @Html.TextBoxFor(d => d.Email, new { @class="form-control", placeholder="Email" })
+    </div>
+    <div class="input-group">
+        @Html.TextBoxFor(d => d.Phone, new { @class="form-control", placeholder="Phone" })
+    </div>
+    <div class="submit">
+        <button data-url="/dang-ky">@Html.GetResource(ResourceKeyCollection.Send)</button>
+    </div>
+}

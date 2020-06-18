@@ -1,0 +1,15 @@
+﻿@using MainProject.Core.Enums
+@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "Error";
+}
+
+<hgroup class="title" style="padding: 5% 0;text-align:center;">
+    <h1 class="error" style="font-family: MYRIADPRO-BOLD;margin-bottom:0.4em;color:#03375e;font-size:30px;text-transform:uppercase;">
+        @Html.GetResource(ResourceKeyCollection.Error_Title)
+    </h1>
+    <p style="font-family: MYRIADPRO-BOLD;font-size:200px;color:#03375e;">404</p>
+    <h2 class="error" style="font-family: MYRIADPRO-LIGHT;margin-top:0.4em;color:#03375e;font-size:20px;">
+        @Html.GetResource(ResourceKeyCollection.Error_Content)
+    </h2>
+</hgroup>

@@ -1,0 +1,37 @@
+﻿@model MainProject.Bussiness.Models.HeaderViewModel
+
+<div id="loading-container">
+    <div class="loading-wrapper"></div>
+</div>
+<header>
+    <div class="container h-100">
+        <a class="logo" href="/">
+            <img class="lazyload blur-up" data-src="/Content/resources/assets/logo.png" alt="WEST-LAKES">
+            <img class="icon-logo lazyload blur-up" data-src="/Content/resources/assets/icon-logo-new.png" alt="WEST-LAKES">
+        </a>
+        <div class="row no-gutters ai-c h-100">
+            <div class="slider-menu">
+                <div class="swiper-container">
+                     @Html.Raw(Model.MainMenu)
+                </div>
+            </div>
+            <div class="language">
+                <ul>
+                    <li class="item @(CultureHelper.GetCurrentLanguage().Equals("en") ? "active" : "")" data-language="en" disabled-click><a>en</a></li>
+                    <li class="item @(CultureHelper.GetCurrentLanguage().Equals("vi") ? "active" : "")" data-language="vi"><a>vn</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <div class="icon"><img class="lazyload blur-up" data-src="/Content/resources/assets/icons/search.png" alt="SEARCH"></div>
+                <div class="block-form">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" type="search" placeholder="Tìm kiếm">
+                            <button><img class="lazyload blur-up" data-src="/Content/resources/assets/icons/search-white.png" alt="SEARCH"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

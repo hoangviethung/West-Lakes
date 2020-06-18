@@ -1,0 +1,38 @@
+﻿@model MainProject.Bussiness.Models.NewsDetailViewModel
+
+<main>
+    @Html.Partial("_Breadcrumb")
+    <section class="news-detail">
+        <div class="container" max-width="1360px">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="content">
+                        <h1>@Model.Article.Title</h1>
+                        <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">@Model.Article.Order.ToString("dd/MM/yy")</div>
+                        <div class="desc">
+                            @Html.Raw(Model.Article.Content)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="title-related-news">
+                        <h4>@Html.GetResource(ResourceKeyCollection.Progress_Related)</h4>
+                    </div>
+                    <div class="list-related-news">
+                        @foreach (var item in Model.Relateds)
+                        {
+                            <a class="item" href="@item.GetUrl()" isVideo>
+                                <div class="img"><img class="lazyload blur-up ofcv" data-src="@item.ImageDefault" alt="@item.SeName"></div>
+                                <div class="desc lcl lcl-2">@item.Title</div>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="index-11 section-in-news-detail" data-bg="/Content/resources/assets/images/background/last-index.png">
+        @Html.Action("Index", "Contact")
+    </section>
+    <div class="detail-page" id="js-page-verify" hidden></div>
+</main>

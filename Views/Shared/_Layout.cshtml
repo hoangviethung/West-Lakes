@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="@CultureHelper.GetCurrentLanguage()">
+<head>
+    <title>@(ViewBag.MetaTitle ?? ViewBag.Title)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- SEO -->
+    <meta name="title" content="@Html.Raw(ViewBag.MetaTitle)" />
+    <meta name="keywords" content="@Html.Raw(ViewBag.MetaKeywords)">
+    <meta name="description" content="@Html.Raw(ViewBag.MetaDescription)">
+    <link rel="canonical" href="@ViewBag.Canonical">
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="@ViewBag.Type">
+    <meta property="og:title" content="@Html.Raw(ViewBag.MetaTitle)">
+    <meta property="og:description" content="@Html.Raw(ViewBag.MetaDescription)">
+    <meta property="og:url" content="@ViewBag.Canonical">
+    <meta property="og:image" content="@Html.Raw(ViewBag.MetaImage)">
+
+    <!-- Put css tags here! -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/resources/css/core.min.css">
+    <link rel="stylesheet" href="/Content/resources/css/main.min.css">
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    @Html.Action("ShowHeader", "Home")
+
+    @RenderBody()
+
+    @Html.Action("ShowFooter", "Home")
+
+    <!-- Put css js here! -->
+    <div id="overlay"></div>
+    <div id="back-to-top"><img src="/Content/resources/assets/icons/back-top.png" alt=""></div>
+    <script type="text/javascript" src="/Content/resources/js/core.min.js"></script>
+    <script type="text/javascript" src="/Content/resources/js/main.min.js"></script>
+    <script src="/Content/resources/js/YoutubeController.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

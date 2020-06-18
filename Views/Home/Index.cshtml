@@ -1,0 +1,216 @@
+﻿@using MainProject.Infrastructure.Helpers
+@model MainProject.Bussiness.Models.HomeViewModel
+
+<main>
+    <section class="index-1" full-screen>
+        <video id="player" playsinline controls autoplay muted loop>
+            <source src="@Model.Banner.Path" type="video/mp4">
+        </video>
+    </section>
+    <section class="index-2" data-scroll-id="1" full-screen>
+        <div class="slider-main-index__2 w-100 h-100">
+            <div class="swiper-container w-100 h-100">
+                <div class="swiper-wrapper w-100 h-100">
+                    @Html.Raw(Model.Section1.Content)
+                </div>
+            </div>
+            <div class="list-btn-slider" has-pause>
+                <div class="item swiper-button-prev"></div>
+                <div class="item swiper-button-pause"></div>
+                <div class="item swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+    <section class="index-3" data-scroll-id="2" data-bg="/Content/resources/assets/images/background/index-3.png">
+        @Html.Raw(Model.Section2.Content)
+    </section>
+    <section class="index-4">
+        @Html.Raw(Model.Section3.Content)
+    </section>
+    <section class="index-5" data-scroll-id="3" data-bg="/Content/resources/assets/images/background/index-5.png">
+        @Html.Raw(Model.Section4.Content)
+    </section>
+    <section class="index-6" data-scroll-id="4" data-bg="/Content/resources/assets/images/background/index-6.png">
+        <div class="block-1">
+            <div class="container">
+                <div class="block-content ta-c mx-at" max-width="60%">
+                    <div class="content">
+                        <div class="block-title mx-at">
+                            <h2>@Model.Section5.Title</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @Html.Raw(Model.Section5.Content)
+    </section>
+    <section class="index-7" data-bg="/Content/resources/assets/images/background/index-7.png">
+        <div class="container" max-width="1360px">
+            <div class="block-content mx-at">
+                <h2>@Model.Section6.Title</h2>
+                @Html.Raw(Model.Section6.Content)
+            </div>
+        </div>
+    </section>
+    <section class="index-8" data-scroll-id="5" data-bg="/Content/resources/assets/images/background/index-8.png">
+        <div class="container" max-width="1360px">
+            <div class="block-content mx-at">
+                @Html.Raw(Model.Section7.Content)
+            </div>
+        </div>
+    </section>
+    <section class="last-index" data-bg="/Content/resources/assets/images/background/last-index.png">
+        <section class="index-9" data-scroll-id="6">
+            <div class="container">
+                <div class="block-content mx-at" max-width="50%">
+                    <div class="content ta-c">
+                        <div class="block-title mx-at" max-width="600px">
+                            <h2 class="wow fadeInLeft" data-wow-delay=".3s">@Html.GetResource(ResourceKeyCollection.Progress)</h2>
+                        </div>
+                        <div class="sub-title">
+                            <p class="ta-c">@Html.GetResource(ResourceKeyCollection.Progress_Description)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item mx-at" max-width="1360px">
+                    <div class="slider-item__index-9">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in Model.News)
+                                {
+                                    <div class="swiper-slide">
+                                        <a class="item" href="@item.GetUrl()">
+                                            <div class="img ov-h">
+                                                <img class="ofcv" src="@item.ImageDefault" alt="@item.SeName">
+                                                <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                                    @item.Order.ToString("dd/MM/yy")
+                                                </div>
+                                            </div>
+                                            <div class="text" data-bg="/Content/resources/assets/images/background/item_index-9.png">
+                                                <h3 class="lcl lcl-1">@item.Title</h3>
+                                                <p class="lcl lcl-2">@item.Description</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="list-btn-slider">
+                            <div class="item swiper-button-prev"></div>
+                            <div class="item swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="index-10" data-scroll-id="7">
+            <div class="container" max-width="1360px">
+                <div class="block-1 mx-at">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="block-content mx-at">
+                                <div class="content ta-c">
+                                    <div class="block-title mx-at wow fadeInLeft" data-wow-delay=".2s">
+                                        <h2 style="text-transform:uppercase">@Model.Section8.Title</h2>
+                                    </div>
+                                    <div class="desc">
+                                        @Html.Raw(Model.Section8.Content)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            @{
+                                var videos = JsonHelper.Deserialize<List<MainProject.Core.Image>>(Model.Section8.Image)
+                                                            .OrderByDescending(x => x.Order).ToList();
+                            }
+                            @if (videos.Count > 0)
+                            {
+                                <div class="review-video">
+                                    <div class="block-video">
+                                        <div class="youtube-api" data-thumbnail="/Content/resources/assets/images/items/index-9__1.png" data-url="@videos[0].Path"></div>
+                                    </div>
+                                    <div class="content" data-bg="/Content/resources/assets/images/background/text-review-video.png">
+                                        <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                            @videos[0].Order.ToString("dd/MM/yy")
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="block-2">
+                    <div class="slider-thumnail-video">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in videos)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="item" data-url="@item.Path">
+                                            <div class="img ov-h"><img class="ofcv" src="@item.ImageDefault" alt=""></div>
+                                            <div class="text" data-bg="/Content/resources/assets/images/background/item_index-9.png">
+                                                <h3 class="lcl lcl-3">@item.Name</h3>
+                                                <p class="d-n">@item.Description</p>
+                                                <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                                    @item.Order.ToString("dd/MM/yy")
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="list-btn-slider">
+                            <div class="item swiper-button-prev"></div>
+                            <div class="item swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="index-11" data-scroll-id="8">
+            @Html.Action("Index", "Contact")
+        </section>
+    </section>
+    <div class="index-page" id="js-page-verify" hidden></div>
+</main>
+<div class="fixed-menu">
+    <div class="block-item">
+        <div class="item css-selector">
+		<a href="https://demo.egal.vn/demo/westlakes/" target="_blank">
+            <div class="icon"><img class="svg" data-src="/Content/resources/assets/icons/view-360.svg" alt="VIEW-360"></div>
+            <div class="text-hover">
+                <h5>VIEW 360<sup>o</sup></h5>
+				</a>
+            </div>
+        </div>
+    </div>
+    <div class="block-item" type="text">
+        <div class="item" data-scroll-to="8">
+            <div class="text">@Html.GetResource(ResourceKeyCollection.Menu_Contact)</div>
+            <div class="icon"><img class="svg" data-src="/Content/resources/assets/icons/quotation.svg" alt="PHONE"></div>
+        </div>
+    </div>
+    <div class="block-item">
+        <div class="item css-selector">
+			<a href="tel:0938188329">
+            <div class="icon"><img class="svg" data-src="/Content/resources/assets/icons/phone.svg" alt="PHONE"></div>
+            <div class="text-hover">
+                <h5>@Html.GetResource(ResourceKeyCollection.Hotline)</h5>
+            </div>
+			</a>
+        </div>
+    </div>
+    <div class="block-item">
+	
+        <div class="item css-selector">
+		<a href="./assets/download/chinh-sach-thanh-toan.pdf" download>
+            <div class="icon"><img class="svg" data-src="/Content/resources/assets/icons/download.svg" alt="DOWNLOAD"></div>
+            <div class="text-hover">
+                <h5>@Html.GetResource(ResourceKeyCollection.Download_Policy)</h5>
+            </div>
+			<a>
+        </div>
+    </div>
+</div>

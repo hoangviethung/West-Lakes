@@ -1,0 +1,33 @@
+﻿@model MainProject.Bussiness.Models.ContactViewModel
+
+    <div class="container" max-width="1360px">
+        <div class="block-title mx-at ta-c" max-width="75%" no-after>
+            <h2>@Html.GetResource(ResourceKeyCollection.Contact_Title)</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-info">
+                    <div class="logo-form"><img src="/Content/resources/assets/logo-forms.png" alt=""></div>
+                    <div class="list-info">
+                        <div class="item">Add: @Model.Branch.Address.</div>
+                        <div class="item">Phone: @Model.Branch.Phone</div>
+                        <div class="item">Email: @Model.Branch.Email</div>
+						<div class="item">
+						Facebook:<a class="lcl lcl-1" target="_blank" href="https://www.facebook.com/trananhgroupwestlakesgolfvillas">https://www.facebook.com/trananhgroupwestlakesgolfvillas</a></div>
+                    </div>
+                </div>
+                <div class="block-map">
+                    <iframe src="@Model.Branch.AddressMap" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-form">
+                    <div class="title">@Html.GetResource(ResourceKeyCollection.Contact_Form_Title)</div>
+                    <div class="desc">@Html.GetResource(ResourceKeyCollection.Contact_Form_Description)</div>
+                </div>
+                <div class="block-form">
+                    @Html.Partial("_Form", new MainProject.Bussiness.Models.ContactManageModel())
+                </div>
+            </div>
+        </div>
+    </div>

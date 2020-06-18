@@ -1,0 +1,13 @@
+﻿@{
+    Layout = null;
+    bool isShow = ViewBag.ShowBreadCrumb ?? true;
+}
+
+@if (isShow)
+{
+    <div class="wow fadeInDown" id="breadcrumb-wrapper" data-wow-delay=".2s">
+        <div class="container" max-width="1360px">
+            @Html.GenerateBreadCrumb(Request.RawUrl)
+        </div>
+    </div>
+}
