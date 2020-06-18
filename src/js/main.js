@@ -315,6 +315,7 @@ const sliderMenu = () => {
 			},
 		},
 	});
+	return sliderMenu
 };
 
 const index4Slider = () => {
@@ -528,6 +529,8 @@ const scrollToSection = () => {
 					$(`header [data-scroll-to="${toId}"]`)
 						.parent()
 						.addClass('active');
+						sliderMenu().slideTo(Number(toId)-1)
+						console.log(toId);
 					if (toId == '4') {
 						if (isShowed == false) {
 							$.fancybox.open({
