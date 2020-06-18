@@ -560,7 +560,6 @@ const scrollToSection = () => {
 			activeSectionWhenScroll();
 		});
 
-
 		const quanque = localStorage.getItem('scrollToNumber')
 		if (quanque != null) {
 			localStorage.removeItem('scrollToNumber');
