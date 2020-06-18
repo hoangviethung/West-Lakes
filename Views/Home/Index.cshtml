@@ -186,15 +186,15 @@
             </div>
         </div>
     </div>
-    <div class="block-item" type="text">
-        <div class="item" data-scroll-to="8">
+    <div class="block-item" type="text" data-scroll-to="8">
+        <div class="item">
             <div class="text">@Html.GetResource(ResourceKeyCollection.Menu_Contact)</div>
             <div class="icon"><img class="blur-up lazyload" src="/Content/resources/assets/icons/quotation.svg" alt="PHONE"></div>
         </div>
     </div>
     <div class="block-item">
         <div class="item css-selector">
-			<a href="tel:0938188329">
+			<a href="tel:@Html.GetResource(ResourceKeyCollection.Hotline)">
             <div class="icon"><img class="blur-up lazyload" src="/Content/resources/assets/icons/phone.svg" alt="PHONE"></div>
             <div class="text-hover">
                 <h5>@Html.GetResource(ResourceKeyCollection.Hotline)</h5>
