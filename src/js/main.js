@@ -3,7 +3,6 @@ import {
 	Loading
 } from './util/utilities';
 import Cookie from './lib/Cookie';
-import Swiper from 'swiper';
 import Mapping from './lib/MoveElement';
 import CommonController from './lib/CommonController';
 
