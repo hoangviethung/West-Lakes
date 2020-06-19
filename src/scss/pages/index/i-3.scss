@@ -114,6 +114,7 @@
 					position: relative;
 					font-size: 20px;
 					padding-left: 20px;
+					text-align: justify;
 
 					&:after {
 						content: '';
@@ -248,6 +249,8 @@
 			}
 
 			.list-content {
+				margin: 0 100px;
+
 				ul {
 					li {
 						font-size: 16px;
@@ -309,6 +312,8 @@
 			}
 
 			.list-content {
+				margin: 0;
+
 				ul {
 					-ms-flex: 0 0 100%;
 					-webkit-box-flex: 0;

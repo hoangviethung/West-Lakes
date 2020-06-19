@@ -2,7 +2,7 @@
 	position: relative;
 
 	@media (min-width: 1439.98px) {
-		height: 85vh;	
+		height: 85vh;
 		width: 100%;
 		overflow: hidden;
 	}
@@ -136,10 +136,67 @@
 				display: block;
 				margin-top: 10px;
 
+				&:nth-child(1) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 0.1s;
+						}
+					}
+				}
+
+				&:nth-child(2) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 0.3s;
+						}
+					}
+				}
+
+				&:nth-child(3) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 0.5s;
+						}
+					}
+				}
+
+				&:nth-child(4) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 0.8s;
+						}
+					}
+				}
+
+				&:nth-child(5) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 1.1s;
+						}
+					}
+				}
+
+				&:nth-child(6) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 1.3s;
+						}
+					}
+				}
+
+				&:nth-child(7) {
+					.dialog-wrapper {
+						&:after {
+							animation-delay: 1.6s;
+						}
+					}
+				}
+
 				.dialog-wrapper {
 					width: 100%;
 					background: map-get($mau, main);
 					border: 2px solid map-get($mau, main-1);
+					overflow: hidden;
 
 					h2 {
 						white-space: normal;
@@ -148,6 +205,16 @@
 
 					&:before {
 						content: none;
+					}
+
+					&:after {
+						content: '';
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						animation: chophopmau 2s ease-in-out infinite;
 					}
 				}
 			}
