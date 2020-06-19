@@ -1,6 +1,12 @@
 .index-9 {
 	padding-top: 84px;
 
+	@media (min-width: 1599.98px) {
+		.list-item {
+			max-width: 1360px;
+		}
+	}
+
 	@media (max-width: 1024.98px) {
 		padding-top: 50px;
 	}

@@ -331,8 +331,8 @@ const index4Slider = () => {
 		loop: true,
 		speed: 1200,
 		navigation: {
-			prevEl: '.map-index-4-slider-controls .map-index-4-slider-prev',
-			nextEl: '.map-index-4-slider-controls .map-index-4-slider-next',
+			prevEl: '.map-index-4-slider-prev-mobile',
+			nextEl: '.map-index-4-slider-next-mobile',
 		},
 		breakpoints: {
 			576: {
@@ -344,6 +344,12 @@ const index4Slider = () => {
 			1024: {
 				slidesPerView: 1,
 			},
+			1025: {
+				navigation: {
+					prevEl: '.map-index-4-slider-controls .map-index-4-slider-prev',
+					nextEl: '.map-index-4-slider-controls .map-index-4-slider-next',
+				},
+			}
 		},
 	});
 };
@@ -465,6 +471,7 @@ const index5Toggle = () => {
 			$('.matbang-slider').removeClass('active');
 		}, 500);
 	});
+
 	if (window.innerWidth < 1025) {
 		$('[data-target="matbang-1"]').triggerHandler('click');
 	}
@@ -483,8 +490,16 @@ const index5Slider = (selector) => {
 		loop: true,
 		speed: 1200,
 		navigation: {
-			prevEl: '.index-5-aside .map-index-4-slider-prev',
-			nextEl: '.index-5-aside .map-index-4-slider-next',
+			prevEl: '.map-index-4-slider-prev-mobile',
+			nextEl: '.map-index-4-slider-next-mobile',
+		},
+		breakpoints: {
+			1025: {
+				navigation: {
+					prevEl: '.index-5-aside .map-index-4-slider-prev',
+					nextEl: '.index-5-aside .map-index-4-slider-next',
+				},
+			}
 		},
 	});
 };
@@ -529,7 +544,7 @@ const scrollToSection = () => {
 					$(`header [data-scroll-to="${toId}"]`)
 						.parent()
 						.addClass('active');
-						sliderMenu().slideTo(Number(toId)-1)
+					sliderMenu().slideTo(Number(toId) - 1)
 					if (toId == '4') {
 						if (isShowed == false) {
 							$.fancybox.open({

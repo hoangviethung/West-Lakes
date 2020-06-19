@@ -3,6 +3,12 @@
 	align-items: center;
 	min-height: 482px;
 
+	@media (min-width: 1599.98px) {
+		.container {
+			max-width: 1360px;
+		}
+	}
+
 	.conatiner {
 		padding: 0;
 	}

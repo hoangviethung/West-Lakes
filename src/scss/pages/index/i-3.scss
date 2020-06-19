@@ -1,6 +1,14 @@
 .index-3 {
 	position: relative;
 
+	@media (min-width: 1599.98px) {
+		.block-2 {
+			.container {
+				max-width: 1360px;
+			}
+		}
+	}
+
 	.block-1 {
 		display: flex;
 		align-items: center;
