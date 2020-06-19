@@ -1,5 +1,5 @@
 .fixed-menu
-	.block-item
+	.block-item(onclick="gtag('event', <click>, {'event_category': <view360>,'event_label': <01>, 'value': <0>});")
 		a(href="https://demo.egal.vn/demo/westlakes/" target="_blank")
 			.item.css-selector
 				.icon
@@ -7,12 +7,12 @@
 				.text-hover
 					h5 VIEW 360
 						sup o
-	.block-item(type="text")
+	.block-item(type="text" onclick="gtag('event', <click>, {'event_category': <nhan-bao-gia>,'event_label': <nhanbaogia>,'value': <0>});")
 		.item(data-scroll-to="8")
 			.text NHẬN BÁO GIÁ
 			.icon
 				img(src="./assets/icons/quotation.svg", alt="PHONE")
-	.block-item
+	.block-item(onclick="gtag('event', <click>, {'event_category': <hotline>,event_label': <goihotline>,'value': <0>});")
 		.item.css-selector
 			a(href="tel:0938188329")
 				.icon

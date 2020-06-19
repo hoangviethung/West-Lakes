@@ -8,6 +8,16 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="./css/core.min.css">
 		<link rel="stylesheet" href="./css/main.min.css">
+		<script>
+			// Dán mã này trong <head> của trang ở vị trí cao nhất có thể:
+			// <!-- Google Tag Manager -->
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-TR6C85F');
+			// <!-- End Google Tag Manager -->
+		</script>
 	</head>
 	<body>
 		<div id="loading-container">
@@ -160,5 +170,38 @@
 		<script type="text/javascript" src="./js/core.min.js"></script>
 		<script type="text/javascript" src="./js/main.min.js"></script>
 		<script src="./js/YoutubeController.min.js"></script>
+		<script>
+			// Ngoài ra, hãy dán mã này ngay sau thẻ mở <body>:
+			//- <!-- Google Tag Manager (noscript) -->
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR6C85F"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			//- <!-- End Google Tag Manager (noscript) -->
+		</script>
+		<script>
+			//- Number 1
+			gtag('event', <click>, {
+			'event_category': <hotline>,
+			'event_label': <goihotline>,
+			'value': <0>
+			});
+			//- Number 2
+			gtag('event', <click>, {
+			'event_category': <view360>,
+			'event_label': <01>,
+			'value': <0>
+			});
+			//- Number 3
+			gtag('event', <click>, {
+			'event_category': <gui-bao-gia>,
+			'event_label': <send>,
+			'value': <0>
+			});
+			//- Number 4
+			gtag('event', <click>, {
+			'event_category': <nhan-bao-gia>,
+			'event_label': <nhanbaogia>,
+			'value': <0>
+			});
+		</script>
 	</body>
 </html>
