@@ -308,10 +308,9 @@ const sliderMenu = () => {
 	const sliderMenu = new Swiper('.slider-menu .swiper-container', {
 		slidesPerView: 'auto',
 		spaceBetween: 15,
-		simulateTouch: true,
 		breakpoints: {
-			1023: {
-				simulateTouch: false,
+			1440: {
+				slidesPerView: 7,
 			},
 		},
 	});
@@ -544,7 +543,10 @@ const scrollToSection = () => {
 					$(`header [data-scroll-to="${toId}"]`)
 						.parent()
 						.addClass('active');
-					sliderMenu().slideTo(Number(toId) - 1)
+					if (toId == '1') {
+						sliderMenu().update();
+					}
+					sliderMenu().slideTo(Number(toId) - 1);
 					if (toId == '4') {
 						if (isShowed == false) {
 							$.fancybox.open({
