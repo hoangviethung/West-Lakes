@@ -17,6 +17,7 @@ header {
 
 		img {
 			height: 100%;
+			transition: .3s all ease-in-out;
 		}
 
 		.icon-logo {
@@ -211,6 +212,50 @@ header {
 				}
 			}
 		}
+	}
+
+	@media (min-width: 1200px) {
+		&.active {
+			height: 60px;
+
+			.logo {
+				img {
+					width: 120px;
+				}
+
+				.icon-logo {
+					width: 40px;
+					height: 40px;
+				}
+			}
+
+			.slider-menu {
+				.swiper-container {
+					padding: 0;
+				}
+
+				.item {
+					>a {
+						font-size: 17px;
+
+						&:before {
+							content: none;
+						}
+					}
+				}
+			}
+
+			.language {
+
+				li {
+
+					>a {
+						font-size: 17px;
+					}
+				}
+			}
+		}
+
 	}
 
 	@media (max-width: 1699.98px) {

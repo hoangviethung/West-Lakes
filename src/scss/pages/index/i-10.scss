@@ -1,20 +1,20 @@
 .index-10 {
 	padding-top: 105px;
 
-		@media (min-width: 1599.98px) {
-			.container {
-				max-width: 1360px;
-			}
+	@media (min-width: 1599.98px) {
+		.container {
+			max-width: 1360px;
 		}
+	}
 
 	.review-video {
 		.block-video {
-			height: 365px;
+			height: 300px;
 		}
 
 		.content {
 			position: relative;
-			padding: 25px;
+			padding: 15px;
 			color: #ffffff;
 			text-align: right;
 
@@ -67,6 +67,7 @@
 
 				.img {
 					position: relative;
+					height: 200px;
 
 					&:after {
 						content: '';
@@ -92,7 +93,8 @@
 				}
 
 				.text {
-					padding: 15px;
+					padding: 10px;
+					height: 120px;
 
 					h3 {
 						color: #ffffff;
@@ -215,6 +217,8 @@
 			.swiper-slide {
 				.item {
 					.img {
+						height: 120px;
+
 						&:after {
 							width: 40px;
 							height: 40px;
@@ -222,6 +226,7 @@
 					}
 
 					.text {
+						height: 85px;
 						padding: 10px;
 
 						h3 {
