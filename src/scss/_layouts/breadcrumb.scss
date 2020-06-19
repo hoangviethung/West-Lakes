@@ -38,5 +38,19 @@
 
 	@media (max-width: 575.98px) {
 		padding-top: 25px;
+
+		.breadcrumb {
+			list-style: none;
+			display: flex;
+			padding: 0;
+
+			li {
+				a {
+					color: #777777;
+					font-size: 14px;
+					display: inline-block;
+				}
+			}
+		}
 	}
 }
