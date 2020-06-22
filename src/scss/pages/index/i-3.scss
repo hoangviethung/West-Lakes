@@ -23,7 +23,7 @@
 		.desc {
 			h3 {
 				color: map-get($mau, main-1);
-				font-size: 24px;
+				font-size: 22px;
 				text-transform: uppercase;
 				margin-bottom: 25px;
 				font-weight: 800;
@@ -31,7 +31,7 @@
 
 			p {
 				color: #ffffff;
-				font-size: 18px;
+				font-size: 16px;
 				text-align: justify;
 			}
 
@@ -183,16 +183,6 @@
 					font-size: 48px;
 				}
 			}
-
-			.desc {
-				h3 {
-					font-size: 22px;
-				}
-
-				p {
-					font-size: 16px;
-				}
-			}
 		}
 	}
 
@@ -228,10 +218,6 @@
 			.desc {
 				h3 {
 					font-size: 32px;
-				}
-
-				p {
-					font-size: 18px;
 				}
 			}
 
