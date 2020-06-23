@@ -1,5 +1,6 @@
 .index-2 {
 	background: map-get($mau, main);
+	overflow: hidden;
 
 	.img-bg {
 		height: 100%;
@@ -60,19 +61,12 @@
 
 		@media (min-width: 1025px) {
 
-			&[border-right],
-			&[border-left] {
-				border-image: linear-gradient(to bottom, #E4C777, #BA8C3C) 1 100%;
-			}
-
 			&[border-right] {
-				border-width: 10px;
-				border-right: solid;
+				border-right: 10px solid #E4C777;
 			}
 
 			&[border-left] {
-				border-width: 10px;
-				border-left: solid;
+				border-left: 10px solid #E4C777;
 			}
 		}
 	}

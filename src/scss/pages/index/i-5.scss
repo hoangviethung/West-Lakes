@@ -4,6 +4,7 @@
 	height: 100%;
 	background-position: center;
 	background-size: cover;
+	overflow: hidden;
 
 	.content {
 		.desc {
@@ -335,7 +336,7 @@
 }
 
 .index-5-aside {
-	@media (min-width: 1025px) {}
+	position: relative;
 
 	.matbang-slide-controls {
 		position: absolute;
@@ -398,14 +399,39 @@
 	}
 
 	.matbang-slider {
-		display: none;
 		height: 100%;
 		transition: all 0.3s ease-in-out;
-		opacity: 0;
 		transition-delay: 0.05s;
 
+		// NEW CSS
+		@media (min-width: 1025px) {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		@media (max-width: 1024.98px) {
+			display: none;
+		}
+
 		&.active {
-			display: block;
+			@media (min-width: 1025px) {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			@media (max-width: 1024.98px) {
+				display: block;
+			}
+
+			&:after,
+			&::before {
+				opacity: 1;
+				visibility: visible;
+			}
 		}
 
 		&.show {
@@ -420,9 +446,12 @@
 		z-index: 2;
 		width: 100%;
 		transition: all 0.5s linear;
-		padding-left: 250px;
 		transform: translateX(100%);
-		opacity: 0;
+		// padding-left: 250px;
+
+		.matbang-slider {
+			left: 250px;
+		}
 
 		&:after {
 			content: '';
@@ -432,6 +461,8 @@
 			right: 0;
 			top: 0;
 			bottom: 0;
+			opacity: 0;
+			visibility: hidden;
 		}
 
 		&:before {
@@ -445,6 +476,8 @@
 			background-position: 0 0;
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
+			opacity: 0;
+			visibility: hidden;
 		}
 
 		&.active {
@@ -454,7 +487,11 @@
 	}
 
 	@media (min-width: 1200px) {
-		padding-left: 350px;
+
+		// padding-left: 350px;
+		.matbang-slider {
+			left: 350px;
+		}
 
 		&:before {
 			width: 350px;
@@ -466,7 +503,11 @@
 	}
 
 	@media (min-width: 1440px) {
-		padding-left: 450px;
+		// padding-left: 450px;
+
+		.matbang-slider {
+			left: 450px;
+		}
 
 		&:before {
 			width: 450px;
@@ -492,13 +533,5 @@
 	.swiper-container {
 		height: 100%;
 		background-color: white;
-
-		.swiper-slide {
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
 	}
 }

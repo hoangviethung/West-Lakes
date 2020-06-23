@@ -30,9 +30,20 @@ header {
 	.slider-menu {
 		margin-left: auto;
 		overflow-x: hidden;
+		-ms-flex-preferred-size: 0;
+		flex-basis: 0;
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+		max-width: 100%;
 
 		.swiper-container {
 			padding: 33px 0;
+		}
+
+		@media (min-width: 1025px) {
+			.swiper-wrapper {
+				justify-content: flex-end;
+			}
 		}
 
 		.swiper-slide {
@@ -111,6 +122,10 @@ header {
 
 	.language {
 		margin-left: 15px;
+		-ms-flex: 0 0 100%;
+		-webkit-box-flex: 0;
+		flex: 0 0 80px;
+		max-width: 80px;
 
 		ul {
 			display: flex;
@@ -159,6 +174,10 @@ header {
 		position: relative;
 		margin-left: 10px;
 		margin-bottom: 10px;
+		-ms-flex: 0 0 100%;
+		-webkit-box-flex: 0;
+		flex: 0 0 25px;
+		max-width: 25px;
 
 		.icon {
 			cursor: pointer;
@@ -313,6 +332,10 @@ header {
 
 		.language {
 			margin-left: 10px;
+			-ms-flex: 0 0 100%;
+			-webkit-box-flex: 0;
+			flex: 0 0 65px;
+			max-width: 65px;
 
 			li {
 				>a {
@@ -397,6 +420,11 @@ header {
 		}
 
 		.language {
+			-ms-flex: 0 0 100%;
+			-webkit-box-flex: 0;
+			flex: 0 0 55px;
+			max-width: 55px;
+
 			li {
 				>a {
 					font-size: 14px;
@@ -405,9 +433,6 @@ header {
 		}
 	}
 }
-
-
-
 
 
 
