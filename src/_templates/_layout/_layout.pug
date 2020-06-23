@@ -21,6 +21,11 @@ html(lang="en")
 			})(window,document,'script','dataLayer','GTM-TR6C85F');
 			// <!-- End Google Tag Manager -->
 	body
+		script.
+			// Ngoài ra, hãy dán mã này ngay sau thẻ mở <body>:
+			//- <!-- Google Tag Manager (noscript) -->
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR6C85F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			//- <!-- End Google Tag Manager (noscript) -->
 		block loading
 		//- main content
 		block header
@@ -38,10 +43,3 @@ html(lang="en")
 		script(type="text/javascript", src="./js/core.min.js")
 		script(type="text/javascript", src="./js/main.min.js")
 		block scripts
-		script.
-			// Ngoài ra, hãy dán mã này ngay sau thẻ mở <body>:
-			//- <!-- Google Tag Manager (noscript) -->
-			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TR6C85F"
-			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-			//- <!-- End Google Tag Manager (noscript) -->
-		script.

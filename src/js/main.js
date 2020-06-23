@@ -532,6 +532,7 @@ const scrollToSection = () => {
 			$('#overlay').removeClass('active');
 			$('body').removeClass('disabled');
 		});
+
 		const activeSectionWhenScroll = () => {
 			$('[data-scroll-id]').each(function () {
 				if (
@@ -589,10 +590,11 @@ const scrollToSection = () => {
 			'click',
 			'#index-6-popup.fancybox-content .btn-close',
 			function () {
-				scrollToContactForm = true;
+				// scrollToContactForm = true;
 				$.fancybox.close(true);
 			}
 		);
+
 	} else {
 		$('[data-scroll-to]').on('click', function (e) {
 			e.preventDefault();
