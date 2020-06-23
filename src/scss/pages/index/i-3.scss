@@ -1,5 +1,6 @@
 .index-3 {
 	position: relative;
+	background: #37692a;
 
 	@media (min-width: 1599.98px) {
 		.block-2 {
@@ -43,7 +44,7 @@
 		.img-map {
 			@media (min-width: 1025px) {
 				position: absolute;
-				right: 0;
+				right: 150px;
 				top: 50%;
 				width: 50%;
 				transform: translateY(-50%);
@@ -182,6 +183,10 @@
 				h2 {
 					font-size: 48px;
 				}
+			}
+
+			.img-map {
+				right: 50px;
 			}
 		}
 	}

@@ -1,6 +1,16 @@
 .index-2 {
 	background: map-get($mau, main);
 
+	.img-bg {
+		height: 100%;
+		width: 100%;
+
+		img {
+			mix-blend-mode: multiply;
+		}
+
+	}
+
 	.section {
 		background-size: cover;
 	}
@@ -65,7 +75,6 @@
 				border-left: solid;
 			}
 		}
-
 	}
 
 	.content {

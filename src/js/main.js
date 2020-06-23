@@ -7,10 +7,13 @@ import Mapping from './lib/MoveElement';
 import CommonController from './lib/CommonController';
 
 const setBackgroundByAttr = () => {
-	const items = document.querySelectorAll('[data-bg]');
+	// const items = document.querySelectorAll('[data-bg]');
+	// const items =
 
-	items.forEach((item) => {
-		item.style.backgroundImage = `url(${item.getAttribute('data-bg')})`;
+	$('[data-bg]').each(function () {
+		$(this).css({
+			"background-image": `url(${$(this).attr('data-bg')})`
+		})
 	});
 };
 
@@ -68,10 +71,9 @@ const toggleMobile = () => {
 	});
 };
 
-const sliderIndex__2 = () => {
+const sliderIndex2 = () => {
 	const sliderIndex__2 = new Swiper(
 		'.slider-main-index__2 .swiper-container', {
-			speed: 1500,
 			autoplay: {
 				delay: 4000,
 				disableOnInteraction: false,
@@ -88,7 +90,7 @@ const sliderIndex__2 = () => {
 		}
 	);
 
-	$('.slider-main-index__2 .swiper-button-pause').click('click', function () {
+	$('.slider-main-index__2 .swiper-button-pause').on('click', function () {
 		$(this).toggleClass('active');
 		if ($(this).hasClass('active')) {
 			sliderIndex__2.autoplay.stop();
@@ -328,7 +330,6 @@ const index4Slider = () => {
 		observeParents: true,
 		spaceBetween: 10,
 		loop: true,
-		speed: 1200,
 		navigation: {
 			prevEl: '.map-index-4-slider-prev-mobile',
 			nextEl: '.map-index-4-slider-next-mobile',
@@ -487,7 +488,6 @@ const index5Slider = (selector) => {
 		observeParents: true,
 		spaceBetween: 10,
 		loop: true,
-		speed: 1200,
 		navigation: {
 			prevEl: '.map-index-4-slider-prev-mobile',
 			nextEl: '.map-index-4-slider-next-mobile',
@@ -724,19 +724,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	Cookie();
 	getSVGs();
 	Loading();
-	// WOW
-	new WOW().init();
-	// SCROLL TO SECTION
-	scrollToSection();
 	// Index 4
 	moveIndex4();
+	// SCROLL TO SECTION
+	scrollToSection();
 
 	// Set Background By Attr
 	setBackgroundByAttr();
-	// Index Video
-	indexVideo();
+
+
+
 	// SLIDER INDEX 2
-	sliderIndex__2();
+	sliderIndex2();
 	// INDEX 9
 	index5Toggle();
 	// SLIDER INDEX 9
@@ -751,9 +750,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	showSearch();
 	showBackToTop();
 	sliderMenu();
+	// WOW
+	new WOW().init();
+	// Index Video
+	indexVideo();
 });
 
-const imgDOM = document.querySelector('.imgMapCanvas .map-image img')
+const imgDOM = document.querySelector('.imgMapCanvas .map-image img');
 
 if (imgDOM) {
 	const imgSrc = imgDOM.getAttribute('src');
