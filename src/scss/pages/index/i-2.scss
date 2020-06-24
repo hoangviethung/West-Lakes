@@ -20,8 +20,10 @@
 		position: relative;
 
 		.list-btn-slider {
-			bottom: 70px;
-			right: 140px;
+			bottom: 25px;
+			right: unset;
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
 
@@ -114,17 +116,6 @@
 
 		p+p {
 			margin-top: 10px;
-		}
-	}
-
-	@media (max-width: 1439.98px) {
-		.slider-main-index__2 {
-			.list-btn-slider {
-				bottom: 25px;
-				right: unset;
-				left: 50%;
-				transform: translateX(-50%);
-			}
 		}
 	}
 
