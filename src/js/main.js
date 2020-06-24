@@ -723,7 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();
 	Cookie();
 	getSVGs();
-	Loading();
+	// Loading();
 	// Index 4
 	moveIndex4();
 	// SCROLL TO SECTION
