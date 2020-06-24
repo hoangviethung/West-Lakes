@@ -750,8 +750,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	showSearch();
 	showBackToTop();
 	sliderMenu();
-	// WOW
-	new WOW().init();
 	// Index Video
 	indexVideo();
 });

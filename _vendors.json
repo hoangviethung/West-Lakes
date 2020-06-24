@@ -2,7 +2,6 @@
 	"fonts": ["src/fonts/**"],
 	"js": [
 		"node_modules/jquery/dist/jquery.js",
-		"node_modules/wowjs/dist/wow.js",
 		"vendors/jquery.fancybox.js",
 		"node_modules/image-map-resizer/js/imageMapResizer.js",
 		"node_modules/plyr/dist/plyr.js",
@@ -12,7 +11,6 @@
 	"css": [
 		"node_modules/swiper/css/swiper.css",
 		"node_modules/plyr/dist/plyr.css",
-		"vendors/jquery.fancybox.css",
-		"node_modules/wowjs/css/libs/animate.css"
+		"vendors/jquery.fancybox.css"
 	]
 }
