@@ -104,18 +104,16 @@ const sliderIndex2__Slick = () => {
 	$('.slider-main-index__2 .slick-wrapper').slick({
 		prevArrow: $('.swiper-button-prev'),
 		nextArrow: $('.swiper-button-next'),
-		// autoplay: true,
-		// autoplaySpeed: 2000
+		autoplay: true,
+		autoplaySpeed: 100
 	});
 
 	$('.swiper-button-pause').on('click', function (e) {
 		$(this).toggleClass('active');
 		if ($(this).hasClass('active')) {
-			// $('.slider-main-index__2').slick('autoplay', false);
-			console.log('turn off autoplay');
+			$('.slider-main-index__2 .slick-wrapper').slick('slickPause');
 		} else {
-			// $('.slider-main-index__2').slick('autoplay', true);
-			console.log('turn on autoplay');
+			$('.slider-main-index__2 .slick-wrapper').slick('slickPlay');
 		}
 	});
 }
