@@ -71,7 +71,7 @@ const toggleMobile = () => {
 	});
 };
 
-const sliderIndex2 = () => {
+const sliderIndex2__Swiper = () => {
 	const sliderIndex__2 = new Swiper(
 		'.slider-main-index__2 .swiper-container', {
 			autoplay: {
@@ -100,12 +100,12 @@ const sliderIndex2 = () => {
 	});
 };
 
-const sliderSlickIndex2 = () => {
+const sliderIndex2__Slick = () => {
 	$('.slider-main-index__2 .slick-wrapper').slick({
 		prevArrow: $('.swiper-button-prev'),
 		nextArrow: $('.swiper-button-next'),
-		autoplay: true,
-		autoplaySpeed: 2000
+		// autoplay: true,
+		// autoplaySpeed: 2000
 	});
 
 	$('.swiper-button-pause').on('click', function (e) {
@@ -196,7 +196,7 @@ const imageMapResizer = () => {
 	$('map').imageMapResize();
 };
 
-const imageMapEffect = () => {
+const imageMapEffect__Swiper = () => {
 	let swiper, effect;
 	let autoplay = true;
 	let i = 1;
@@ -274,7 +274,7 @@ const imageMapEffect = () => {
 				$(`.map-index-4-slider-${targetNumber}`).addClass('active');
 				$('.index-4 .map-index-4').addClass('pull-right');
 				$('.map-index-4-slider-wrapper').addClass('pull-right');
-				swiper = index4Slider();
+				swiper = sliderIndex4__Swiper();
 			}
 		});
 
@@ -312,7 +312,7 @@ const imageMapEffect = () => {
 				touch: false,
 				beforeShow: function (instance, current) {
 					$(`.map-index-4-slider-${targetNumber}`).addClass('active');
-					swiper = index4Slider();
+					swiper = sliderIndex4__Swiper();
 				},
 				beforeClose: function () {
 					setTimeout(() => {
@@ -405,7 +405,7 @@ const imageMapEffect__Slick = () => {
 				$(`.map-index-4-slider-${targetNumber}`).addClass('active');
 				$('.index-4 .map-index-4').addClass('pull-right');
 				$('.map-index-4-slider-wrapper').addClass('pull-right');
-				slick = sliderSlickIndex4();
+				slick = sliderIndex4__Slick();
 			}
 		});
 
@@ -440,7 +440,7 @@ const imageMapEffect__Slick = () => {
 				touch: false,
 				beforeShow: function (instance, current) {
 					$(`.map-index-4-slider-${targetNumber}`).addClass('active');
-					slick = sliderSlickIndex4();
+					slick = sliderIndex4__Slick();
 				},
 				beforeClose: function () {
 					setTimeout(() => {
@@ -465,7 +465,7 @@ const sliderMenu = () => {
 	return sliderMenu
 };
 
-const index4Slider = () => {
+const sliderIndex4__Swiper = () => {
 	return new Swiper('.map-index-4-slider.active .swiper-container', {
 		slidesPerView: 1,
 		observer: true,
@@ -496,8 +496,8 @@ const index4Slider = () => {
 	});
 };
 
-const sliderSlickIndex4 = () => {
-	const sliderSlickIndex4 = $('.map-index-4-slider.active .slick-container .slick-wrapper').slick({
+const sliderIndex4__Slick = () => {
+	const sliderIndex4__Slick = $('.map-index-4-slider.active .slick-container .slick-wrapper').slick({
 		prevArrow: $('.map-index-4-slider-prev'),
 		nextArrow: $('.map-index-4-slider-next'),
 		responsive: [{
@@ -518,7 +518,7 @@ const sliderSlickIndex4 = () => {
 			},
 		]
 	});
-	return sliderSlickIndex4
+	return sliderIndex4__Slick
 }
 
 const sliderIndex__9 = () => {
@@ -897,10 +897,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	scrollToSection();
 	// Set Background By Attr
 	setBackgroundByAttr();
-	// SLIDER INDEX 2
-	sliderIndex2();
-	// SLIDER SLICK INDEX 2
-	// sliderSlickIndex2();
+	// SLIDER INDEX 2 ------ SWIPER
+	// sliderIndex2__Swiper();
+	// SLIDER INDEX 2 ------ SLICK
+	sliderIndex2__Slick();
 	// INDEX 5
 	index5Toggle();
 	// SLIDER INDEX 9
@@ -929,8 +929,8 @@ if (imgDOM) {
 		// Image Map Draw With Canvas
 		imageMapResizer();
 		ImageMapCanvas();
-		imageMapEffect();
-		// imageMapEffect__Slick();
+		// imageMapEffect__Swiper();
+		imageMapEffect__Slick();
 	});
 }
 
