@@ -105,7 +105,7 @@ const sliderIndex2__Slick = () => {
 		prevArrow: $('.swiper-button-prev'),
 		nextArrow: $('.swiper-button-next'),
 		autoplay: true,
-		autoplaySpeed: 100
+		autoplaySpeed: 2000
 	});
 
 	$('.swiper-button-pause').on('click', function (e) {
