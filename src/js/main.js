@@ -898,9 +898,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Set Background By Attr
 	setBackgroundByAttr();
 	// SLIDER INDEX 2
-	// sliderIndex2();
+	sliderIndex2();
 	// SLIDER SLICK INDEX 2
-	sliderSlickIndex2();
+	// sliderSlickIndex2();
 	// INDEX 5
 	index5Toggle();
 	// SLIDER INDEX 9
@@ -929,8 +929,8 @@ if (imgDOM) {
 		// Image Map Draw With Canvas
 		imageMapResizer();
 		ImageMapCanvas();
-		// imageMapEffect();
-		imageMapEffect__Slick();
+		imageMapEffect();
+		// imageMapEffect__Slick();
 	});
 }
 
