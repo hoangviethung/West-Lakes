@@ -1,0 +1,43 @@
+﻿@model List<MainProject.Core.Article>
+
+<div class="container">
+    <div class="block-content mx-at" max-width="50%">
+        <div class="content ta-c">
+            <div class="block-title mx-at" max-width="600px">
+                <h2 class="wow fadeInLeft" data-wow-delay=".3s">@Html.GetResource(ResourceKeyCollection.Progress)</h2>
+            </div>
+            <div class="sub-title">
+                <p class="ta-c">@Html.GetResource(ResourceKeyCollection.Progress_Description)</p>
+            </div>
+        </div>
+    </div>
+    <div class="list-item mx-at" max-width="1360px">
+        <div class="slider-item__index-9">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <a class="item" href="@item.GetUrl()">
+                                <div class="img ov-h">
+                                    <img class="ofcv" src="@item.ImageDefault" alt="@item.SeName">
+                                    <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                        @item.Order.ToString("dd/MM/yy")
+                                    </div>
+                                </div>
+                                <div class="text" data-bg="/Content/resources/assets/images/background/item_index-9.png">
+                                    <h3 class="lcl lcl-1">@item.Title</h3>
+                                    <p class="lcl lcl-2">@item.Description</p>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="list-btn-slider">
+                <div class="item swiper-button-prev"></div>
+                <div class="item swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>

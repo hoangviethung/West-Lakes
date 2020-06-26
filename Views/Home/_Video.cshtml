@@ -1,0 +1,67 @@
+﻿@using MainProject.Infrastructure.Helpers
+@model MainProject.Core.Section
+
+<div class="container" max-width="1360px">
+    <div class="block-1 mx-at">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="block-content mx-at">
+                    <div class="content ta-c">
+                        <div class="block-title mx-at wow fadeInLeft" data-wow-delay=".2s">
+                            <h2 style="text-transform:uppercase">@Model.Title</h2>
+                        </div>
+                        <div class="desc">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                @{
+                    var videos = JsonHelper.Deserialize<List<MainProject.Core.Image>>(Model.Image)
+                                                .OrderByDescending(x => x.Order).ToList();
+                }
+                @if (videos.Count > 0)
+                {
+                    <div class="review-video">
+                        <div class="block-video">
+                            <div class="youtube-api" data-thumbnail="/Content/resources/assets/images/items/index-9__1.png" data-url="@videos[0].Path"></div>
+                        </div>
+                        <div class="content" data-bg="/Content/resources/assets/images/background/text-review-video.png">
+                            <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                @videos[0].Order.ToString("dd/MM/yy")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="block-2">
+        <div class="slider-thumnail-video">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach (var item in videos)
+                    {
+                        <div class="swiper-slide">
+                            <div class="item" data-url="@item.Path">
+                                <div class="img ov-h"><img class="ofcv" src="@item.ImageDefault" alt=""></div>
+                                <div class="text" data-bg="/Content/resources/assets/images/background/item_index-9.png">
+                                    <h3 class="lcl lcl-3">@item.Name</h3>
+                                    <p class="d-n">@item.Description</p>
+                                    <div class="date" data-bg="/Content/resources/assets/images/background/item-date-index-9.png">
+                                        @item.Order.ToString("dd/MM/yy")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="list-btn-slider">
+                <div class="item swiper-button-prev"></div>
+                <div class="item swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>

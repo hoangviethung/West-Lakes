@@ -3,15 +3,15 @@
 @using (Html.BeginForm())
 {
      <div class="input-group">
-        @Html.TextBoxFor(d => d.Name, new { @class="form-control", placeholder="Name" })
+        @Html.TextBoxFor(d => d.Name, new { @class="form-control", placeholder = Html.GetResource(ResourceKeyCollection.Contact_Form_Name) })
     </div>
     <div class="input-group">
         @Html.TextBoxFor(d => d.Email, new { @class="form-control", placeholder="Email" })
     </div>
     <div class="input-group">
-        @Html.TextBoxFor(d => d.Phone, new { @class="form-control", placeholder="Phone" })
+        @Html.TextBoxFor(d => d.Phone, new { @class="form-control", placeholder = Html.GetResource(ResourceKeyCollection.Contact_Form_Phone) })
     </div>
     <div class="submit">
-        <button data-url="/dang-ky">@Html.GetResource(ResourceKeyCollection.Send)</button>
+        <button data-url="/dang-ky" onclick="gtag('event', <click>, {'event_category': <gui-bao-gia>,'event_label': <send>,'value': <0>});">@Html.GetResource(ResourceKeyCollection.Send)</button>
     </div>
 }

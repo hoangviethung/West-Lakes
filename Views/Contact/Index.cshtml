@@ -9,11 +9,10 @@
                 <div class="text-info">
                     <div class="logo-form"><img src="/Content/resources/assets/logo-forms.png" alt=""></div>
                     <div class="list-info">
-                        <div class="item">Add: @Model.Branch.Address.</div>
-                        <div class="item">Phone: @Model.Branch.Phone</div>
+                        <div class="item">@Html.GetResource(ResourceKeyCollection.Address): @Model.Branch.Address.</div>
+                        <div class="item">@Html.GetResource(ResourceKeyCollection.Phone): @Model.Branch.Phone</div>
                         <div class="item">Email: @Model.Branch.Email</div>
-						<div class="item">
-						Facebook:<a class="lcl lcl-1" target="_blank" href="https://www.facebook.com/trananhgroupwestlakesgolfvillas">https://www.facebook.com/trananhgroupwestlakesgolfvillas</a></div>
+						<div class="item"><a class="lcl lcl-1" target="_blank" href="https://www.facebook.com/trananhgroupwestlakesgolfvillas"><img src="/Content/resources/assets/icons/facebook.png" alt=""></a></div>
                     </div>
                 </div>
                 <div class="block-map">
