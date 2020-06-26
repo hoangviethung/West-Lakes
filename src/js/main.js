@@ -723,20 +723,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	addClassToBody();
 	Cookie();
 	getSVGs();
-	Loading();
+	Loading().then(() => {});
 	// Index 4
 	moveIndex4();
 	// SCROLL TO SECTION
 	scrollToSection();
-
 	// Set Background By Attr
 	setBackgroundByAttr();
-
-
-
 	// SLIDER INDEX 2
 	sliderIndex2();
-	// INDEX 9
+	// INDEX 5
 	index5Toggle();
 	// SLIDER INDEX 9
 	sliderIndex__9();
