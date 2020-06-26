@@ -100,6 +100,26 @@ const sliderIndex2 = () => {
 	});
 };
 
+const sliderSlickIndex2 = () => {
+	$('.slider-main-index__2 .slick-wrapper').slick({
+		prevArrow: $('.swiper-button-prev'),
+		nextArrow: $('.swiper-button-next'),
+		autoplay: true,
+		autoplaySpeed: 2000
+	});
+
+	$('.swiper-button-pause').on('click', function (e) {
+		$(this).toggleClass('active');
+		if ($(this).hasClass('active')) {
+			// $('.slider-main-index__2').slick('autoplay', false);
+			console.log('turn off autoplay');
+		} else {
+			// $('.slider-main-index__2').slick('autoplay', true);
+			console.log('turn on autoplay');
+		}
+	});
+}
+
 const indexVideo = () => {
 	const player = new Plyr('#player', {
 		hideControls: false,
@@ -257,6 +277,7 @@ const imageMapEffect = () => {
 				swiper = index4Slider();
 			}
 		});
+
 	$('.map-index-4-slider-controls .map-index-4-slider-close').on(
 		'click',
 		function () {
@@ -306,6 +327,131 @@ const imageMapEffect = () => {
 	});
 };
 
+const imageMapEffect__Slick = () => {
+	let slick, effect;
+	let autoplay = true;
+	let i = 1;
+	const generatePosition = () => {
+		if (window.innerWidth > 1024) {
+			$('.image-map [area-target').each(function () {
+				const targetNumber = $(this).attr('area-target');
+				const x = Number($(this).attr('coords').split(',')[0]);
+				const y = Number($(this).attr('coords').split(',')[1]);
+				const r = Number($(this).attr('coords').split(',')[2]);
+				const dialogWrapperHeight = $('.map-dialog').height();
+				if (
+					window.innerWidth - x - 125 <
+					$(`.dialog-${targetNumber} .dialog-wrapper`).width()
+				) {
+					$(`.dialog-${targetNumber}`).addClass('right');
+					$(`.dialog-${targetNumber}`).css({
+						position: 'absolute',
+						bottom: dialogWrapperHeight - y + r / 2 + 34,
+						right: window.innerWidth - r - x - 34,
+						opacity: '0',
+					});
+				} else {
+					$(`.dialog-${targetNumber}`).addClass('center');
+					$(`.dialog-${targetNumber}`).css({
+						position: 'absolute',
+						bottom: dialogWrapperHeight - y + r / 2 + 34,
+						left: x,
+						opacity: '0',
+					});
+				}
+			});
+		}
+	};
+	generatePosition();
+
+	if (window.innerWidth > 1024) {
+		effect = setInterval(() => {
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${i}`).addClass('show');
+			i += 1;
+			if (i > 7) {
+				i = 1;
+			}
+		}, 1000);
+	}
+
+	$('.image-map [area-target]')
+		.on('mouseenter', function (e) {
+			clearInterval(effect);
+			const targetumber = $(this).attr('area-target');
+			$(`.dialog`).removeClass('show');
+			$(`.dialog-${targetumber}`).addClass('show');
+		})
+		.on('mouseout', function () {
+			const targetNumber = $(this).attr('area-target');
+			$(`.dialog-${targetNumber}`).removeClass('show');
+			if (autoplay) {
+				effect = setInterval(() => {
+					$(`.dialog`).removeClass('show');
+					$(`.dialog-${i}`).addClass('show');
+					i += 1;
+					if (i > 7) {
+						i = 1;
+					}
+				}, 1000);
+			}
+		})
+		.on('click', function (e) {
+			e.preventDefault();
+			if (window.innerWidth >= 1025) {
+				autoplay = false;
+				clearInterval(effect);
+				const targetNumber = $(this).attr('area-target');
+				$(`.map-index-4-slider-${targetNumber}`).addClass('active');
+				$('.index-4 .map-index-4').addClass('pull-right');
+				$('.map-index-4-slider-wrapper').addClass('pull-right');
+				slick = sliderSlickIndex4();
+			}
+		});
+
+	$('.map-index-4-slider-controls .map-index-4-slider-close').on(
+		'click',
+		function () {
+			autoplay = true;
+			$('.index-4 .map-index-4').removeClass('pull-right');
+			$('.map-index-4-slider-wrapper').removeClass('pull-right');
+			effect = setInterval(() => {
+				$(`.dialog`).removeClass('show');
+				$(`.dialog-${i}`).addClass('show');
+				i += 1;
+				if (i > 7) {
+					i = 1;
+				}
+			}, 1000);
+			setTimeout(() => {
+				$(`.map-index-4-slider.active`).removeClass('active');
+			}, 500);
+		}
+	);
+
+	$('[data-dialog]').on('click', function (e) {
+		let slick;
+		const targetNumber = $(this).attr('data-dialog');
+		const src = `#map-index-4-slider-${targetNumber}`;
+		$.fancybox.open({
+			src: src,
+			type: 'inline',
+			opts: {
+				touch: false,
+				beforeShow: function (instance, current) {
+					$(`.map-index-4-slider-${targetNumber}`).addClass('active');
+					slick = sliderSlickIndex4();
+				},
+				beforeClose: function () {
+					setTimeout(() => {
+						$(`.map-index-4-slider.active`).removeClass('active');
+					}, 500);
+				},
+			},
+		});
+	});
+};
+
 const sliderMenu = () => {
 	const sliderMenu = new Swiper('.slider-menu .swiper-container', {
 		slidesPerView: 'auto',
@@ -322,10 +468,6 @@ const sliderMenu = () => {
 const index4Slider = () => {
 	return new Swiper('.map-index-4-slider.active .swiper-container', {
 		slidesPerView: 1,
-		// fadeEffect: {
-		// 	crossFade: true,
-		// },
-		// effect: 'fade',
 		observer: true,
 		observeParents: true,
 		spaceBetween: 10,
@@ -353,6 +495,31 @@ const index4Slider = () => {
 		},
 	});
 };
+
+const sliderSlickIndex4 = () => {
+	const sliderSlickIndex4 = $('.map-index-4-slider.active .slick-container .slick-wrapper').slick({
+		prevArrow: $('.map-index-4-slider-prev'),
+		nextArrow: $('.map-index-4-slider-next'),
+		responsive: [{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 2,
+					prevArrow: $('.map-index-4-slider-prev-mobile'),
+					nextArrow: $('.map-index-4-slider-next-mobile'),
+				}
+			},
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					prevArrow: $('.map-index-4-slider-prev-mobile'),
+					nextArrow: $('.map-index-4-slider-next-mobile'),
+				}
+			},
+		]
+	});
+	return sliderSlickIndex4
+}
 
 const sliderIndex__9 = () => {
 	const sliderIndex__9 = new Swiper(
@@ -731,7 +898,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Set Background By Attr
 	setBackgroundByAttr();
 	// SLIDER INDEX 2
-	sliderIndex2();
+	// sliderIndex2();
+	// SLIDER SLICK INDEX 2
+	sliderSlickIndex2();
 	// INDEX 5
 	index5Toggle();
 	// SLIDER INDEX 9
@@ -760,7 +929,8 @@ if (imgDOM) {
 		// Image Map Draw With Canvas
 		imageMapResizer();
 		ImageMapCanvas();
-		imageMapEffect();
+		// imageMapEffect();
+		imageMapEffect__Slick();
 	});
 }
 

@@ -407,7 +407,9 @@ main {
 	}
 
 	.swiper-button-prev,
-	.swiper-button-next {
+	.slick-prev,
+	.swiper-button-next,
+	.slick-next {
 		position: static;
 		height: 100%;
 		margin-top: 0;

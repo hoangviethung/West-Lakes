@@ -2,6 +2,28 @@
 	background: map-get($mau, main);
 	overflow: hidden;
 
+	.slick-slider {
+		.slick-list {
+			height: 100%;
+		}
+	}
+
+	.slick-track {
+		height: 100%;
+	}
+
+	.slick-slide {
+		height: 100%;
+
+		>div {
+			height: 100%;
+		}
+	}
+
+	.slick-item {
+		height: 100%;
+	}
+
 	.img-bg {
 		height: 100%;
 		width: 100%;
